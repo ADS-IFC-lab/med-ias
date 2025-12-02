@@ -101,14 +101,14 @@
 
             /* Sidebar */
             --color-sidebar-bg: #0b0d12;
-            --color-sidebar-border: rgba(255, 255, 255, 0.07);
+            --color-sidebar-border: var(--color-btn-primary-bg);
             --color-sidebar-item-bg: #11141a;
-            --color-sidebar-item-border: rgba(255, 255, 255, 0.08);
-            --color-sidebar-item-hover-border: var(--color-primary);
+            --color-sidebar-item-border: var(--color-primary);
+            --color-sidebar-item-hover-border: var(--color-btn-primary-bg);
             --color-sidebar-item-title: #ffffff;
-            --color-sidebar-item-owner: var(--color-primary);
-            --color-sidebar-item-link: #cccccc;
-            --color-sidebar-item-link-hover: var(--color-primary);
+            --color-sidebar-item-owner: var(--color-btn-primary-bg);
+            --color-sidebar-item-link: #ffffff;
+            --color-sidebar-item-link-hover: var(--color-btn-primary-bg);
             --color-sidebar-close-btn: #aaaaaa;
 
             /* Backdrop do menu */
@@ -262,6 +262,7 @@
             line-height: 1.1;
             background: var(--color-gradient-hero-title);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
 
@@ -728,7 +729,7 @@
 
         .sidebar-item h5:hover {
             text-decoration-line: underline;
-            text-decoration-color: var(--color-primary);
+            text-decoration-color: var(--color-btn-primary-bg);
             text-decoration-thickness: 1.5px;
             text-underline-offset: 5px;
         }
@@ -813,7 +814,7 @@
 
             <!-- TÍTULO CENTRAL -->
             <span class="navbar-title mx-auto text-center">
-                Guia de Ferramentas de IA para Desenvolvedores 2025
+                Guia de Ferramentas de IA para Desenvolvedores — 2025
             </span>
 
             <a href="index.html" id="home">
@@ -836,49 +837,49 @@
             <!-- Cada item abaixo é uma ferramenta da turma -->
             <div class="sidebar-item">
                 <a href="Copilot.html">
-                    <h5>GitHub Copilot <span João</span></h5>
+                    <h5>GitHub Copilot <span>— João</span></h5>
                 </a>
                 <a href="https://docs.github.com/pt/copilot" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Claude.html">
-                    <h5>Claude Code <span Cezar</span></h5>
+                    <h5>Claude Code <span>— Cezar</span></h5>
                 </a>
                 <a href="https://code.claude.com/docs/pt/overview" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Cursor.html">
-                    <h5>Cursor <span Andressa</span></h5>
+                    <h5>Cursor <span>— Andressa</span></h5>
                 </a>
                 <a href="https://cursor.com/docs" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Windsurf.html">
-                    <h5>Windsurf <span Laura</span></h5>
+                    <h5>Windsurf <span>— Laura</span></h5>
                 </a>
                 <a href="https://docs.windsurf.com/pt-BR/windsurf/getting-started" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Kilo.html">
-                    <h5>Kilo Code <span Yuri</span></h5>
+                    <h5>Kilo Code <span>— Yuri</span></h5>
                 </a>
                 <a href="https://kilocode.ai/docs" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="RooCode.html">
-                    <h5>Roo Code <span Pedro</span></h5>
+                    <h5>Roo Code <span>— Pedro</span></h5>
                 </a>
                 <a href="https://docs.iacode.com" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="TRAE.html">
-                    <h5>TRAE <span Dolberth</span></h5>
+                    <h5>TRAE <span>— Dolberth</span></h5>
                 </a>
                 <a href="https://docs.trae.ai" target="_blank">Documentação</a>
             </div>
@@ -1176,52 +1177,50 @@
 
 
     <!-- ===========================================================
-         COMO FUNCIONA
-         =========================================================== -->
-    <section class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
+     COMO FUNCIONA
+=========================================================== -->
+<section class="container py-5">
+    <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
 
-        <div class="info-card">
-            <p class="ia-card-text">
-                Nesta seção você pode explicar o fluxo básico de funcionamento: como o usuário interage,
-                quais entradas fornece (prompts, trechos de código, repositórios), e quais saídas recebe
-                (respostas, diffs de código, arquivos gerados, etc.).
-            </p>
+    <div class="info-card">
+        <p class="ia-card-text">
+            O Roo Code funciona como uma extensão integrada ao VS Code. 
+            Ele analisa o contexto do projeto e permite que o usuário interaja com a IA através de prompts,
+            trechos de código, arquivos completos ou até instruções de alto nível.
+        </p>
 
-            <p class="ia-card-text mt-3">
-                Também é interessante comentar se a ferramenta utiliza modelos locais, em nuvem,
-                integra com Git, pipelines CI/CD, ou outras ferramentas do ecossistema de desenvolvimento.
-            </p>
-        </div>
-    </section>
+        <p class="ia-card-text mt-3">
+            A ferramenta interpreta o pedido, consulta o modelo de IA configurado 
+            (OpenAI, Claude, Gemini ou modelos locais via Ollama) e retorna sugestões como:
+        </p>
 
-    <!-- ===========================================================
-         WORKFLOW ASSISTIDO
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
+        <ul class="ia-card-text mt-3">
+            <li>geração de código novo;</li>
+            <li>edição ou refatoração de arquivos existentes;</li>
+            <li>explicação e documentação de trechos de código;</li>
+            <li>identificação de erros e propostas de correção;</li>
+            <li>reorganização da estrutura do projeto;</li>
+            <li>planos arquiteturais e análise de design.</li>
+        </ul>
 
-            <div class="info-card">
-                <p class="ia-card-text">
-                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
-                </p>
+        <p class="ia-card-text mt-3">
+            Para garantir segurança e controle, cada alteração é apresentada como 
+            <strong>diff aprovado pelo usuário</strong> — a IA não modifica arquivos sem permissão, 
+            a menos que o desenvolvedor habilite o modo de auto-aprovação.
+        </p>
 
-                <ol class="mt-3 ia-card-text">
-                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
-                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
-                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
-                    <li>Erros são identificados e corrigidos com explicações.</li>
-                    <li>Testes e documentação podem ser gerados automaticamente.</li>
-                </ol>
+        <p class="ia-card-text mt-3">
+            Roo Code também integra-se naturalmente ao fluxo de Git, permitindo que o usuário gere commits,
+            branches, mensagens explicativas ou patch files sugeridos pela IA.
+        </p>
 
-                <p class="mt-3 ia-card-text">
-                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
-                    desenvolvimento.
-                </p>
-            </div>
-        </div>
-    </section>
+        <p class="ia-card-text mt-3">
+            Em resumo, o desenvolvedor descreve <em>o que deseja</em>, e a extensão transforma essa intenção 
+            em código, documentação ou estrutura de projeto — sempre respeitando o contexto atual e as 
+            dependências do repositório.
+        </p>
+    </div>
+</section>
 
     <!-- ===========================================================
          POR QUE ESCOLHER ESTA FERRAMENTA
@@ -1594,7 +1593,7 @@
             </p>
 
             <div class="footer-links mb-3">
-                <a href="#info-gerais" class="footer-link">Informações Gerais</a>
+                <a href="#principais-caracteristicas" class="footer-link">Informações Gerais</a>
                 <a href="#vantagens" class="footer-link">Vantagens</a>
                 <a href="#desvantagens" class="footer-link">Desvantagens</a>
                 <a href="#exemplos" class="footer-link">Exemplo em Python</a>
