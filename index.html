@@ -361,7 +361,13 @@
                     Guia de Ferramentas de IA para Desenvolvedores — 2025
                 </span>
     
-                <div style="width:40px;"></div>
+                <!-- Ícone de informações -->
+                <div>
+                    <i class="bi bi-info-circle-fill"
+                    style="font-size: 1.5rem; color: var(--color-navbar-icon); cursor: pointer;"
+                    data-bs-toggle="modal" data-bs-target="#modalSobre">
+                    </i>
+                </div>
             </div>
         </nav>
     
@@ -515,6 +521,56 @@
     </div>
 </section>
 
+<!-- MODAL SOBRE -->
+<div class="modal fade" id="modalSobre" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background:#0d0f16; color:white; border:1px solid rgba(255,255,255,0.1);">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Sobre MED Assistentes de código</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          O <strong>Material Educacional Digital (MED)</strong> é um projeto desenvolvido pelos alunos
+          do <strong>4º semestre de Análise e Desenvolvimento de Sistemas – IFC Fraiburgo</strong>.
+        </p>
+
+        <p>
+          Cada estudante foi responsável por pesquisar, documentar e apresentar uma ferramenta de
+          Inteligência Artificial aplicada ao desenvolvimento de software.
+        </p>
+
+        <hr>
+        <!-- ADICIONAR SEU NOME E LINK DO SEU GIT -->
+        <h6 class="fw-bold mb-2">Desenvolvido por:</h6>
+        <p class="mb-1">João Pedro Aquino — Acadêmico de ADS   
+        <a href="https://github.com/jpdevr" target="_blank" class="d-inline-flex align-items-center mt-2"
+        style="color: var(--color-primary); text-decoration:none; font-size:1.2rem;">
+            <i class="bi bi-github me-2"></i>
+        </a>
+        </p>
+
+        <p class="mb-1">Laura Urba Antunes — Acadêmico de ADS   
+        <a href="https://github.com/LauraUrba" target="_blank" class="d-inline-flex align-items-center mt-2"
+        style="color: var(--color-primary); text-decoration:none; font-size:1.2rem;">
+            <i class="bi bi-github me-2"></i>
+        </a>
+        </p>
+
+        <p class="mb-1">Pedro Haupt — Acadêmico de ADS   
+        <a href="https://github.com/Predox" target="_blank" class="d-inline-flex align-items-center mt-2"
+        style="color: var(--color-primary); text-decoration:none; font-size:1.2rem;">
+            <i class="bi bi-github me-2"></i>
+        </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     © 2025 – Material Educacional Digital (MED) — IFC
@@ -543,6 +599,7 @@ function closeSidebar() {
     document.getElementById("sidebar-backdrop").classList.remove("active");
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
