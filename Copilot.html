@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <!-- TODO: Cada aluno deve trocar o título abaixo para o nome da sua ferramenta -->
-    <title>Nome da IA - MED Assistentes de Código</title>
+    <title>GitHub Copilot - MED Assistentes de Código</title>
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -16,12 +16,12 @@
            =========================================================== */
         :root {
             /* Nome da ferramenta (sem impacto visual, só semântico) */
-            --tool-name: "Nome da IA Aqui";
+            --tool-name: "Copilot";
 
             /* Paleta base */
-            --color-primary: #3ba5ff;
-            --color-secondary: #a855ff;
-            --color-accent: #ffd86b;
+            --color-primary: #00CFE0;
+            --color-secondary: #192DE1;
+            --color-accent: #303361;
 
             /* Fundos principais */
             --color-bg-main: #050609;
@@ -137,7 +137,8 @@
             --radius-button: 10px;
 
             /* Logo usada no fundo do hero (pode trocar o arquivo) */
-            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+            --hero-logo-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23008aff' fill-opacity='1' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            
         }
 
         /* ===========================================================
@@ -867,25 +868,26 @@
         <div class="hero-background"></div>
 
         <div class="floating-code">
-            // pseudo-código da sua IA<br>
-            function assistant() {<br>
-            &nbsp;&nbsp;return "Dev productivity++";<br> }
+            <br>
+            gh copilot suggest;<br>
+            gh copilot code;<br>
+            gh copilot explain<br>
         </div>
 
         <div class="container py-5">
             <!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
             <h1 class="hero-title">
-                Título principal da ferramenta de IA.
+                GitHub Copilot
             </h1>
 
             <p class="hero-subtitle mt-3">
-                Use este espaço para apresentar, em 2–3 linhas, o que a sua ferramenta faz:
-                por exemplo, auxiliar programação, revisar código, gerar testes, etc.
+                AutoComplete inteligente para geração de código, blocos completos
+                de sugestão e revisão aprimorada de commits
             </p>
 
             <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
                 <!-- TODO: Trocar link para o site oficial da IA -->
-                <a href="#" class="btn-primary-ia">
+                <a href="https://github.com/features/copilot?locale=pt-BR" class="btn-primary-ia">
                     <i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
                 </a>
 
@@ -908,11 +910,11 @@
                     <div class="ia-card">
                         <div class="ia-card-title">
                             <div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-                            Aumento de Produtividade
+                            Fast Code
                         </div>
                         <p class="ia-card-text mt-2">
-                            Descreva como a IA ajuda a acelerar o desenvolvimento: geração de código,
-                            automação de tarefas repetitivas, sugestões inteligentes, etc.
+                            O GitHub Copilot Funciona principalmente como assistente de código: Autocomplete em código, 
+                            revisão de PR's e quality code em commits
                         </p>
                     </div>
                 </div>
@@ -924,8 +926,8 @@
                             Integração com o Ambiente
                         </div>
                         <p class="ia-card-text mt-2">
-                            Explique em quais IDEs, CLIs ou plataformas ela funciona (VSCode, JetBrains, Web, Terminal,
-                            etc.).
+                            Aliado as principais IDE's: como a família Microsoft, ecossistema
+                            JetBrains, Eclipse, shell, linux e a própria integração a plataforma Git
                         </p>
                     </div>
                 </div>
@@ -934,11 +936,11 @@
                     <div class="ia-card">
                         <div class="ia-card-title">
                             <div class="ia-card-icon"><i class="bi bi-shield-lock"></i></div>
-                            Qualidade e Segurança
+                            Quality Code
                         </div>
                         <p class="ia-card-text mt-2">
-                            Fale sobre recursos de revisão, testes, detecção de bugs ou aspectos de segurança
-                            que a ferramenta oferece.
+                            Integração nativa com a plataforma do Git, análises autônomas de PR's, segurança entre merges
+                            e análises de commits conflitantes
                         </p>
                     </div>
                 </div>
@@ -954,14 +956,17 @@
 
         <div class="info-card">
             <p class="ia-card-text">
-                Aqui você pode descrever, de forma mais detalhada, o propósito da ferramenta:
-                que tipo de problema ela resolve, para quais públicos é indicada (iniciantes, equipes grandes,
-                empresas, etc.) e qual é o diferencial em relação a outras soluções.
+                O Git Copilot é um assistente de programação, funcionando melhor para sugestão e revisão de código. Foi projetado
+                inicialmente para aumentar a produtividade eliminando blocos de códigos repetitivos em <i>boilerplate</i>. Também
+                é um agente de revisão de código para melhorar a segurança e a qualidade do código para commits, além de conseguir
+                revisar altas escalas de PR's para velocidade de automação da produtividade da equipe.
             </p>
 
             <p class="ia-card-text mt-3">
-                Também é um bom lugar para mencionar se a ferramenta é open source, paga, gratuita com limitações,
-                se roda localmente, em nuvem, ou oferece múltiplos modos de uso.
+                O Copilot é uma ferramenta em uma LLM privada. Ele opera sob um modelo de assinatura paga e
+                as LLMS que o alimentam rodam na nuvem, o que exige conexão com a internet.
+                Seu diferencial competitivo para empresas é a integração profunda e contextual com o ecossistema github
+                que pode executar tarefas de múltiplas etapas como refatoração de código, correção de bugs e gestão de pull requests
             </p>
         </div>
     </section>
@@ -974,62 +979,17 @@
 
         <div class="info-card">
             <ul class="ia-card-text mb-0">
-                <li>Comente sobre possíveis custos (assinatura, uso por token, etc.).</li>
-                <li>Fale sobre dependência de conexão com a internet ou infraestrutura.</li>
-                <li>Mencione limitações técnicas (tamanho de contexto, linguagens melhor suportadas, etc.).</li>
-                <li>Aborde temas de privacidade, segurança e envio de código para servidores externos, se for o caso.
-                </li>
+                <li>Assinatura paga por mês ou anualmente</li>
+                <li>Depêndencia a conexão por internet (para alimentação da LLM)</li>
+                <li>Gama mais limitada a linguagens ou técnicas menos utilizadas</li>
+                <li>Exigência de envio de trechos do código para sugestão e análise contextual</li>
+                <li>Melhor funcionamento em plataformas e IDE's integradas a Microsoft</li>
             </ul>
-        </div>
-    </section>
-
-    <!-- ===========================================================
-         RECURSOS PRINCIPAIS
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Recursos Principais</h2>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-body-text"></i></div>
-                            Autocomplete de Código
-                        </div>
-                        <p class="ia-card-text">
-                            Descreva como a ferramenta sugere código em tempo real, quais linguagens são suportadas
-                            e como isso ajuda o desenvolvedor.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-chat-square-text"></i></div>
-                            Chat / Assistente Interativo
-                        </div>
-                        <p class="ia-card-text">
-                            Explique como o chat funciona: se entende o contexto do projeto, se lê arquivos,
-                            se gera documentação, etc.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-diagram-3"></i></div>
-                            Modos Especiais / Agentes
-                        </div>
-                        <p class="ia-card-text">
-                            Caso a ferramenta possua "modos" (ex: Architect, Debug, Testes), descreva
-                            como cada modo se comporta e quando é mais útil.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <p class="ia-card-text mt-3">
+                Embora a Microsoft forneçam fortes garantias contratuais e declarações de que seu
+                código não será usado para treinar os modelos, você precisa estar ciente desse tráfego
+                de dados ao lidar com informações sensíveis ou código proprietário em ambientes não corporativos.
+            </p>
         </div>
     </section>
 
@@ -1037,97 +997,31 @@
          COMO FUNCIONA
          =========================================================== -->
     <section class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
+        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a GitHub Copilot Funciona</h2>
 
         <div class="info-card">
             <p class="ia-card-text">
-                Nesta seção você pode explicar o fluxo básico de funcionamento: como o usuário interage,
-                quais entradas fornece (prompts, trechos de código, repositórios), e quais saídas recebe
-                (respostas, diffs de código, arquivos gerados, etc.).
+                O Fluco básico de uso pode ser definido em 3 pontos, o uso contínuo, a interação direta pelo Copilot CLI e o
+                code review dentro do próprio GitHub
             </p>
-
+            <ul class="ia-card-text mb-0">
+                <li>1. Entrada de dados (código normal)</li>
+                <li>2. Copilot analisa o código em tempo real</li>
+                <li>3. Comunicação com os servidores da Microsoft</li>
+                <li>4. Retornos de sugestões, blocos de código ou comandos de execução</li>
+            </ul>
             <p class="ia-card-text mt-3">
-                Também é interessante comentar se a ferramenta utiliza modelos locais, em nuvem,
-                integra com Git, pipelines CI/CD, ou outras ferramentas do ecossistema de desenvolvimento.
+                Como a ferramenta trabalha principalmente como um 'sugestor' de melhoria e códigos, ele analisa automaticamente
+                suas entradas de dados através do teclado escrevendo, sugerindo melhorias, correções e refatorações completas.
+                se a opção for via terminal você interage diretamente com o CLI, ou chat de agente(assim como agentes de AI tradicionais).
+                também é possível configurar o Copilot diretamente na plataforma do GitHub
             </p>
-        </div>
-    </section>
-
-    <!-- ===========================================================
-         WORKFLOW ASSISTIDO
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
-
-            <div class="info-card">
-                <p class="ia-card-text">
-                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
-                </p>
-
-                <ol class="mt-3 ia-card-text">
-                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
-                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
-                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
-                    <li>Erros são identificados e corrigidos com explicações.</li>
-                    <li>Testes e documentação podem ser gerados automaticamente.</li>
-                </ol>
-
-                <p class="mt-3 ia-card-text">
-                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
-                    desenvolvimento.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========================================================
-         POR QUE ESCOLHER ESTA FERRAMENTA
-         =========================================================== -->
-    <section class="container py-5">
-        <h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
-
-        <div class="row g-4">
-
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-people-fill"></i></div>
-                        Para Equipes
-                    </div>
-                    <p class="ia-card-text">
-                        Explique como a ferramenta ajuda times a manterem padrões, revisarem código em conjunto
-                        e colaborarem de forma mais eficiente.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-person-workspace"></i></div>
-                        Para Devs Individuais
-                    </div>
-                    <p class="ia-card-text">
-                        Comente como um desenvolvedor sozinho pode ganhar velocidade, aprender com sugestões
-                        e reduzir erros usando a ferramenta.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-building-lock"></i></div>
-                        Para Empresas
-                    </div>
-                    <p class="ia-card-text">
-                        Aborde pontos como governança, privacidade, segurança do código, compliance
-                        e integração com processos corporativos.
-                    </p>
-                </div>
-            </div>
-
+            <ul class="ia-card-text mb-0">
+                <li>1. Análise nas alterações de PR's, feedback instantâneo sobre bugs em potencial e vulnerabilidades de segurança</li>
+                <li>2. Resumir as alterações de um PR</li>
+                <li>3. Responder a comentários de revisão, solicitando esclarecimentos ou sugerindo correções</li>
+                <li>4. Gerar a descrição de um novo PR com base nos commits</li>
+            </ul>
         </div>
     </section>
 
@@ -1140,22 +1034,36 @@
 
             <div class="info-card">
                 <p class="ia-card-text">
-                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
-                    CLI, site web, etc.).
+                    A instalação é integrada aos ambientes de desenvolvimento suportados, através de plugins ou extensões (como no visual studio)
+                    e da posterior autenticação na sua conta GitHub com uma assinatura ativa (Individual, Pro ou Enterprise).
                 </p>
 
                 <pre class="code-block mt-3">
-1. COLOCAR PASSO A PASSO
-2. COLOCAR PASSO A PASSO
-3. COLOCAR PASSO A PASSO
-4. COLOCAR PASSO A PASSO</pre>
+                    1. Acesse o marketplace de extensões da sua IDE (ex: "Extensions" no VS Code).
+                    2. Pesquise por "GitHub Copilot" (e "GitHub Copilot Chat" se for o caso).
+                    3. Clique em "Instalar" na extensão principal do GitHub Copilot.
+                    4. Após a instalação, um prompt solicitará que você faça login e autorize a extensão em sua conta GitHub.
+                    5. Confirme que sua conta possui uma assinatura ativa do Copilot.
+                </pre>
 
                 <p class="ia-card-text mt-3">
-                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
-                    um comando de exemplo:
+                    Para usar o Copilot diretamente na linha de comando, você precisa da ferramenta GitHub CLI instalada.
                 </p>
 
-                <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
+                <pre class="code-block">
+                    1. Garanta que o GitHub CLI (gh) esteja instalado em seu sistema operacional.
+                    2. Instale a extensão Copilot CLI rodando o comando(exemplo no windowsShell):
+
+                    gh extension install github/gh-copilot
+
+                    3. Autentique-se novamente no GitHub CLI se necessário.
+                </pre>
+
+                <pre class="code-block mt-3">
+                    o GitHub Copilot não suporta execução local dos modelos de IA para as suas funcionalidades
+                    principais. O processamento do código e a geração de sugestões sempre ocorrem na nuvem
+                    (Microsoft Azure/OpenAI). Portanto, não há um comando para usar a ferramenta sem conexão com a internet.
+                </pre>
             </div>
         </div>
     </section>
@@ -1173,24 +1081,24 @@
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
+                        <th>Git Copilot</th>
+                        <th>TabNine</th>
+                        <th>CodeWhisperer</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                     </tr>
 
                     <tr>
-                        <td>Privacidade (código local)</td>
-                        <td><span class="icon-partial">Depende</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td>Privacidade</td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                     </tr>
 
@@ -1204,18 +1112,85 @@
                     <tr>
                         <td>Modos Inteligentes</td>
                         <td><span class="icon-yes">✔</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Suporte a múltiplos modelos</td>
-                        <td><span class="icon-partial">Depende</span></td>
-                        <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-no">✖</span></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </section>
+
+        <!-- ===========================================================
+         WORKFLOW ASSISTIDO
+         =========================================================== -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
+
+            <div class="info-card">
+                <p class="ia-card-text">
+                    O desenvolvimento assistido pelo Copilot começa com a descrição da funcionalidade ou da tarefa em linguagem natural, seja através de um comentário no código ou no Copilot Chat. A IA analisa o contexto do projeto, os arquivos adjacentes e o prompt para sugerir uma estrutura, um plano de implementação ou um conjunto de comandos no CLI. O código é então gerado de forma assistida, com o desenvolvedor aceitando ou ajustando as sugestões em tempo real. Se surgirem erros durante a fase de testes local, o Copilot Chat pode ser usado para identificar e corrigir o problema, fornecendo explicações claras sobre a causa. Finalmente, o desenvolvedor pode solicitar que o Copilot gere automaticamente testes de unidade para garantir a qualidade do código e crie a documentação necessária para o novo módulo. Dessa forma, o assistente acompanha o desenvolvedor desde a concepção da funcionalidade até a finalização da pull request.
+                </p>
+
+                <ol class="mt-3 ia-card-text">
+                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
+                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
+                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
+                    <li>Erros são identificados e corrigidos com explicações.</li>
+                    <li>Testes e documentação podem ser gerados automaticamente.</li>
+                    <li>O Agente de IA pode resumir o trabalho e gerar um rascunho de Pull Request (PR).</li>
+                </ol>
+
+                <p class="mt-3 ia-card-text">
+                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
+                    desenvolvimento, acelerando o ciclo de feedback e garantindo a qualidade do código.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         POR QUE ESCOLHER ESTA FERRAMENTA
+         =========================================================== -->
+    <section class="container py-5">
+        <h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="ia-card">
+                    <div class="ia-card-title">
+                        <div class="ia-card-icon"><i class="bi bi-people-fill"></i></div>
+                        Velocidade em equipes
+                    </div>
+                    <p class="ia-card-text">
+                        Principalmente em equipes de desenvolvimento, para velocidade de produção e análise de PR's o Copilot se destaca
+                        pela assistência no autocomplete de código e na ampla gama de conteúdo para tecnologias conhecidas
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="ia-card">
+                    <div class="ia-card-title">
+                        <div class="ia-card-icon"><i class="bi bi-building-lock"></i></div>
+                        Para Empresas
+                    </div>
+                    <p class="ia-card-text">
+                        O Workflow fica mais fluido, permitindo que a empresa foque na lógica de negócio de projeto, e os códigos <i>boilerplate</i>
+                        sejam mais rápidos se serem feitos. a cadência do time aumenta, uma vez que a hierarquia pode agilizar os processos
+                        de análise de PR's dos subordinados
+                    </p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1225,29 +1200,29 @@
     <section id="exemplos" class="container py-5">
         <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
 
-        <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
-        </p>
+<p class="opacity-75 mb-4 text-center">
+    Nesta seção, o exemplo mostra como o Copilot assistiu na **geração completa** de uma função de validação de segurança de senha em Python, incluindo o uso de expressões regulares e a correta **tipagem** (`type hinting`).
+</p>
 
-        <div class="code-container">
-            <div class="code-header">
-                <div class="window-controls">
-                    <div class="traffic-light-red"></div>
-                    <div class="traffic-light-yellow"></div>
-                    <div class="traffic-light-green"></div>
-                </div>
+<div class="code-container">
+    <div class="code-header">
+        <div class="window-controls">
+            <div class="traffic-light-red"></div>
+            <div class="traffic-light-yellow"></div>
+            <div class="traffic-light-green"></div>
+        </div>
 
-                <span class="window-title">exemplo_ferramenta.py</span>
+        <span class="window-title">exemplo_ferramenta.py</span>
 
-                <button class="code-copy" onclick="copyCode()">Copiar</button>
-            </div>
+        <button class="code-copy" onclick="copyCode()">Copiar</button>
+    </div>
 
-            <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+    <div class="code-content">
+        <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
 
 <span class="keyword">import</span> re
 
+<span class="comment"># O Copilot sugere toda a lógica abaixo após o usuário digitar "def validar_senha("</span>
 <span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
     erros = []
 
@@ -1259,16 +1234,23 @@
         erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
     <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
         erros.append(<span class="string">"Inclua ao menos um número."</span>)
+    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[\W_]"</span>, senha): <span class="comment"># Sugestão de caractere especial</span>
+        erros.append(<span class="string">"Inclua ao menos um caractere especial."</span>)
 
     <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
 
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
-            </div>
-        </div>
+    exemplo_valido = <span class="string">"SenhaSegura@123"</span>
+    exemplo_invalido = <span class="string">"curta"</span>
+    
+    <span class="keyword">print</span>(<span class="string">"--- Teste Válido ---"</span>)
+    <span class="keyword">print</span>(validar_senha(exemplo_valido))
+    
+    <span class="keyword">print</span>(<span class="string">"--- Teste Inválido ---"</span>)
+    <span class="keyword">print</span>(validar_senha(exemplo_invalido))</code></pre>
+    </div>
+</div>
     </section>
 
     <!-- ===========================================================
@@ -1276,10 +1258,13 @@
          =========================================================== -->
     <section class="container text-center py-5">
         <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
-        <div class="stars mt-2">⭐⭐⭐⭐☆</div>
+        <div class="stars mt-2">⭐⭐⭐☆☆</div>
         <p class="opacity-75 mt-2">
-            Aqui o aluno pode fazer uma avaliação crítica (de 1 a 5 estrelas), justificando pontos fortes
-            e pontos fracos com base no uso prático da ferramenta.
+            É uma ótima ferramenta para uso como revisor de código e AutoComplete, a padronização de commits e melhoria de segurança do código É
+            muito útil e pode poupar muito tempo precioso ao automatizar PR's e resumir o fluxo de trabalho para análises mais profundas.
+            Porém, considerando o contexto do seu projeto pode falhar muito, principalmente pela falta de um agente local e a abrangência
+            um tanto quanto preguiçosa em projetos que fujam do vsCode e amplamentes populares para tecnologias web e Python.
+            Além do fator custo que pra desenvolvedores individuais é uma grande barreira, então pode funcionar perfeitamente apenas em times de larga escala.
         </p>
     </section>
 
