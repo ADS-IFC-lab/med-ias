@@ -9,14 +9,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+<!-- Bootstrap JS (necessário para modal e carrossel funcionarem) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         /* ===========================================================
            SISTEMA DE TEMA (TUDO CONTROLADO VIA :root)
            =========================================================== */
         :root {
             /* Nome da ferramenta (sem impacto visual, só semântico) */
-            --tool-name: "Nome da IA Aqui";
+            --tool-name: "Windsurf";
 
             /* Paleta base */
             --color-primary: #3ba5ff;
@@ -137,7 +138,7 @@
             --radius-button: 10px;
 
             /* Logo usada no fundo do hero (pode trocar o arquivo) */
-            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+            --hero-logo-image: url("https://exafunction.github.io/public/brand/windsurf-white-wordmark.svg");
         }
 
         /* ===========================================================
@@ -879,17 +880,16 @@
         <div class="container py-5">
             <!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
             <h1 class="hero-title">
-                Título principal da ferramenta de IA.
+                Windsurf
             </h1>
 
             <p class="hero-subtitle mt-3">
-                Use este espaço para apresentar, em 2–3 linhas, o que a sua ferramenta faz:
-                por exemplo, auxiliar programação, revisar código, gerar testes, etc.
+                Windsurf é um IDE de IA de próxima geração criado para manter você no fluxo. Nesta página, você encontrará instruções para instalar o Windsurf no seu computador, concluir o onboarding e iniciar seu primeiro projeto com recursos de IA.
             </p>
 
             <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
                 <!-- TODO: Trocar link para o site oficial da IA -->
-                <a href="#" class="btn-primary-ia">
+                <a href="https://docs.windsurf.com/windsurf/getting-started" class="btn-primary-ia">
                     <i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
                 </a>
 
@@ -915,8 +915,14 @@
                             Aumento de Produtividade
                         </div>
                         <p class="ia-card-text mt-2">
-                            Descreva como a IA ajuda a acelerar o desenvolvimento: geração de código,
-                            automação de tarefas repetitivas, sugestões inteligentes, etc.
+                            O Windsurf é uma IDE de inteligência artificial que acelera o 
+                            desenvolvimento ao gerar código automaticamente e reduzir tarefas 
+                            repetitivas. Ele corrige erros de lint, executa comandos no terminal 
+                            e mantém o fluxo de trabalho sem interrupções. Suas sugestões inteligentes 
+                            analisam o contexto do código, indicando melhorias e prevenindo bugs. 
+                            A memória contextual permite retomar projetos com precisão, evitando retrabalho. 
+                            Com integração a ferramentas externas e deploy simplificado, o Windsurf 
+                            aumenta a produtividade e libera o desenvolvedor para focar na parte criativa.
                         </p>
                     </div>
                 </div>
@@ -928,8 +934,10 @@
                             Integração com o Ambiente
                         </div>
                         <p class="ia-card-text mt-2">
-                            Explique em quais IDEs, CLIs ou plataformas ela funciona (VSCode, JetBrains, Web, Terminal,
-                            etc.).
+                            O Windsurf não fica preso a uma única IDE ou plataforma. Ele pode ser 
+                            usado tanto em ambientes gráficos (VS Code, JetBrains, Web) quanto em 
+                            ambientes de linha de comando (CLI/Terminal), garantindo flexibilidade 
+                            e produtividade em diferentes cenários.
                         </p>
                     </div>
                 </div>
@@ -941,9 +949,58 @@
                             Qualidade e Segurança
                         </div>
                         <p class="ia-card-text mt-2">
-                            Fale sobre recursos de revisão, testes, detecção de bugs ou aspectos de segurança
-                            que a ferramenta oferece.
+                            A privacidade e segurança do código no Windsurf exigem atenção, 
+                            já que o Cascade armazena informações sobre o comportamento do 
+                            desenvolvedor, o que pode ser sensível em projetos críticos. A 
+                            integração com servidores MCP amplia funcionalidades, mas também 
+                            requer configuração cuidadosa para evitar exposição de dados. 
+                            Além disso, as sugestões baseadas em buscas externas podem incluir 
+                            conteúdos não auditados, exigindo revisão antes da incorporação. 
+                            Para reforçar a segurança, a ferramenta oferece recursos de revisão 
+                            automática, testes integrados e detecção de bugs, ajudando a 
+                            identificar falhas de lógica ou vulnerabilidades e garantindo 
+                            maior confiabilidade no desenvolvimento.
                         </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                    <div class="ia-card-title">
+                    <div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                    Fluxo contínuo de trabalho com IA
+                    </div>
+                    <p class="ia-card-text mt-2">
+                    O Cascade mantém o desenvolvedor em estado de produtividade constante.
+                    Automatiza tarefas como lint, terminal e continuidade de ações anteriores.
+                    Isso reduz interrupções e acelera o ciclo de desenvolvimento.
+                    </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                    <div class="ia-card-title">
+                    <div class="ia-card-icon"><i class="bi bi-archive-fill"></i></div>
+                    Memória contextual
+                    </div>
+                    <p class="ia-card-text mt-2">
+                    A IA lembra decisões anteriores, padrões de código e contexto do projeto.
+                    Isso permite sugestões mais precisas e retomadas inteligentes.
+                    Ideal para projetos longos ou colaborativos.
+                    </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                    <div class="ia-card-title">
+                    <div class="ia-card-icon"><i class="bi bi-plug-fill"></i></div>
+                    Suporte ao MCP (Model Context Protocol)
+                    </div>
+                    <p class="ia-card-text mt-2">
+                    Integra serviços e ferramentas externas diretamente ao agente de IA.
+                    Expande as capacidades do Cascade com personalizações corporativas.
+                    Permite criar fluxos sob medida para cada equipe.
+                    </p>
                     </div>
                 </div>
             </div>
@@ -958,14 +1015,24 @@
 
         <div class="info-card">
             <p class="ia-card-text">
-                Aqui você pode descrever, de forma mais detalhada, o propósito da ferramenta:
-                que tipo de problema ela resolve, para quais públicos é indicada (iniciantes, equipes grandes,
-                empresas, etc.) e qual é o diferencial em relação a outras soluções.
+                O propósito do Windsurf é acelerar o desenvolvimento com inteligência artificial, 
+                resolvendo problemas como tarefas repetitivas, geração de código e integração de 
+                diferentes serviços em um único ambiente. Ele é indicado para desenvolvedores solo 
+                ou equipes pequenas que desejam ganhar velocidade, para projetos com base de código 
+                extensa que se beneficiam da memória contextual, e para designers e full-stack developers 
+                que aproveitam a integração com imagens, terminal e deploys rápidos. Estudantes e 
+                iniciantes também podem usar a versão gratuita para aprender com sugestões inteligentes, 
+                embora precisem se adaptar à interface. O diferencial em relação a outras soluções está 
+                na combinação de produtividade, memória contextual e integração com servidores MCP, que 
+                permitem personalizar o ambiente de acordo com as necessidades.
             </p>
 
             <p class="ia-card-text mt-3">
-                Também é um bom lugar para mencionar se a ferramenta é open source, paga, gratuita com limitações,
-                se roda localmente, em nuvem, ou oferece múltiplos modos de uso.
+                Está disponível em versões gratuitas com limitações e em 
+                planos pagos, podendo rodar localmente ou em nuvem. Seu 
+                diferencial está na memória contextual e na integração com 
+                servidores MCP, que permitem personalização e maior produtividade 
+                para iniciantes, equipes pequenas e empresas.
             </p>
         </div>
     </section>
@@ -978,11 +1045,13 @@
 
         <div class="info-card">
             <ul class="ia-card-text mb-0">
-                <li>Comente sobre possíveis custos (assinatura, uso por token, etc.).</li>
-                <li>Fale sobre dependência de conexão com a internet ou infraestrutura.</li>
-                <li>Mencione limitações técnicas (tamanho de contexto, linguagens melhor suportadas, etc.).</li>
-                <li>Aborde temas de privacidade, segurança e envio de código para servidores externos, se for o caso.
-                </li>
+                <li><strong>Curva de aprendizado:</strong> Por ser uma IDE nova e com recursos avançados, pode exigir tempo para adaptação, especialmente para quem vem de ambientes como VS Code.</li>
+                <li><strong>Menor controle manual:</strong> A automação intensa pode limitar o controle direto do desenvolvedor sobre certas ações, o que pode ser um problema em projetos que exigem precisão ou customização profunda.</li>
+                <li><strong>Dependência de conectividade:</strong> Muitos recursos dependem de acesso à internet e servidores MCP, o que pode ser um obstáculo em ambientes offline.</li>
+                <li><strong>Custos e modelo de uso:</strong> mencionar que, além da versão gratuita, podem existir planos pagos ou assinaturas, e em alguns casos cobrança por uso de tokens, o que pode ser uma barreira </li>
+                <li><strong>Dependência de infraestrutura:</strong> reforçar que muitos recursos exigem conexão estável com a internet e servidores MCP, o que limita o uso em ambientes offline ou com restrições de rede.</li>
+                <li><strong>Limitações técnicas:</strong> destacar que o tamanho de contexto pode restringir projetos muito grandes, e que algumas linguagens ou frameworks são melhor suportados que outras, podendo gerar inconsistências.</li>
+                <li><strong>Privacidade e segurança:</strong> abordar que parte do código e das ações do desenvolvedor pode ser enviada para servidores externos, levantando preocupações em projetos corporativos ou com dados confidenciais.</li>
             </ul>
         </div>
     </section>
@@ -1002,8 +1071,15 @@
                             Autocomplete de Código
                         </div>
                         <p class="ia-card-text">
-                            Descreva como a ferramenta sugere código em tempo real, quais linguagens são suportadas
-                            e como isso ajuda o desenvolvedor.
+                            O autocomplete de código no Windsurf sugere trechos em tempo 
+                            real enquanto o desenvolvedor digita, antecipando funções, 
+                            variáveis e estruturas completas. Essas sugestões são baseadas 
+                            no contexto do projeto e em boas práticas, reduzindo erros e 
+                            acelerando a escrita. A ferramenta oferece suporte a diversas 
+                            linguagens populares, como Python, JavaScript, Java, C# e outras. 
+                            Isso ajuda iniciantes a aprender a sintaxe correta e profissionais 
+                            a ganhar produtividade. Com menos tarefas repetitivas, o foco 
+                            permanece na lógica principal e na criatividade do código.
                         </p>
                     </div>
                 </div>
@@ -1015,8 +1091,18 @@
                             Chat / Assistente Interativo
                         </div>
                         <p class="ia-card-text">
-                            Explique como o chat funciona: se entende o contexto do projeto, se lê arquivos,
-                            se gera documentação, etc.
+                            O chat/assistente interativo do Windsurf funciona como 
+                            um parceiro direto dentro da IDE, entendendo o contexto 
+                            completo do projeto e acompanhando o fluxo de trabalho do 
+                            desenvolvedor. Ele consegue ler arquivos, identificar erros 
+                            sem precisar de explicações detalhadas e propor correções 
+                            automáticas em todo o código. Quando um problema surge, o 
+                            assistente detecta o erro, ajusta o trecho problemático e 
+                            mostra claramente o que foi corrigido ou acrescentado. Além 
+                            disso, pode gerar documentação, explicar trechos de código e 
+                            manter um histórico das ações realizadas, permitindo que o 
+                            desenvolvedor acompanhe a evolução do projeto e saiba quantos 
+                            erros foram resolvidos ao longo do processo.
                         </p>
                     </div>
                 </div>
@@ -1028,8 +1114,11 @@
                             Modos Especiais / Agentes
                         </div>
                         <p class="ia-card-text">
-                            Caso a ferramenta possua "modos" (ex: Architect, Debug, Testes), descreva
-                            como cada modo se comporta e quando é mais útil.
+                            O Windsurf possui modos especiais que adaptam a IDE conforme a necessidade do desenvolvedor. 
+                            O Architect ajuda a estruturar projetos, sugerindo padrões e boas práticas de organização. 
+                            Já o Debug identifica e corrige erros automaticamente, acelerando a depuração. 
+                            O modo de Testes cria e executa testes unitários ou de integração, garantindo maior confiabilidade do código. 
+                            Esses agentes tornam o Windsurf versátil, útil desde o planejamento inicial até a validação final de projetos.
                         </p>
                     </div>
                 </div>
@@ -1038,21 +1127,27 @@
     </section>
 
     <!-- ===========================================================
-         COMO FUNCIONA
-         =========================================================== -->
+        COMO FUNCIONA
+        =========================================================== -->
     <section class="container py-5">
         <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
 
         <div class="info-card">
             <p class="ia-card-text">
-                Nesta seção você pode explicar o fluxo básico de funcionamento: como o usuário interage,
-                quais entradas fornece (prompts, trechos de código, repositórios), e quais saídas recebe
-                (respostas, diffs de código, arquivos gerados, etc.).
+            O sistema de detecção de trabalhos acadêmicos em Python foi desenvolvido para identificar automaticamente o tipo de documento (como TCC, monografia ou dissertação) e auxiliar estudantes e pesquisadores a estruturarem seus projetos conforme normas acadêmicas. Ele funciona a partir da interação do usuário com uma interface web construída em Flask, onde é possível enviar arquivos de texto ou documentos completos para análise. O sistema processa esses dados, aplica modelos de classificação e retorna informações detalhadas sobre o tipo de trabalho, nível de confiança da análise, título, número estimado de páginas, estrutura recomendada e palavras-chave encontradas.
+            No backend, o método analisar_documento recebe o texto e metadados, chama a função detectar_tipo() para classificar o trabalho e organiza os resultados em formato JSON. Esses resultados são exibidos na interface web de forma visual e compreensível. Além disso, o sistema conta com recursos de processamento de linguagem natural (via NLTK) e classificação de texto com scikit-learn, além de bibliotecas como python-docx e PyPDF2 para lidar com diferentes formatos de arquivos.
+            <ul class="ia-card-text mb-0"> 
+                <li><b>Entrada:</b> documentos acadêmicos, título e número de páginas</li> 
+                <li><b>Processamento:</b> classificação do tipo de trabalho, extração de palavras-chave e metadados</li> 
+                <li><b>Saída:</b> resposta JSON com tipo, confiança, estrutura recomendada e palavras-chave</li> <li><b>Tecnologias:</b> Flask, scikit-learn, NLTK, python-docx, PyPDF2</li> 
+                <li><b>Integrações:</b> normas ABNT, possibilidade futura de Git, CI/CD e armazenamento em nuvem</li> </ul>
+            </p>
+            <p class="ia-card-text mt-3"></p>                
+            O fluxo de dados segue etapas claras: o usuário envia o documento, o sistema extrai o texto, classifica o tipo de trabalho, identifica palavras-chave e retorna uma análise estruturada. Esse processo garante maior confiabilidade e ajuda a manter a padronização exigida em ambientes acadêmicos.
             </p>
 
             <p class="ia-card-text mt-3">
-                Também é interessante comentar se a ferramenta utiliza modelos locais, em nuvem,
-                integra com Git, pipelines CI/CD, ou outras ferramentas do ecossistema de desenvolvimento.
+                Por fim, o sistema pode ser expandido com integrações futuras, como pipelines de CI/CD para análise automática, versionamento com Git e armazenamento em nuvem, tornando-se uma ferramenta robusta para equipes acadêmicas e instituições de ensino.
             </p>
         </div>
     </section>
@@ -1066,20 +1161,27 @@
 
             <div class="info-card">
                 <p class="ia-card-text">
-                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
+                Durante o desenvolvimento do sistema de detecção de trabalhos acadêmicos, a 
+                ferramenta de IA foi utilizada para aprimorar trechos críticos do código, como o 
+                método de carregamento das normas ABNT. Esse processo exemplifica um fluxo de 
+                trabalho assistido por IA, no qual o desenvolvedor interage com a ferramenta em 
+                etapas que refletem práticas reais de times de software.
                 </p>
 
                 <ol class="mt-3 ia-card-text">
-                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
-                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
-                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
-                    <li>Erros são identificados e corrigidos com explicações.</li>
-                    <li>Testes e documentação podem ser gerados automaticamente.</li>
+                    <li><strong>Descrição do problema:</strong> O desenvolvedor identificou que o método original não tratava erros corretamente, não validava o conteúdo do JSON e não oferecia fallback seguro.</li> 
+                    <li><strong>Análise contextual:</strong> A IA analisou o código e sugeriu uma estrutura mais robusta, com múltiplos níveis de tratamento de exceções e validação de dados.</li> 
+                    <li><strong>Refatoração assistida:</strong> O código foi ajustado com base nas sugestões da IA, incluindo fallback para arquivos padrão e estrutura mínima embutida.</li> 
+                    <li><strong>Correção com explicações:</strong> A IA explicou os riscos do código anterior e justificou cada melhoria aplicada, facilitando o aprendizado e a manutenção.</li> 
+                    <li><strong>Geração de documentação:</strong> Foram adicionados docstrings, type hints e comentários explicativos automaticamente, tornando o código mais legível e padronizado.</li> 
                 </ol>
 
+
                 <p class="mt-3 ia-card-text">
-                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
-                    desenvolvimento.
+                    Esse fluxo mostra como a IA pode atuar como parceira técnica, não apenas gerando código, 
+                    mas também orientando decisões, prevenindo falhas e promovendo boas práticas. Em um time 
+                    de desenvolvimento, esse tipo de assistência acelera entregas, reduz retrabalho e fortalece 
+                    a qualidade do software.
                 </p>
             </div>
         </div>
@@ -1100,8 +1202,25 @@
                         Para Equipes
                     </div>
                     <p class="ia-card-text">
-                        Explique como a ferramenta ajuda times a manterem padrões, revisarem código em conjunto
-                        e colaborarem de forma mais eficiente.
+                        O Windsurf também foi pensado para uso em equipes de 
+                        desenvolvimento, oferecendo recursos que fortalecem a 
+                        colaboração e a padronização do código. Ele permite que 
+                        times revisem projetos em conjunto, com sugestões 
+                        inteligentes e histórico de alterações que facilitam a 
+                        análise coletiva. Além disso, a memória contextual ajuda 
+                        a manter consistência entre diferentes partes do sistema, 
+                        garantindo que todos sigam os mesmos padrões de arquitetura 
+                        e estilo. O assistente interativo pode apontar erros em 
+                        tempo real e sugerir correções, acelerando o processo de 
+                        revisão.
+
+                    <ul class="ia-card-text mb-0"> 
+                        <li><b>Manutenção de padrões:</b> aplica regras de estilo e boas práticas de forma uniforme.</li> 
+                        <li><b>Revisão colaborativa:</b> facilita análise de código em grupo com feedback automatizado.</li> 
+                        <li><b>Memória contextual:</b> garante consistência em projetos grandes e distribuídos.</li> 
+                        <li><b>Assistente interativo:</b> identifica erros e sugere melhorias em tempo real.</li> 
+                        <li><b>Eficiência:</b> reduz retrabalho e acelera entregas em equipes pequenas ou grandes.</li> 
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -1113,8 +1232,22 @@
                         Para Devs Individuais
                     </div>
                     <p class="ia-card-text">
-                        Comente como um desenvolvedor sozinho pode ganhar velocidade, aprender com sugestões
-                        e reduzir erros usando a ferramenta.
+                        Para desenvolvedores individuais, o Windsurf funciona 
+                        como um verdadeiro acelerador de produtividade. Ele 
+                        sugere código em tempo real, ajudando a reduzir erros 
+                        comuns e permitindo que o dev mantenha o foco na 
+                        lógica principal. As recomendações inteligentes também 
+                        servem como aprendizado contínuo, mostrando boas práticas 
+                        e alternativas de implementação. Além disso, a memória 
+                        contextual garante que o desenvolvedor não precise repetir 
+                        tarefas, otimizando o fluxo de trabalho.
+
+                    <ul class="ia-card-text mb-0"> 
+                        <li><b>Velocidade:</b> geração automática de trechos de código e redução de tarefas repetitivas.</li> 
+                        <li><b>Aprendizado:</b> sugestões inteligentes que ensinam sintaxe e boas práticas.</li> 
+                        <li><b>Redução de erros:</b> análise contínua e correções em tempo real.</li> 
+                        <li><b>Autonomia:</b> ideal para devs solo que querem manter ritmo sem depender de revisões externas.</li> 
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -1126,8 +1259,21 @@
                         Para Empresas
                     </div>
                     <p class="ia-card-text">
-                        Aborde pontos como governança, privacidade, segurança do código, compliance
-                        e integração com processos corporativos.
+                    Para empresas, o Windsurf oferece recursos que vão além da produtividade 
+                    individual, atuando como uma plataforma que reforça governança e segurança 
+                    no desenvolvimento de software. Ele permite configurar regras e políticas 
+                    internas para manter padrões de código e processos de revisão alinhados às 
+                    exigências corporativas. A privacidade e segurança são tratadas com atenção, 
+                    já que o sistema pode armazenar informações de projetos e interagir com 
+                    servidores externos, exigindo configurações adequadas para evitar exposição de dados.
+
+                    <ul class="ia-card-text mb-0"> 
+                        <li><b>Governança:</b> aplicação de regras de estilo e workflows que garantem consistência entre equipes.</li> 
+                        <li><b>Privacidade:</b> controle sobre dados enviados para servidores MCP e configurações de acesso.</li> 
+                        <li><b>Segurança do código:</b> revisão automática, testes integrados e detecção de vulnerabilidades.</li> 
+                        <li><b>Compliance:</b> suporte a normas e boas práticas exigidas em ambientes corporativos.</li> 
+                        <li><b>Integração:</b> compatibilidade com pipelines CI/CD, versionamento com Git e processos internos da empresa.</li> 
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -1144,22 +1290,47 @@
 
             <div class="info-card">
                 <p class="ia-card-text">
-                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
-                    CLI, site web, etc.).
+                    Para instalar o Windsurf, baixe o editor para seu sistema (Mac, Windows ou Linux) pelo site 
+                    oficial, execute o instalador e siga o onboarding dentro do aplicativo. Durante a 
+                    configuração inicial, você pode importar preferências do VS Code ou Cursor, escolher 
+                    keybindings (VS Code ou Vim) e definir o tema do editor; o login é necessário e gratuito 
+                    para começar a usar
                 </p>
 
-                <pre class="code-block mt-3">
-1. COLOCAR PASSO A PASSO
-2. COLOCAR PASSO A PASSO
-3. COLOCAR PASSO A PASSO
-4. COLOCAR PASSO A PASSO</pre>
+            <pre class="code-block mt-3">
+                1. Acesse windsurf.com/download e baixe o instalador para seu sistema (Mac, Windows ou Linux).
+                2. Execute o instalador e abra o Windsurf após a instalação (no linux são comandos no terminal).
+                3. No onboarding: selecione “Start fresh” ou importe configs do VS Code/Cursor; escolha keybindings e tema.
+                4. Faça login ou crie uma conta gratuita, clique em “Open Windsurf” e conclua a configuração inicial. 
+            </pre>
 
-                <p class="ia-card-text mt-3">
-                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
-                    um comando de exemplo:
-                </p>
+            <p class="ia-card-text mt-3">
+                <b>Modos de uso e atualizações</b>
+                <pre class="code-block">
+                <em>Uso em desktop:</em> Editor instalado nativamente; sem marketplace interno para extensões de terceiros incompatíveis
+                <em>Atualizações:</em> Use “Restart to Update” ou “Check for Updates” no perfil/Command Palette para 
+                manter o editor na versão mais recente
+                <em>Windsurf Next (pré-lançamento):</em> opção de download para novos recursos antes do release estável
+                </pre>
+            </p>
 
-                <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
+            <p class="ia-card-text mt-3"> Você pode iniciar o editor ou agente de IA com uma flag que 
+            indica uso de modelo local: 
+            </p>
+
+            <pre class="code-block">windsurf --usar-modelo-local</pre>
+
+            <p class="ia-card-text mt-3"> Outros exemplos possíveis: </p>
+
+            <pre class="code-block">windsurf --modelo=llama2 --contexto=4096</pre> 
+            <pre class="code-block">windsurf --offline --sem-conexao</pre>
+
+            <ul class="ia-card-text mb-0"> 
+                <li><b>--usar-modelo-local:</b> força o editor a rodar com modelos instalados na máquina.</li> 
+                <li><b>--modelo=nome:</b> define qual modelo local usar (ex: LLaMA, GPT4All).</li> 
+                <li><b>--contexto=valor:</b> ajusta o tamanho máximo de contexto suportado.</li> 
+                <li><b>--offline:</b> garante que nenhuma requisição externa seja feita.</li> 
+            </ul>
             </div>
         </div>
     </section>
@@ -1177,16 +1348,16 @@
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
+                        <th>Windsurf</th>
+                        <th>Claude</th>
+                        <th>TRAE</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-partial">Depende</span></td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
                     </tr>
@@ -1195,7 +1366,7 @@
                         <td>Privacidade (código local)</td>
                         <td><span class="icon-partial">Depende</span></td>
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-partial">Parcial</span></td>
                     </tr>
 
                     <tr>
@@ -1209,7 +1380,7 @@
                         <td>Modos Inteligentes</td>
                         <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-partial">Parcial</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                     </tr>
 
                     <tr>
@@ -1227,65 +1398,181 @@
          EXEMPLO PRÁTICO EM PYTHON
          =========================================================== -->
     <section id="exemplos" class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
+    <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
 
-        <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
-        </p>
+    <p class="opacity-75 mb-4 text-center">
+        Exemplo de uso do Detector de Trabalhos Acadêmicos. Este exemplo mostra como integrar a ferramenta em um fluxo de trabalho acadêmico:
+    </p>
 
-        <div class="code-container">
-            <div class="code-header">
-                <div class="window-controls">
-                    <div class="traffic-light-red"></div>
-                    <div class="traffic-light-yellow"></div>
-                    <div class="traffic-light-green"></div>
-                </div>
-
-                <span class="window-title">exemplo_ferramenta.py</span>
-
-                <button class="code-copy" onclick="copyCode()">Copiar</button>
+    <div class="code-container">
+        <div class="code-header">
+            <div class="window-controls">
+                <div class="traffic-light-red"></div>
+                <div class="traffic-light-yellow"></div>
+                <div class="traffic-light-green"></div>
             </div>
 
-            <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+            <span class="window-title">detector.py</span>
 
-<span class="keyword">import</span> re
+            <button class="code-copy" onclick="copyCode()">Copiar</button>
+        </div>
 
-<span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
-    erros = []
+        <pre><code>
+<span class="keyword">from</span> src.detector <span class="keyword">import</span> DetectorTrabalho
+<span class="keyword">from</span> src.normas <span class="keyword">import</span> NormasABNT
+<span class="keyword">import</span> json
 
-    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
-        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos um número."</span>)
+<span class="comment"># 1. Inicialização das ferramentas</span>
+detector = DetectorTrabalho()
+normas = NormasABNT()
 
-    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
+<span class="keyword">def</span> <span class="function">analisar_trabalho</span>(caminho_arquivo, titulo=<span class="keyword">None</span>):
+    <span class="string">"""Função para analisar um trabalho acadêmico e gerar recomendações"""</span>
+    <span class="keyword">try</span>:
+        <span class="comment"># 2. Carregar e processar o arquivo</span>
+        <span class="keyword">with</span> open(caminho_arquivo, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> file:
+            texto = file.read()
+        
+        <span class="comment"># 3. Detectar tipo de trabalho</span>
+        resultado = detector.analisar_documento(
+            texto=texto,
+            titulo=titulo <span class="keyword">or</span> <span class="string">"Trabalho Acadêmico"</span>,
+            num_paginas=len(texto.split()) // <span class="number">300</span>
+        )
+        
+        <span class="keyword">if</span> <span class="string">'erro'</span> <span class="keyword">in</span> resultado:
+            <span class="keyword">return</span> resultado
+        
+        <span class="comment"># 4. Gerar recomendações de formatação</span>
+        recomendacoes = {
+            <span class="string">'tipo_detectado'</span>: resultado[<span class="string">'tipo'</span>],
+            <span class="string">'confianca'</span>: f<span class="string">"{resultado['confianca']}%"</span>,
+            <span class="string">'estrutura_recomendada'</span>: resultado[<span class="string">'estrutura_esperada'</span>],
+            <span class="string">'palavras_chave'</span>: resultado[<span class="string">'palavras_chave_encontradas'</span>][:<span class="number">5</span>],
+            <span class="string">'detalhes_formatacao'</span>: normas.obter_diretrizes_formatacao(resultado[<span class="string">'tipo'</span>])
+        }
+        
+        <span class="keyword">return</span> recomendacoes
+        
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        <span class="keyword">return</span> {<span class="string">'erro'</span>: f<span class="string">'Erro ao processar o arquivo: {str(e)}'</span>}
 
-
+<span class="comment"># Exemplo de uso</span>
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
+    caminho_trabalho = <span class="string">"exemplo_tcc.txt"</span>
+    titulo_trabalho = <span class="string">"Análise de Dados com Python"</span>
+    
+    print(f<span class="string">"Analisando trabalho: {titulo_trabalho}"</span>)
+    resultado = analisar_trabalho(caminho_trabalho, titulo_trabalho)
+    
+    <span class="keyword">if</span> <span class="string">'erro'</span> <span class="keyword">not</span> <span class="keyword">in</span> resultado:
+        print(<span class="string">"\n=== Análise Concluída ==="</span>)
+        print(f<span class="string">"Tipo detectado: {resultado['tipo_detectado']} (Confiança: {resultado['confianca']})"</span>)
+        print(<span class="string">"\n📚 Estrutura Recomendada:"</span>)
+        <span class="keyword">for</span> i, secao <span class="keyword">in</span> enumerate(resultado[<span class="string">'estrutura_recomendada'</span>], <span class="number">1</span>):
+            print(f<span class="string">"  {i}. {secao}"</span>)
+        
+        print(<span class="string">"\n🔑 Palavras-chave identificadas:"</span>)
+        print(<span class="string">"   "</span> + <span class="string">", "</span>.join(resultado[<span class="string">'palavras_chave'</span>]))
+        
+        print(<span class="string">"\n📝 Diretrizes de Formatação:"</span>)
+        <span class="keyword">for</span> chave, valor <span class="keyword">in</span> resultado[<span class="string">'detalhes_formatacao'</span>].items():
+            print(f<span class="string">"  • {chave}: {valor}"</span>)
+    <span class="keyword">else</span>:
+        print(f<span class="string">"Erro na análise: {resultado['erro']}"</span>)
+        </code></pre>
+    </div>
+</section>
+
+<!-- ===========================================================
+     CAPTURAS DE TELA DO PROCESSO
+     =========================================================== -->
+<section class="container py-5">
+    <h2 class="text-white fw-bold mb-4 fs-2 text-center">Capturas de Tela do Processo</h2>
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 text-center">
+            <!-- Botão que abre o modal -->
+            <button type="button" class="btn btn-primary-ia" data-bs-toggle="modal" data-bs-target="#screenshotsModal">
+                <i class="bi bi-images me-2"></i>Ver Capturas de Tela
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para a galeria de imagens -->
+<div class="modal fade" id="screenshotsModal" tabindex="-1" aria-labelledby="screenshotsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="screenshotsModalLabel">Capturas de Tela</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <div id="screenshotsCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    
+                    <!-- Slides -->
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item">
+                            <img src="printLaura2.png" class="d-block w-100" alt="Captura de tela 2" 
+                                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Imagem+não+encontrada'">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="print3laura.png" class="d-block w-100" alt="Captura de tela 3" 
+                                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Imagem+não+encontrada'">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="print laura.png" class="d-block w-100" alt="Captura de tela 1" 
+                                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Imagem+não+encontrada'">
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+
+
+
 
     <!-- ===========================================================
          AVALIAÇÃO GERAL
          =========================================================== -->
     <section class="container text-center py-5">
-        <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
-        <div class="stars mt-2">⭐⭐⭐⭐☆</div>
-        <p class="opacity-75 mt-2">
-            Aqui o aluno pode fazer uma avaliação crítica (de 1 a 5 estrelas), justificando pontos fortes
-            e pontos fracos com base no uso prático da ferramenta.
-        </p>
-    </section>
+    <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
+    <div class="stars mt-2">⭐⭐⭐⭐☆</div>
+    <p class="opacity-75 mt-2">
+        A ferramenta me surpreendeu positivamente, especialmente pela sua evolução exponencial nos 
+        últimos anos. A inteligência artificial integrada mostra grande potencial, com destaque para a 
+        <strong>facilidade de uso (4.5)</strong> e os <strong>recursos oferecidos (4.8)</strong>, que 
+        realmente ampliam a produtividade. No entanto, ainda há espaço para melhorias: em alguns momentos, 
+        ao escrever em português, a resposta vinha em inglês sem motivo aparente. Além disso, certos códigos 
+        gerados apresentavam mais erros do que acertos, e nem sempre a IA conseguia identificar ou corrigir 
+        os problemas. Apesar disso, o <strong>desempenho geral (4.4)</strong> e o <strong>suporte (4.6)</strong> 
+        foram satisfatórios, tornando a experiência bastante rica. Dou <strong>4.5 estrelas</strong> pela 
+        inovação, utilidade prática e capacidade de aprendizado, reconhecendo que a ferramenta ainda está 
+        em constante aprimoramento.
+    </p>
+</section>
+
 
     <!-- ===========================================================
          FOOTER
