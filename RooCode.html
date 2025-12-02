@@ -9,18 +9,18 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         /* ===========================================================
            SISTEMA DE TEMA (TUDO CONTROLADO VIA :root)
            =========================================================== */
         :root {
             /* Nome da ferramenta (sem impacto visual, só semântico) */
-            --tool-name: "Nome da IA Aqui";
+            --tool-name: "Roo Code";
 
             /* Paleta base */
-            --color-primary: #3ba5ff;
-            --color-secondary: #a855ff;
+            --color-primary: #292929;
+            --color-secondary: #000000;
             --color-accent: #ffd86b;
 
             /* Fundos principais */
@@ -56,15 +56,18 @@
             --color-table-row-alt-bg: rgba(255, 255, 255, 0.05);
             --color-table-row-hover-bg: rgba(59, 165, 255, 0.12);
             --color-table-border: rgba(255, 255, 255, 0.06);
+            --color-table-text-primary: #2266f8;
+            --color-table-text-second: #a855ff;
+            --color-table-text-accent: #ffd86b;
 
             /* Gradientes */
             --color-gradient-brand: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             --color-gradient-section-soft: linear-gradient(180deg, transparent, rgba(59, 165, 255, 0.02), transparent);
-            --color-gradient-hero-title: linear-gradient(75deg, #ffffff, #8f8f8f);
+            --color-gradient-hero-title: linear-gradient(75deg, rgb(98, 17, 190), rgba(141, 41, 255));
             --color-gradient-code-header: linear-gradient(135deg, #2d2d30, #1e1e1e);
 
             /* Botões */
-            --color-btn-primary-bg: var(--color-primary);
+            --color-btn-primary-bg: rgb(141, 41, 255);
             --color-btn-primary-text: #000000;
             --color-btn-primary-hover-text: #f5f5f5;
 
@@ -116,11 +119,12 @@
 
             /* Footer */
             --color-footer-bg: #000000;
-            --color-footer-border: rgba(255, 255, 255, 0.05);
+            --color-footer-border: rgba(141, 41, 255, 0.747);
             --color-footer-link: #e2e2e2;
-            --color-footer-link-hover: var(--color-primary);
+            --color-footer-link-hover: rgba(141, 41, 255, 0.747);
             --color-footer-social: #e2e2e2;
-            --color-footer-social-hover: var(--color-primary);
+            --color-footer-social-hover: rgba(141, 41, 255, 0.747);
+            --color-footer-border-shadow: rgba(141, 41, 255, 0.2);
 
             /* Estrelas da avaliação */
             --color-stars: var(--color-accent);
@@ -129,6 +133,7 @@
             --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.6);
             --shadow-table: 0 10px 30px rgba(0, 0, 0, 0.3);
             --shadow-code: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --shadow-info-card: 0 15px 35px rgba(143, 45, 255, 0.233);
 
             /* Raio / bordas arredondadas */
             --radius-card: 20px;
@@ -173,6 +178,10 @@
             transition: 0.2s;
         }
 
+        #home:hover {
+            color: var(--color-btn-primary-bg);
+        }
+
         #hamburger {
             cursor: pointer;
             margin: 0 10px;
@@ -183,9 +192,9 @@
             transition: 0.3s;
         }
 
-        #hamburger:hover{
-            color: var(--color-primary);
-            border-top: 4px solid var(--color-primary);
+        #hamburger:hover {
+            color: var(--color-btn-primary-bg);
+            border-top: 4px solid var(--color-btn-primary-bg);
         }
 
         #hamburger::after,
@@ -255,6 +264,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
+
         }
 
         .hero-subtitle {
@@ -366,7 +376,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 165, 255, 0.12), transparent);
+            background: linear-gradient(90deg, transparent, rgba(141, 41, 255, 0.12), transparent);
             transition: left 0.5s;
         }
 
@@ -377,7 +387,7 @@
         .ia-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: var(--color-primary);
-            box-shadow: 0 15px 35px rgba(59, 165, 255, 0.25);
+            box-shadow: 0 15px 35px rgba(141, 41, 255, 0.25);
         }
 
         .ia-card-title {
@@ -406,6 +416,16 @@
             opacity: 0.85;
             line-height: 1.6;
             color: var(--color-text-main);
+        }
+
+        .double-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-card {
+            box-shadow: var(--shadow-info-card);
         }
 
         /* ===========================================================
@@ -574,7 +594,7 @@
         }
 
         .icon-yes {
-            color: var(--color-primary);
+            color: var(--color-table-text-primary);
             font-size: 1.4rem;
         }
 
@@ -584,7 +604,7 @@
         }
 
         .icon-partial {
-            color: var(--color-accent);
+            color: var(--color-table-text-accent);
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -724,6 +744,7 @@
             background: var(--color-footer-bg);
             border-top: 1px solid var(--color-footer-border);
             padding: 40px 0;
+            box-shadow: 0 -20px 50px var(--color-footer-border-shadow);
         }
 
         .footer-link {
@@ -792,7 +813,7 @@
 
             <!-- TÍTULO CENTRAL -->
             <span class="navbar-title mx-auto text-center">
-                Guia de Ferramentas de IA para Desenvolvedores — 2025
+                Guia de Ferramentas de IA para Desenvolvedores 2025
             </span>
 
             <a href="index.html" id="home">
@@ -815,49 +836,49 @@
             <!-- Cada item abaixo é uma ferramenta da turma -->
             <div class="sidebar-item">
                 <a href="Copilot.html">
-                    <h5>GitHub Copilot <span>— João</span></h5>
+                    <h5>GitHub Copilot <span João</span></h5>
                 </a>
                 <a href="https://docs.github.com/pt/copilot" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Claude.html">
-                    <h5>Claude Code <span>— Cezar</span></h5>
+                    <h5>Claude Code <span Cezar</span></h5>
                 </a>
                 <a href="https://code.claude.com/docs/pt/overview" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Cursor.html">
-                    <h5>Cursor <span>— Andressa</span></h5>
+                    <h5>Cursor <span Andressa</span></h5>
                 </a>
                 <a href="https://cursor.com/docs" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Windsurf.html">
-                    <h5>Windsurf <span>— Laura</span></h5>
+                    <h5>Windsurf <span Laura</span></h5>
                 </a>
                 <a href="https://docs.windsurf.com/pt-BR/windsurf/getting-started" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="Kilo.html">
-                    <h5>Kilo Code <span>— Yuri</span></h5>
+                    <h5>Kilo Code <span Yuri</span></h5>
                 </a>
                 <a href="https://kilocode.ai/docs" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="RooCode.html">
-                    <h5>Roo Code <span>— Pedro</span></h5>
+                    <h5>Roo Code <span Pedro</span></h5>
                 </a>
                 <a href="https://docs.iacode.com" target="_blank">Documentação</a>
             </div>
 
             <div class="sidebar-item">
                 <a href="TRAE.html">
-                    <h5>TRAE <span>— Dolberth</span></h5>
+                    <h5>TRAE <span Dolberth</span></h5>
                 </a>
                 <a href="https://docs.trae.ai" target="_blank">Documentação</a>
             </div>
@@ -879,12 +900,13 @@
         <div class="container py-5">
             <!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
             <h1 class="hero-title">
-                Título principal da ferramenta de IA.
+                Análise de Roo Code
             </h1>
 
             <p class="hero-subtitle mt-3">
-                Use este espaço para apresentar, em 2–3 linhas, o que a sua ferramenta faz:
-                por exemplo, auxiliar programação, revisar código, gerar testes, etc.
+                Criada para servir como um assistente de programação com IA que roda localmente no editor e que vai além
+                de autocomplete, gera/edita
+                arquivos, refatora, depura, automatiza tarefas, e permite fluxos de trabalho multi-passo com agentes IA.
             </p>
 
             <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
@@ -893,9 +915,96 @@
                     <i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
                 </a>
 
-                <a href="#vantagens" class="btn-dark-outline">
+                <a href="#principais-caracteristicas" class="btn-dark-outline">
                     <i class="bi bi-arrow-down"></i> Ver detalhes
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         PRINCIPAIS CARACTERISTICAS
+         =========================================================== -->
+    <section id="principais-caracteristicas" class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Principais Características e Recursos</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-puzzle-fill"></i></div>
+                            Extensão para VS Code (open-source)
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Roo Code é uma extensão gratuita e de código aberto (licença Apache-2.0) para VS Code
+                            basta instalar pelo Marketplace ou via GitHub para integrar IA diretamente no seu ambiente
+                            de desenvolvimento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-gear-fill"></i></div>
+                            Múltiplos modos de operação (“modes / personas”)
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Suporta modos distintos conforme a tarefa: <code><strong>Code</strong></code> (codificação e
+                            edição),
+                            <code><strong>Architect</strong></code> (planejamento e estrutura),
+                            <code><strong>Ask</strong></code> (perguntas e
+                            documentação), <code><strong>Debug</strong></code> (diagnóstico e correção), além de modos
+                            customizados
+                            para fluxos específicos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-files-alt"></i></div>
+                            Geração / edição de múltiplos arquivos
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Não se limita a trechos ou autocompletes: Roo Code consegue criar ou modificar múltiplos
+                            arquivos de uma vez ideal para scaffolding, módulos completos, refatoração estrutural ou
+                            reorganização de projeto.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-braces-asterisk"></i></div>
+                            Model-agnostic / Flexível quanto ao provedor de IA
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Você pode escolher qual modelo de IA usar: OpenAI, Anthropic, Google Gemini, modelos locais
+                            (via Ollama), etc. Isso dá liberdade para priorizar custo, privacidade ou poder do modelo
+                            conforme o projeto.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                            Controle, segurança e privacidade
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Como é open-source, você pode auditar o código da extensão e se preferir usar modelos
+                            auto-hospedados ou gratuitos. Além disso, Roo Code permite controle granular sobre
+                            aprovações de ações, evitando mudanças automáticas sem consentimento.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -908,15 +1017,17 @@
             <h2 class="text-white fw-bold mb-5 fs-2 text-center">Vantagens da Ferramenta</h2>
 
             <div class="row g-4">
+
                 <div class="col-md-6 col-lg-4">
                     <div class="ia-card">
                         <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-                            Aumento de Produtividade
+                            <div class="ia-card-icon"><i class="bi bi-rocket-fill"></i></div>
+                            Aumento de Produtividade & Automação
                         </div>
                         <p class="ia-card-text mt-2">
-                            Descreva como a IA ajuda a acelerar o desenvolvimento: geração de código,
-                            automação de tarefas repetitivas, sugestões inteligentes, etc.
+                            Roo Code acelera o desenvolvimento ao automatizar tarefas repetitivas, gerar código
+                            boilerplate, scaffolding de módulos, definir estrutura de pastas e criar documentação
+                            inicial liberando você para focar em lógica, arquitetura e design.
                         </p>
                     </div>
                 </div>
@@ -924,12 +1035,13 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="ia-card">
                         <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-motherboard"></i></div>
-                            Integração com o Ambiente
+                            <div class="ia-card-icon"><i class="bi bi-layers-fill"></i></div>
+                            Integração com o Ambiente & Flexibilidade de Modelos
                         </div>
                         <p class="ia-card-text mt-2">
-                            Explique em quais IDEs, CLIs ou plataformas ela funciona (VSCode, JetBrains, Web, Terminal,
-                            etc.).
+                            Funciona como extensão para VS Code (e também possui versão para JetBrains), aceita vários
+                            provedores de IA compatíveis (OpenAI, Google Gemini, modelos locais, etc.) e permite usar o
+                            modelo que fizer mais sentido em custo, privacidade ou performance.
                         </p>
                     </div>
                 </div>
@@ -937,105 +1049,131 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="ia-card">
                         <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-shield-lock"></i></div>
-                            Qualidade e Segurança
+                            <div class="ia-card-icon"><i class="bi bi-code-slash"></i></div>
+                            Refatoração, Manutenção e Escalabilidade de Projetos
                         </div>
                         <p class="ia-card-text mt-2">
-                            Fale sobre recursos de revisão, testes, detecção de bugs ou aspectos de segurança
-                            que a ferramenta oferece.
+                            Permite editar múltiplos arquivos, refatorar estruturas de código, reorganizar pastas e
+                            adaptar projetos existentes de forma mais limpa ideal para projetos evolutivos,
+                            manutenções ou reestruturações.
                         </p>
                     </div>
                 </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                            Suporte a Arquitetura e Planejamento de Sistemas
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Com o modo “Architect”, você pode fazer planejamento de sistema, definir módulos, migrar
+                            estruturas, planejar arquitetura de forma orientada e organizada útil para quem pensa
+                            software de forma estruturada desde o início.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                            Aceleramento de Protótipos e MVPs
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Perfeito para criar protótipos rápidos ou MVPs Roo Code diminui o tempo entre ideia e
+                            código funcional, reduzindo o esforço manual de setup e boilerplate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                            Privacidade, Transparência e Controle
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            Por ser open-source e compatível com modelos auto-hospedados ou modelos externos
+                            configuráveis, Roo Code dá mais controle sobre quem tem acesso ao seu código ideal para
+                            projetos privados ou sensíveis.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ===========================================================
-         INFORMAÇÕES GERAIS / SOBRE A FERRAMENTA
-         =========================================================== -->
-    <section class="container py-5" id="info-gerais">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Informações Gerais</h2>
 
-        <div class="info-card">
-            <p class="ia-card-text">
-                Aqui você pode descrever, de forma mais detalhada, o propósito da ferramenta:
-                que tipo de problema ela resolve, para quais públicos é indicada (iniciantes, equipes grandes,
-                empresas, etc.) e qual é o diferencial em relação a outras soluções.
-            </p>
+    <section class="container py-5">
 
-            <p class="ia-card-text mt-3">
-                Também é um bom lugar para mencionar se a ferramenta é open source, paga, gratuita com limitações,
-                se roda localmente, em nuvem, ou oferece múltiplos modos de uso.
-            </p>
-        </div>
-    </section>
+        <!-- ===========================================================
+             DESVANTAGENS / LIMITAÇÕES
+        =========================================================== -->
+        <div id="desvantagens" class="container py-5">
+            <h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
 
-    <!-- ===========================================================
-         DESVANTAGENS / LIMITAÇÕES
-         =========================================================== -->
-    <section id="desvantagens" class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
+            <div class="info-card">
 
-        <div class="info-card">
-            <ul class="ia-card-text mb-0">
-                <li>Comente sobre possíveis custos (assinatura, uso por token, etc.).</li>
-                <li>Fale sobre dependência de conexão com a internet ou infraestrutura.</li>
-                <li>Mencione limitações técnicas (tamanho de contexto, linguagens melhor suportadas, etc.).</li>
-                <li>Aborde temas de privacidade, segurança e envio de código para servidores externos, se for o caso.
-                </li>
-            </ul>
-        </div>
-    </section>
+                <ul class="ia-card-text mb-0" style="line-height: 1.8; list-style: none; padding-left: 0;">
 
-    <!-- ===========================================================
-         RECURSOS PRINCIPAIS
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Recursos Principais</h2>
+                    <li class="mb-3 ia-card">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                        <span><strong>Dependência de modelos externos:</strong>
+                            <br>a qualidade e o custo variam conforme
+                            o provedor de IA utilizado.</span>
+                    </li>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-body-text"></i></div>
-                            Autocomplete de Código
-                        </div>
-                        <p class="ia-card-text">
-                            Descreva como a ferramenta sugere código em tempo real, quais linguagens são suportadas
-                            e como isso ajuda o desenvolvedor.
-                        </p>
-                    </div>
-                </div>
+                    <li class="mb-3 ia-card text-end">
+                        <span><strong>Custo maior em projetos grandes:</strong>
+                            <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                            <br>muitas requisições podem consumir
+                            mais tokens e aumentar os gastos.</span>
+                    </li>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-chat-square-text"></i></div>
-                            Chat / Assistente Interativo
-                        </div>
-                        <p class="ia-card-text">
-                            Explique como o chat funciona: se entende o contexto do projeto, se lê arquivos,
-                            se gera documentação, etc.
-                        </p>
-                    </div>
-                </div>
+                    <li class="mb-3 ia-card">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                        <span><strong>Curva de aprendizado e configuração:</strong>
+                            <br>é necessário ajustar APIs,
+                            permissões e modos antes de usar plenamente.</span>
+                    </li>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-diagram-3"></i></div>
-                            Modos Especiais / Agentes
-                        </div>
-                        <p class="ia-card-text">
-                            Caso a ferramenta possua "modos" (ex: Architect, Debug, Testes), descreva
-                            como cada modo se comporta e quando é mais útil.
-                        </p>
-                    </div>
-                </div>
+                    <li class="mb-3 ia-card text-end">
+                        <span><strong>Requer supervisão humana:</strong>
+                            <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                            <br>o código gerado nem sempre é perfeito e
+                            precisa de revisão do desenvolvedor.</span>
+                    </li>
+
+                    <li class="mb-3 ia-card">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                        <span><strong>Limitações em bases muito grandes:</strong>
+                            <br>projetos enormes podem gerar perda
+                            de precisão e respostas mais lentas.</span>
+                    </li>
+
+                    <li class="mb-3 ia-card text-end">
+                        <span><strong>Overhead em projetos pequenos:</strong>
+                            <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                            <br>para tarefas simples, pode ser mais
+                            trabalhoso configurar do que programar direto.</span>
+                    </li>
+
+                    <li class="mb-1 ia-card">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>
+                        <span><strong>Maturidade em evolução:</strong>
+                            <br>por ser open-source e recente, pode apresentar
+                            bugs e depender de atualizações constantes.</span>
+                    </li>
+
+                </ul>
+
             </div>
         </div>
+
     </section>
+
 
     <!-- ===========================================================
          COMO FUNCIONA
@@ -1087,12 +1225,13 @@
 
     <!-- ===========================================================
          POR QUE ESCOLHER ESTA FERRAMENTA
-         =========================================================== -->
+=========================================================== -->
     <section class="container py-5">
         <h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
 
         <div class="row g-4">
 
+            <!-- PARA EQUIPES -->
             <div class="col-md-6 col-lg-4">
                 <div class="ia-card">
                     <div class="ia-card-title">
@@ -1100,12 +1239,14 @@
                         Para Equipes
                     </div>
                     <p class="ia-card-text">
-                        Explique como a ferramenta ajuda times a manterem padrões, revisarem código em conjunto
-                        e colaborarem de forma mais eficiente.
+                        Roo Code ajuda times a manter padronização no código, facilita revisões com sugestões
+                        consistentes e permite que todos trabalhem com a mesma estrutura de desenvolvimento,
+                        reduzindo retrabalho e melhorando a colaboração.
                     </p>
                 </div>
             </div>
 
+            <!-- PARA DEV INDIVIDUAL -->
             <div class="col-md-6 col-lg-4">
                 <div class="ia-card">
                     <div class="ia-card-title">
@@ -1113,12 +1254,14 @@
                         Para Devs Individuais
                     </div>
                     <p class="ia-card-text">
-                        Comente como um desenvolvedor sozinho pode ganhar velocidade, aprender com sugestões
-                        e reduzir erros usando a ferramenta.
+                        Ideal para quem trabalha sozinho: acelera o desenvolvimento, ajuda a aprender novas
+                        abordagens, sugere melhorias no código e reduz erros. O desenvolvedor ganha velocidade
+                        sem perder controle sobre o projeto.
                     </p>
                 </div>
             </div>
 
+            <!-- PARA EMPRESAS -->
             <div class="col-md-6 col-lg-4">
                 <div class="ia-card">
                     <div class="ia-card-title">
@@ -1126,8 +1269,9 @@
                         Para Empresas
                     </div>
                     <p class="ia-card-text">
-                        Aborde pontos como governança, privacidade, segurança do código, compliance
-                        e integração com processos corporativos.
+                        Sendo open-source e compatível com modelos privados ou locais, Roo Code oferece mais
+                        segurança e controle sobre o código. Empresas ganham governança, privacidade, compliance
+                        e flexibilidade para integrar a IA aos seus processos internos.
                     </p>
                 </div>
             </div>
@@ -1135,38 +1279,45 @@
         </div>
     </section>
 
+
     <!-- ===========================================================
          INSTALAÇÃO E SETUP
-         =========================================================== -->
+=========================================================== -->
     <section class="advantages-section">
         <div class="container">
             <h2 class="text-white fw-bold fs-2 text-center mb-4">Instalação e Setup</h2>
 
             <div class="info-card">
+
                 <p class="ia-card-text">
-                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
-                    CLI, site web, etc.).
+                    A instalação da Roo Code é simples e pode ser feita diretamente pelo VS Code.
+                    Após instalar, basta conectar um modelo de IA (OpenAI, Gemini, Claude ou até modelos locais).
                 </p>
 
                 <pre class="code-block mt-3">
-1. COLOCAR PASSO A PASSO
-2. COLOCAR PASSO A PASSO
-3. COLOCAR PASSO A PASSO
-4. COLOCAR PASSO A PASSO</pre>
+1. Abra o VS Code.
+2. Vá ao menu: Extensões → Pesquisar por “Roo Code”.
+3. Clique em Instalar.
+4. Abra a aba lateral da Roo Code no editor.
+5. Configure um provedor de IA (OpenAI, Anthropic, Google Gemini ou Ollama para modelos locais).
+6. Insira sua chave de API ou selecione um modelo local disponível.
+            </pre>
 
                 <p class="ia-card-text mt-3">
-                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
-                    um comando de exemplo:
+                    Caso deseje rodar a IA localmente (sem enviar código para a nuvem),
+                    você pode usar o Ollama e selecionar um modelo local compatível:
                 </p>
 
-                <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
+                <pre class="code-block">ollama run codellama</pre>
+
             </div>
         </div>
     </section>
 
+
     <!-- ===========================================================
          COMPARATIVO
-         =========================================================== -->
+=========================================================== -->
     <section id="comparativo" class="container py-5">
         <h2 class="text-white fw-bold fs-2 text-center mb-4">
             Comparativo com Outras Ferramentas
@@ -1177,61 +1328,132 @@
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
+                        <th>Roo Code</th>
+                        <th>GitHub Copilot</th>
+                        <th>Cursor IDE</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✔</span></td>
+
+                        <!-- ROO CODE -->
+                        <td>
+                            <span class="icon-yes" data-bs-toggle="tooltip"
+                                data-bs-title="Funciona offline quando usa modelos locais como Ollama">
+                                ✔*
+                            </span>
+                        </td>
+
+                        <!-- COPILOT -->
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+
+                        <!-- CURSOR -->
+                        <td>
+                            <span class="icon-partial" data-bs-toggle="tooltip"
+                                data-bs-title="Alguns recursos funcionam offline, mas não todos">
+                                Parcial*
+                            </span>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>Privacidade (código local)</td>
-                        <td><span class="icon-partial">Depende</span></td>
+
+                        <!-- ROO -->
+                        <td>
+                            <span class="icon-yes" data-bs-toggle="tooltip"
+                                data-bs-title="Open-source e permite uso com modelos locais">
+                                ✔*
+                            </span>
+                        </td>
+
+                        <!-- COPILOT -->
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+
+                        <!-- CURSOR -->
+                        <td>
+                            <span class="icon-partial" data-bs-toggle="tooltip"
+                                data-bs-title="Depende da configuração de modelo e permissões">
+                                Parcial*
+                            </span>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>Open Source</td>
-                        <td><span class="icon-no">✖</span></td>
+
+                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
                     </tr>
 
                     <tr>
                         <td>Modos Inteligentes</td>
+
+                        <!-- ROO -->
+                        <td>
+                            <span class="icon-yes" data-bs-toggle="tooltip"
+                                data-bs-title="Possui modos: Architect, Debug, Ask, Code">
+                                ✔*
+                            </span>
+                        </td>
+
+                        <!-- COPILOT -->
+                        <td>
+                            <span class="icon-partial" data-bs-toggle="tooltip"
+                                data-bs-title="Não possui modos formais, mas tem recursos inteligentes">
+                                Parcial*
+                            </span>
+                        </td>
+
+                        <!-- CURSOR -->
                         <td><span class="icon-yes">✔</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
                     </tr>
 
                     <tr>
                         <td>Suporte a múltiplos modelos</td>
-                        <td><span class="icon-partial">Depende</span></td>
-                        <td><span class="icon-no">✖</span></td>
+
+                        <!-- ROO -->
+                        <td>
+                            <span class="icon-yes" data-bs-toggle="tooltip"
+                                data-bs-title="Aceita modelos: OpenAI, Claude, Gemini e modelos locais">
+                                ✔*
+                            </span>
+                        </td>
+
+                        <!-- COPILOT -->
+                        <td>
+                            <span class="icon-no" data-bs-toggle="tooltip"
+                                data-bs-title="Limitado aos modelos da Microsoft/GitHub">
+                                ✖*
+                            </span>
+                        </td>
+
+                        <!-- CURSOR -->
                         <td><span class="icon-yes">✔</span></td>
                     </tr>
+
                 </tbody>
             </table>
         </div>
     </section>
 
     <!-- ===========================================================
-         EXEMPLO PRÁTICO EM PYTHON
-         =========================================================== -->
+     EXEMPLO PRÁTICO EM PYTHON (EXEMPLO REAL GERADO PELO ROO CODE)
+     =========================================================== -->
+
     <section id="exemplos" class="container py-5">
         <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
 
         <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
+            Para demonstrar o uso real do Roo Code, utilizei o modo <strong>Code</strong>
+            com <strong>Auto-approve YOLO</strong> e pedi:
+            <br><em>"Gere uma função em Python que calcula média, maior e menor valor de uma lista,
+                com validação de entrada e docstring. Depois, refatore para deixar mais legível."</em>
+            <br>A ferramenta gerou e refatorou automaticamente o código abaixo:
         </p>
 
         <div class="code-container">
@@ -1242,48 +1464,123 @@
                     <div class="traffic-light-green"></div>
                 </div>
 
-                <span class="window-title">exemplo_ferramenta.py</span>
+                <span class="window-title">RooCode.py</span>
 
-                <button class="code-copy" onclick="copyCode()">Copiar</button>
+                <button class="code-copy" onclick="copyCode()"><i class="bi bi-clipboard"></i></button>
             </div>
 
             <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+                <pre class="code-block"><code><span class="comment"># Exemplo real: Função gerada e refatorada pelo Roo Code</span>
 
-<span class="keyword">import</span> re
+                <span class="keyword">def</span> <span class="function">_validate_data_list</span>(data_list: <span class="keyword">list</span>) -> <span class="keyword">list</span>[<span class="keyword">float</span>]:
+                    <span class="string">"""
+                    Validates and converts the input list to a list of floats.
 
-<span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
-    erros = []
+                    Args:
+                        data_list (list): The input list to validate.
 
-    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
-        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos um número."</span>)
+                    Returns:
+                        list[float]: The validated list of floats.
 
-    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
+                    Raises:
+                        ValueError: If input is invalid.
+                    """</span>
+
+                    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(data_list, list):
+                        <span class="keyword">raise</span> ValueError(<span class="string">"Input must be a list."</span>)
+
+                    <span class="keyword">if</span> <span class="keyword">not</span> data_list:
+                        <span class="keyword">raise</span> ValueError(<span class="string">"List cannot be empty."</span>)
+
+                    <span class="keyword">try</span>:
+                        numbers = [<span class="keyword">float</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> data_list]>
+                    <span class="keyword">except</span> ValueError:
+                        <span class="keyword">raise</span> ValueError(<span class="string">"All elements must be numeric."</span>)
+
+                    <span class="keyword">return</span> numbers
 
 
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
+                <span class="keyword">def</span> <span class="function">calculate_list_stats</span>(data_list: <span class="keyword">list</span>) -> <span class="keyword">dict</span>:
+                    <span class="string">"""
+                    Calculates the average, maximum, and minimum values from a list of numbers.
+
+                    Args:
+                        data_list (list): A list of numeric values.
+
+                    Returns:
+                        dict: A dictionary with keys 'average', 'max', 'min'.
+
+                    Raises:
+                        ValueError: If the input is not a list, is empty, or contains non-numeric values.
+                    """</span>
+
+                    numbers = _validate_data_list(data_list)
+
+                    average = <span class="keyword">sum</span>(numbers) / <span class="keyword">len</span>(numbers)
+                    maximum = <span class="keyword">max</span>(numbers)
+                    minimum = <span class="keyword">min</span>(numbers)
+
+                    <span class="keyword">return</span> {<span class="string">'average'</span>: average, <span class="string">'max'</span>: maximum, <span class="string">'min'</span>: minimum}
+                </code></pre>
             </div>
         </div>
+        <!-- ===========================================================
+     PRINTS DO ROO CODE (COM LIGHTBOX)
+     =========================================================== -->
+        <div class="container text-center mt-4">
+
+            <h4 class="text-white mb-3">Capturas de Tela do Processo</h4>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-12 col-md-6">
+                    <a href="src/RooCodePrint1.png" data-bs-toggle="modal" data-bs-target="#imgModal1">
+                        <img src="src/RooCodePrint1.png" class="img-fluid zoom-thumb rounded">
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <a href="src/RooCodePrint2.png" data-bs-toggle="modal" data-bs-target="#imgModal2">
+                        <img src="src/RooCodePrint2.png" class="img-fluid zoom-thumb rounded">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="imgModal1" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content bg-dark">
+                    <img src="src/RooCodePrint1.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="imgModal2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content bg-dark">
+                    <img src="src/RooCodePrint2.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
     </section>
+
 
     <!-- ===========================================================
          AVALIAÇÃO GERAL
          =========================================================== -->
     <section class="container text-center py-5">
         <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
+        <br>
         <div class="stars mt-2">⭐⭐⭐⭐☆</div>
-        <p class="opacity-75 mt-2">
-            Aqui o aluno pode fazer uma avaliação crítica (de 1 a 5 estrelas), justificando pontos fortes
-            e pontos fracos com base no uso prático da ferramenta.
+        <br>
+        <p class="opacity-75 mt-2 ia-card">
+            <strong class="text-white">Contexto da recomendação:</strong> para desenvolvedores que trabalham com
+            múltiplas linguagens,
+            projetos estruturados, backend + frontend + banco + lógica+, e que têm disciplina para revisar e adaptar
+            Roo Code representa um aliado potente de produtividade e organização. Para quem busca rapidez em protótipos
+            ou automação de tarefas repetitivas, traz vantagens concretas. Porém, exige entendimento das limitações, bom
+            uso e supervisão humana ou seja: não é “mágica”, mas uma ferramenta estratégica de aceleração.
         </p>
     </section>
 
@@ -1372,6 +1669,12 @@ if __name__ == "__main__":
             sidebar.classList.remove("open");
             backdrop.classList.remove("active");
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+        });
     </script>
 </body>
 
