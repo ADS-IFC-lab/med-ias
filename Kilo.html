@@ -137,7 +137,7 @@
             --radius-button: 10px;
 
             /* Logo usada no fundo do hero (pode trocar o arquivo) */
-            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+            --hero-logo-image: url("https://kilo.ai/docs/img/kilo-v1.svg");
         }
 
         /* ===========================================================
@@ -234,7 +234,7 @@
             position: absolute;
             top: 40%;
             left: 40%;
-            transform: translate(-50%, -50%) scale(4);
+            transform: translate(-50%, -50%) scale(1.2);
             width: 400px;
             height: 400px;
             opacity: 0.25;
@@ -242,6 +242,8 @@
             background-image:
                 linear-gradient(160deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),
                 var(--hero-logo-image);
+			filter: invert(1);
+            background-blend-mode: multiply;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -782,598 +784,719 @@
 
 <body>
 
-    <!-- ===========================================================
-         NAVBAR + MENU HAMBÚRGUER / SIDEBAR
-         =========================================================== -->
-    <nav id="nav" class="navbar navbar-dark">
-        <div class="container d-flex justify-content-between align-items-center">
-            <!-- HAMBURGUER CUSTOM -->
-            <div id="hamburger" onclick="toggleMenu()"></div>
+	<!-- ===========================================================
+     	NAVBAR + MENU HAMBÚRGUER / SIDEBAR
+     	=========================================================== -->
+	<nav id="nav" class="navbar navbar-dark">
+    	<div class="container d-flex justify-content-between align-items-center">
+        	<!-- HAMBURGUER CUSTOM -->
+        	<div id="hamburger" onclick="toggleMenu()"></div>
 
-            <!-- TÍTULO CENTRAL -->
-            <span class="navbar-title mx-auto text-center">
-                Guia de Ferramentas de IA para Desenvolvedores — 2025
-            </span>
+        	<!-- TÍTULO CENTRAL -->
+        	<span class="navbar-title mx-auto text-center">
+            	Guia de Ferramentas de IA para Desenvolvedores — 2025
+        	</span>
 
-            <a href="index.html" id="home">
-                <i class="bi bi-house-fill"></i>
-            </a>
-        </div>
-    </nav>
+        	<a href="index.html" id="home">
+            	<i class="bi bi-house-fill"></i>
+        	</a>
+    	</div>
+	</nav>
 
-    <!-- BACKDROP DO SIDEBAR -->
-    <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
+	<!-- BACKDROP DO SIDEBAR -->
+	<div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
 
-    <!-- SIDEBAR LATERAL: LISTA COM TODAS AS FERRAMENTAS DO MED -->
-    <!-- SIDEBAR LATERAL: LISTA COM TODAS AS FERRAMENTAS DO MED -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h4>Ferramentas do MED</h4>
-            <button class="close-btn" onclick="closeSidebar()">×</button>
-        </div>
+	<!-- SIDEBAR LATERAL: LISTA COM TODAS AS FERRAMENTAS DO MED -->
+	<!-- SIDEBAR LATERAL: LISTA COM TODAS AS FERRAMENTAS DO MED -->
+	<div id="sidebar" class="sidebar">
+    	<div class="sidebar-header">
+        	<h4>Ferramentas do MED</h4>
+        	<button class="close-btn" onclick="closeSidebar()">×</button>
+    	</div>
 
-        <div class="sidebar-content">
-            <!-- Cada item abaixo é uma ferramenta da turma -->
-            <div class="sidebar-item">
-                <a href="Copilot.html">
-                    <h5>GitHub Copilot <span>— João</span></h5>
-                </a>
-                <a href="https://docs.github.com/pt/copilot" target="_blank">Documentação</a>
-            </div>
+    	<div class="sidebar-content">
+        	<!-- Cada item abaixo é uma ferramenta da turma -->
+        	<div class="sidebar-item">
+            	<a href="Copilot.html">
+                	<h5>GitHub Copilot <span>— João</span></h5>
+            	</a>
+            	<a href="https://docs.github.com/pt/copilot" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="Claude.html">
-                    <h5>Claude Code <span>— Cezar</span></h5>
-                </a>
-                <a href="https://code.claude.com/docs/pt/overview" target="_blank">Documentação</a>
-            </div>
+        	<div class="sidebar-item">
+            	<a href="Claude.html">
+                	<h5>Claude Code <span>— Cezar</span></h5>
+            	</a>
+            	<a href="https://code.claude.com/docs/pt/overview" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="Cursor.html">
-                    <h5>Cursor <span>— Andressa</span></h5>
-                </a>
-                <a href="https://cursor.com/docs" target="_blank">Documentação</a>
-            </div>
+        	<div class="sidebar-item">
+            	<a href="Cursor.html">
+                	<h5>Cursor <span>— Andressa</span></h5>
+            	</a>
+            	<a href="https://cursor.com/docs" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="Windsurf.html">
-                    <h5>Windsurf <span>— Laura</span></h5>
-                </a>
-                <a href="https://docs.windsurf.com/pt-BR/windsurf/getting-started" target="_blank">Documentação</a>
-            </div>
+        	<div class="sidebar-item">
+            	<a href="Windsurf.html">
+                	<h5>Windsurf <span>— Laura</span></h5>
+            	</a>
+            	<a href="https://docs.windsurf.com/pt-BR/windsurf/getting-started" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="Kilo.html">
-                    <h5>Kilo Code <span>— Yuri</span></h5>
-                </a>
-                <a href="https://kilocode.ai/docs" target="_blank">Documentação</a>
-            </div>
+        	<div class="sidebar-item">
+            	<a href="Kilo.html">
+                	<h5>Kilo Code <span>— Yuri</span></h5>
+            	</a>
+            	<a href="https://kilocode.ai/docs" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="RooCode.html">
-                    <h5>Roo Code <span>— Pedro</span></h5>
-                </a>
-                <a href="https://docs.iacode.com" target="_blank">Documentação</a>
-            </div>
+        	<div class="sidebar-item">
+            	<a href="RooCode.html">
+                	<h5>Roo Code <span>— Pedro</span></h5>
+            	</a>
+            	<a href="https://docs.iacode.com" target="_blank">Documentação</a>
+        	</div>
 
-            <div class="sidebar-item">
-                <a href="TRAE.html">
-                    <h5>TRAE <span>— Dolberth</span></h5>
-                </a>
-                <a href="https://docs.trae.ai" target="_blank">Documentação</a>
-            </div>
-        </div>
-    </div>
+        	<div class="sidebar-item">
+            	<a href="TRAE.html">
+                	<h5>TRAE <span>— Dolberth</span></h5>
+            	</a>
+            	<a href="https://docs.trae.ai" target="_blank">Documentação</a>
+        	</div>
+    	</div>
+	</div>
 
-    <!-- ===========================================================
-         HERO
-         =========================================================== -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
+	<!-- ===========================================================
+     	HERO
+     	=========================================================== -->
+	<section class="hero-section">
+    	<div class="hero-background"></div>
 
-        <div class="floating-code">
-            // pseudo-código da sua IA<br>
-            function assistant() {<br>
-            &nbsp;&nbsp;return "Dev productivity++";<br> }
-        </div>
+    	<div class="floating-code">
+        	// pseudo-código da sua IA<br>
+        	function assistant() {<br>
+        	&nbsp;&nbsp;return "Dev productivity++";<br> }
+    	</div>
 
-        <div class="container py-5">
-            <!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
-            <h1 class="hero-title">
-                Título principal da ferramenta de IA.
-            </h1>
+    	<div class="container py-5">
+        	<!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
+        	<h1 class="hero-title">
+            	Kilo Code
+        	</h1><h1 class="hero-title">
+            Seu agente de codificação com codigo aberto.
+        	</h1>
+        	<p class="hero-subtitle mt-3">
+            	Feito para te auxiliar no desenvolvimento dos codigos possuindo um amplo conhecimento em linguagens,
+            	design e gerenciamento de projetos.
+        	</p>
 
-            <p class="hero-subtitle mt-3">
-                Use este espaço para apresentar, em 2–3 linhas, o que a sua ferramenta faz:
-                por exemplo, auxiliar programação, revisar código, gerar testes, etc.
-            </p>
+        	<div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
+            	<!-- TODO: Trocar link para o site oficial da IA -->
+            	<a href="https://kilo.ai/" class="btn-primary-ia">
+                	<i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
+            	</a>
 
-            <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
-                <!-- TODO: Trocar link para o site oficial da IA -->
-                <a href="#" class="btn-primary-ia">
-                    <i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
-                </a>
+            	<a href="#vantagens" class="btn-dark-outline">
+                	<i class="bi bi-arrow-down"></i> Ver detalhes
+            	</a>
+        	</div>
+    	</div>
+	</section>
 
-                <a href="#vantagens" class="btn-dark-outline">
-                    <i class="bi bi-arrow-down"></i> Ver detalhes
-                </a>
-            </div>
-        </div>
-    </section>
+	<!-- ===========================================================
+     	VANTAGENS
+     	=========================================================== -->
+	<section id="vantagens" class="advantages-section">
+    	<div class="container">
+        	<h2 class="text-white fw-bold mb-5 fs-2 text-center">Vantagens da Ferramenta</h2>
 
-    <!-- ===========================================================
-         VANTAGENS
-         =========================================================== -->
-    <section id="vantagens" class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Vantagens da Ferramenta</h2>
+        	<div class="row g-4">
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        	Auxilio de Desenvolvimento
+                    	</div>
+                    	<p class="ia-card-text mt-2">
+                        	Para desenvolver do zero ou ampliar o código disponível o Kilo disponibiliza uma gama de IAs que possibilitam a implementação de novas 
+                            funcionalidades dentro do prompt escrito, então acaba sendo uma ótima opção para usuários iniciantes.
+                    	</p>
+                	</div>
+            	</div>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-                            Aumento de Produtividade
-                        </div>
-                        <p class="ia-card-text mt-2">
-                            Descreva como a IA ajuda a acelerar o desenvolvimento: geração de código,
-                            automação de tarefas repetitivas, sugestões inteligentes, etc.
-                        </p>
-                    </div>
-                </div>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-motherboard"></i></div>
+                        	Integração com o Ambiente
+                    	</div>
+                    	<p class="ia-card-text mt-2">
+                    	O Kilo Code funciona principalmente como extensão no Visual Studio Code (VSCode), permitindo interação direta no editor de código e terminal integrado. Também suporta execução em ambientes web.
+                    	</p>
+                	</div>
+            	</div>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-motherboard"></i></div>
-                            Integração com o Ambiente
-                        </div>
-                        <p class="ia-card-text mt-2">
-                            Explique em quais IDEs, CLIs ou plataformas ela funciona (VSCode, JetBrains, Web, Terminal,
-                            etc.).
-                        </p>
-                    </div>
-                </div>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-shield-lock"></i></div>
+                        	Qualidade e Segurança
+                    	</div>
+                    	<p class="ia-card-text mt-2">
+                    	Ao levar em consideração o Kilo Code como um engenheiro de software assistido por IAs, ele foca em melhorar a qualidade do código gerado.
+                            revisando o código, gerando testes e detectando bugs em tempo real.
+                            Para segurança, prioriza a privacidade mantendo o código local sempre que possível, com opções de criptografia e controle de acesso, evitando exposição desnecessária de dados sensíveis.
+                    	</p>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</section>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-shield-lock"></i></div>
-                            Qualidade e Segurança
-                        </div>
-                        <p class="ia-card-text mt-2">
-                            Fale sobre recursos de revisão, testes, detecção de bugs ou aspectos de segurança
-                            que a ferramenta oferece.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- ===========================================================
+     	INFORMAÇÕES GERAIS / SOBRE A FERRAMENTA
+     	=========================================================== -->
+	<section class="container py-5" id="info-gerais">
+    	<h2 class="text-white fw-bold mb-4 fs-2 text-center">Informações Gerais</h2>
 
-    <!-- ===========================================================
-         INFORMAÇÕES GERAIS / SOBRE A FERRAMENTA
-         =========================================================== -->
-    <section class="container py-5" id="info-gerais">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Informações Gerais</h2>
+    	<div class="info-card">
+        	<p class="ia-card-text">
+            	Um membro a mais no seu projeto para te ajudar a desenvolver em diversas areas mas com o destaque em
+            	projetar e planejar um desenvolvimento mais focado e com objetivo claro.
+        	</p>
 
-        <div class="info-card">
-            <p class="ia-card-text">
-                Aqui você pode descrever, de forma mais detalhada, o propósito da ferramenta:
-                que tipo de problema ela resolve, para quais públicos é indicada (iniciantes, equipes grandes,
-                empresas, etc.) e qual é o diferencial em relação a outras soluções.
-            </p>
+        	<p class="ia-card-text mt-3">
+            	Alem da versão gratuita ter poucas diferenças com a paga, dentre elas as que mais se destacam são a
+            	quantidade ilimitada de tokens, suporte prioritario e compatibilidade com sistemas empresariais.
+        	</p>
 
+        	<p class="ia-card-text mt-3">
+            	Funcionalidades que auxiliam quem possui o conhecimentos mais aprofundados sobre as IAs permitindo escolher o melhor
+            	agente para uma determinada ferramenta.
+        	</p>
             <p class="ia-card-text mt-3">
-                Também é um bom lugar para mencionar se a ferramenta é open source, paga, gratuita com limitações,
-                se roda localmente, em nuvem, ou oferece múltiplos modos de uso.
-            </p>
-        </div>
-    </section>
+            	Para futuros avanços o Kilo Code planeja avançar com as tecnologias já utilizadas aprimorando com mais ferramentas como Cloud agents, Code reviews, App builder, Code indexing
+        	</p>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         DESVANTAGENS / LIMITAÇÕES
-         =========================================================== -->
-    <section id="desvantagens" class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
+	<!-- ===========================================================
+     	DESVANTAGENS / LIMITAÇÕES
+     	=========================================================== -->
+	<section id="desvantagens" class="container py-5">
+    	<h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
 
-        <div class="info-card">
-            <ul class="ia-card-text mb-0">
-                <li>Comente sobre possíveis custos (assinatura, uso por token, etc.).</li>
-                <li>Fale sobre dependência de conexão com a internet ou infraestrutura.</li>
-                <li>Mencione limitações técnicas (tamanho de contexto, linguagens melhor suportadas, etc.).</li>
-                <li>Aborde temas de privacidade, segurança e envio de código para servidores externos, se for o caso.
-                </li>
-            </ul>
-        </div>
-    </section>
+    	<div class="info-card">
+        	<ul class="ia-card-text mb-0">
+            	<li>Para utilização gratuita do Kilo um dos poucos problemas é a limitação de tokens que após uma grande quantidade de memoria 
+                    utilizada ele começa a descartar informações consideradas não tão relevantes, o que pode atrapalhar com futuros prompts</li>
+            	<li>Usar sem configurar pode ser um problema para usuarios que não configuram de acordo com seus gostos podendo perder potencial 
+                    ou se frustradas com a execução automatica de outras ferramentas.</li>
+            	<li>Prompts que não são claros podem prejudicar a experiencia, onde o agente define qual é a melhor linguagem ou metodo para a execução.</li>
+            	<li>O Kilo tem problemas em identificar o Sistema Operacional, resultando na dificuldade em acertar comandos no terminal.</li>
+            	<li>Por ser apenas um agente, ele tem problemas relacionados ao auxilio na codificação, podendo não ser a melhor opção para codar.</li>
+            	</li>
+        	</ul>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         RECURSOS PRINCIPAIS
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Recursos Principais</h2>
+	<!-- ===========================================================
+     	RECURSOS PRINCIPAIS
+     	=========================================================== -->
+	<section class="advantages-section">
+    	<div class="container">
+        	<h2 class="text-white fw-bold mb-5 fs-2 text-center">Recursos Principais</h2>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-body-text"></i></div>
-                            Autocomplete de Código
-                        </div>
-                        <p class="ia-card-text">
-                            Descreva como a ferramenta sugere código em tempo real, quais linguagens são suportadas
-                            e como isso ajuda o desenvolvedor.
-                        </p>
-                    </div>
-                </div>
+        	<div class="row g-4">
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-chat-square-text"></i></div>
+                        	ASK
+                    	</div>
+                    	<p class="ia-card-text">
+                        	Função que disponibiliza um assistente pessoal que guia e tira duvidas alem da poossibilidade de utilizar as outras funções caso ache nescessario e seja permitido.
+                    	</p>
+                	</div>
+            	</div>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-chat-square-text"></i></div>
-                            Chat / Assistente Interativo
-                        </div>
-                        <p class="ia-card-text">
-                            Explique como o chat funciona: se entende o contexto do projeto, se lê arquivos,
-                            se gera documentação, etc.
-                        </p>
-                    </div>
-                </div>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        	Architect
+                    	</div>
+                    	<p class="ia-card-text">
+                        	Auxilio da produção permitindo ter um desenvolvimento mais focado a cada etapa, separando os processos e guiando o desenvolvimento.
+                    	</p>
+                	</div>
+            	</div>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="ia-card">
-                        <div class="ia-card-title">
-                            <div class="ia-card-icon"><i class="bi bi-diagram-3"></i></div>
-                            Modos Especiais / Agentes
-                        </div>
-                        <p class="ia-card-text">
-                            Caso a ferramenta possua "modos" (ex: Architect, Debug, Testes), descreva
-                            como cada modo se comporta e quando é mais útil.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-body-text"></i></i></div>
+                        	Code
+                    	</div>
+                    	<p class="ia-card-text">
+                        	Ferramenta responsavel para implementar codigos do front-end, back-end e banco de dados
+                    	</p>
+                	</div>
+            	</div>
 
-    <!-- ===========================================================
-         COMO FUNCIONA
-         =========================================================== -->
-    <section class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-tools"></i></div>
+                        	Debug
+                    	</div>
+                    	<p class="ia-card-text">
+                        	Faz uma analise do codigo procurando e concertando erros encontrados.
+                    	</p>
+                	</div>
+            	</div>
 
-        <div class="info-card">
-            <p class="ia-card-text">
-                Nesta seção você pode explicar o fluxo básico de funcionamento: como o usuário interage,
-                quais entradas fornece (prompts, trechos de código, repositórios), e quais saídas recebe
-                (respostas, diffs de código, arquivos gerados, etc.).
-            </p>
+            	<div class="col-md-6 col-lg-4">
+                	<div class="ia-card">
+                    	<div class="ia-card-title">
+                        	<div class="ia-card-icon"><i class="bi bi-diagram-3"></i></div>
+                        	Orchestrator
+                    	</div>
+                    	<p class="ia-card-text">
+                        	Ele é a junção de todas as outras ferramentas, onde ele gerencia o fluxo de trabalho e decide qual ferramenta usar em cada etapa do desenvolvimento.
+                    	</p>
+                	</div>
+            	</div>
 
-            <p class="ia-card-text mt-3">
-                Também é interessante comentar se a ferramenta utiliza modelos locais, em nuvem,
-                integra com Git, pipelines CI/CD, ou outras ferramentas do ecossistema de desenvolvimento.
-            </p>
-        </div>
-    </section>
+        	</div>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         WORKFLOW ASSISTIDO
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
+	<!-- ===========================================================
+     	COMO FUNCIONA
+     	=========================================================== -->
+	<section class="container py-5">
+    	<h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
 
-            <div class="info-card">
-                <p class="ia-card-text">
-                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
-                </p>
+    	<div class="info-card">
+        	<p class="ia-card-text">
+        	    Você interage com o Kilo Code através de uma interface de chat no VSCode, fornecendo prompts textuais, trechos de código ou links para repositórios. A ferramenta analisa o contexto, utiliza modelos de IA (locais ou em nuvem) para gerar respostas.
+        	</p>
+    	</div>
+	</section>
 
-                <ol class="mt-3 ia-card-text">
-                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
-                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
-                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
-                    <li>Erros são identificados e corrigidos com explicações.</li>
-                    <li>Testes e documentação podem ser gerados automaticamente.</li>
-                </ol>
+	<!-- ===========================================================
+     	WORKFLOW ASSISTIDO
+     	=========================================================== -->
+	<section class="advantages-section">
+    	<div class="container">
+        	<h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
 
-                <p class="mt-3 ia-card-text">
-                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
-                    desenvolvimento.
-                </p>
-            </div>
-        </div>
-    </section>
+        	<div class="info-card">
+            	<p class="ia-card-text">
+            	                 	O workflow assistido pelo Kilo Code é otimizado para eficiência:
+            	             	</p>
+            	
+            	             	<ol class="mt-3 ia-card-text">
+            	                 	<li>Com base no prompt, o Kilo Code entrega um plano detalhado de desenvolvimento.</li>
+            	                 	<li>A IA analisa o contexto do projeto e sugere uma arquitetura estruturada.</li>
+            	                 	<li>O código é gerado, refatorado ou expandido de forma assistida, com sugestões em tempo real.</li>
+            	                 	<li>Erros são identificados automaticamente, com correções explicadas.</li>
+            	                 	<li>Testes e documentação são criados, garantindo qualidade.</li>
+            	             	</ol>
+            	
+            	             	<p class="mt-3 ia-card-text">
+            	                 	Isso se adapta ao workflow de equipes, promovendo eficiência e colaboração.
+            	             	</p>
+            	
+            	             	<div class="mt-4">
+            	                 	<h5>Diagrama do Workflow:</h5>
+            	                 	<pre class="code-block">
+            	Usuário → Prompt → Kilo Code → Plano → Code → Debug → Testes → Resultado Final
+            	                 	</pre>
+            	             	</div>
+        	</div>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         POR QUE ESCOLHER ESTA FERRAMENTA
-         =========================================================== -->
-    <section class="container py-5">
-        <h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
+	<!-- ===========================================================
+     	POR QUE ESCOLHER ESTA FERRAMENTA
+     	=========================================================== -->
+	<section class="container py-5">
+    	<h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
 
-        <div class="row g-4">
+    	<div class="row g-4">
 
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-people-fill"></i></div>
-                        Para Equipes
-                    </div>
-                    <p class="ia-card-text">
-                        Explique como a ferramenta ajuda times a manterem padrões, revisarem código em conjunto
-                        e colaborarem de forma mais eficiente.
-                    </p>
-                </div>
-            </div>
+        	<div class="col-md-6 col-lg-4">
+            	<div class="ia-card">
+                	<div class="ia-card-title">
+                    	<div class="ia-card-icon"><i class="bi bi-people-fill"></i></div>
+                    	Para Equipes
+                	</div>
+                	<p class="ia-card-text">
+                    	O Kilo Code é perfeito para uma ferramenta de auxilio em equipes de desenvolvimento, 
+                        pois ele permite a colaboração entre membros, revisão de código em tempo real e integração com sistemas de controle de versão como Git.
+                	</p>
+            	</div>
+        	</div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-person-workspace"></i></div>
-                        Para Devs Individuais
-                    </div>
-                    <p class="ia-card-text">
-                        Comente como um desenvolvedor sozinho pode ganhar velocidade, aprender com sugestões
-                        e reduzir erros usando a ferramenta.
-                    </p>
-                </div>
-            </div>
+        	<div class="col-md-6 col-lg-4">
+            	<div class="ia-card">
+                	<div class="ia-card-title">
+                    	<div class="ia-card-icon"><i class="bi bi-person-workspace"></i></div>
+                    	Para Devs Individuais
+                	</div>
+                	<p class="ia-card-text">
+                    	É como desenvolver com um engenheiro de software experiente ao seu lado, ajudando a planejar, codificar, revisar e testar seu código.
+                	</p>
+            	</div>
+        	</div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="ia-card">
-                    <div class="ia-card-title">
-                        <div class="ia-card-icon"><i class="bi bi-building-lock"></i></div>
-                        Para Empresas
-                    </div>
-                    <p class="ia-card-text">
-                        Aborde pontos como governança, privacidade, segurança do código, compliance
-                        e integração com processos corporativos.
-                    </p>
-                </div>
-            </div>
+        	<div class="col-md-6 col-lg-4">
+            	<div class="ia-card">
+                	<div class="ia-card-title">
+                    	<div class="ia-card-icon"><i class="bi bi-building-lock"></i></div>
+                    	Para Empresas
+                	</div>
+                	<p class="ia-card-text">
+                	    Para empresas, o Kilo Code pode ser uma otima opção para empresas que buscam amplificar a qualidade de entrega, destacando a versão paga
+                        que disponibiliza o uso colaborativo, analise da qualidade do codigo, além da segurança do uso local.
+                	</p>
+            	</div>
+        	</div>
 
-        </div>
-    </section>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         INSTALAÇÃO E SETUP
-         =========================================================== -->
-    <section class="advantages-section">
-        <div class="container">
-            <h2 class="text-white fw-bold fs-2 text-center mb-4">Instalação e Setup</h2>
+	<!-- ===========================================================
+     	INSTALAÇÃO E SETUP
+     	=========================================================== -->
+	<section class="advantages-section">
+    	<div class="container">
+        	<h2 class="text-white fw-bold fs-2 text-center mb-4">Instalação e Setup</h2>
 
-            <div class="info-card">
-                <p class="ia-card-text">
-                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
-                    CLI, site web, etc.).
-                </p>
+        	<div class="info-card">
+            	<p class="ia-card-text">
+                	A instalação no Windows é extremamente simples, apenas tendo que abrir a extenção e criar uma conta.
+            	</p>
 
-                <pre class="code-block mt-3">
-1. COLOCAR PASSO A PASSO
-2. COLOCAR PASSO A PASSO
-3. COLOCAR PASSO A PASSO
-4. COLOCAR PASSO A PASSO</pre>
+            	<pre class="code-block mt-3">
+1. Baixar a extenção direto no vscode (Kilo Code)
+2. Clicar em começar já e criar uma conta no Kilo
+3. Reiniciar o Vscode
+4. Clicar novamente em começar e logar na conta</pre>
 
-                <p class="ia-card-text mt-3">
-                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
-                    um comando de exemplo:
-                </p>
+            	<p class="ia-card-text mt-3">
+                	Se houver suporte a execução local (modelos em máquina), você pode mostrar também
+                	um comando de exemplo:
+            	</p>
 
-                <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
-            </div>
-        </div>
-    </section>
+            	<pre class="code-block">comando_exemplo --usar-modelo-local</pre>
+        	</div>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         COMPARATIVO
-         =========================================================== -->
-    <section id="comparativo" class="container py-5">
-        <h2 class="text-white fw-bold fs-2 text-center mb-4">
-            Comparativo com Outras Ferramentas
-        </h2>
+	<!-- ===========================================================
+     	COMPARATIVO
+     	=========================================================== -->
+	<section id="comparativo" class="container py-5">
+    	<h2 class="text-white fw-bold fs-2 text-center mb-4">
+        	Comparativo com Outras Ferramentas
+    	</h2>
 
-        <div class="table-container">
-            <table class="ia-table">
-                <thead>
-                    <tr>
-                        <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
-                    </tr>
-                </thead>
+    	<div class="table-container">
+        	<table class="ia-table">
+            	<thead>
+                	<tr>
+                    	<th>Recurso</th>
+                    	<th>Kilo Code</th>
+                    	<th>GitHub Copilot</th>
+                    	<th>Cursor</th>
+                	</tr>
+            	</thead>
 
-                <tbody>
-                    <tr>
-                        <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✔</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                    </tr>
+            	<tbody>
+                	<tr>
+                    	<td>Funciona sem internet</td>
+                    	<td><span class="icon-partial">Depende</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                	</tr>
 
-                    <tr>
-                        <td>Privacidade (código local)</td>
-                        <td><span class="icon-partial">Depende</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                    </tr>
+                	<tr>
+                    	<td>Privacidade (código local)</td>
+                    	<td><span class="icon-partial">Depende</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                	</tr>
 
-                    <tr>
-                        <td>Open Source</td>
-                        <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
-                    </tr>
+                	<tr>
+                    	<td>Open Source</td>
+                    	<td><span class="icon-yes">✔</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                    	<td><span class="icon-no">✖</span></td>
+                	</tr>
 
-                    <tr>
-                        <td>Modos Inteligentes</td>
+                	<tr>
+                    	<td>Modos Inteligentes</td>
                         <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-partial">Parcial</span></td>
                         <td><span class="icon-partial">Parcial</span></td>
-                    </tr>
+                	</tr>
 
-                    <tr>
-                        <td>Suporte a múltiplos modelos</td>
-                        <td><span class="icon-partial">Depende</span></td>
+                	<tr>
+                    	<td>Suporte a múltiplos modelos</td>
+                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-yes">✔</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+                	</tr>
+            	</tbody>
+        	</table>
+    	</div>
+	</section>
 
-    <!-- ===========================================================
-         EXEMPLO PRÁTICO EM PYTHON
-         =========================================================== -->
-    <section id="exemplos" class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
+	<!-- ===========================================================
+     	EXEMPLO PRÁTICO EM PYTHON
+     	=========================================================== -->
+	<section id="exemplos" class="container py-5">
+    	<h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
 
-        <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
-        </p>
+    	<p class="opacity-75 mb-4 text-center">
+        	Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
+        	em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
+    	</p>
 
-        <div class="code-container">
-            <div class="code-header">
-                <div class="window-controls">
-                    <div class="traffic-light-red"></div>
-                    <div class="traffic-light-yellow"></div>
-                    <div class="traffic-light-green"></div>
-                </div>
+    	<div class="code-container">
+        	<div class="code-header">
+            	<div class="window-controls">
+                	<div class="traffic-light-red"></div>
+                	<div class="traffic-light-yellow"></div>
+                	<div class="traffic-light-green"></div>
+            	</div>
 
-                <span class="window-title">exemplo_ferramenta.py</span>
+            	<span class="window-title">exemplo_ferramenta.py</span>
 
-                <button class="code-copy" onclick="copyCode()">Copiar</button>
-            </div>
+            	<button class="code-copy" onclick="copyCode()">Copiar</button>
+        	</div>
 
-            <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+        	<div class="code-content">
+            	<pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
 
 <span class="keyword">import</span> re
 
 <span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
-    erros = []
+	erros = []
 
-    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
-        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos um número."</span>)
+	<span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
+    	erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
+	<span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
+    	erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
+	<span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
+    	erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
+	<span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
+    	erros.append(<span class="string">"Inclua ao menos um número."</span>)
 
-    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
+	<span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
 
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
-            </div>
-        </div>
-    </section>
+	exemplo = <span class="string">"Senha123"</span>
+	resultado = validar_senha(exemplo)
+	<span class="keyword">print</span>(resultado)</code></pre>
+        	</div>
+    	</div>
+	</section>
+	<!-- ===========================================================
+      	EXEMPLO PRÁTICO EM JAVASCRIPT
+      	=========================================================== -->
+ 	<section id="exemplos-js" class="container py-5">
+     	<h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em JavaScript</h2>
 
-    <!-- ===========================================================
-         AVALIAÇÃO GERAL
-         =========================================================== -->
-    <section class="container text-center py-5">
-        <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
-        <div class="stars mt-2">⭐⭐⭐⭐☆</div>
-        <p class="opacity-75 mt-2">
-            Aqui o aluno pode fazer uma avaliação crítica (de 1 a 5 estrelas), justificando pontos fortes
-            e pontos fracos com base no uso prático da ferramenta.
-        </p>
-    </section>
+     	<p class="opacity-75 mb-4 text-center">
+         	Outro exemplo: uma função de busca em array, gerada com ajuda do Kilo Code.
+     	</p>
 
-    <!-- ===========================================================
-         FOOTER
-         =========================================================== -->
-    <footer class="footer mt-5">
-        <div class="container text-center">
-            <p class="opacity-75 mb-4">
-                Página desenvolvida como parte do MED – Assistentes de Código (IFC).
-            </p>
+     	<div class="code-container">
+         	<div class="code-header">
+             	<div class="window-controls">
+                 	<div class="traffic-light-red"></div>
+                 	<div class="traffic-light-yellow"></div>
+                 	<div class="traffic-light-green"></div>
+             	</div>
 
-            <div class="footer-links mb-3">
-                <a href="#info-gerais" class="footer-link">Informações Gerais</a>
-                <a href="#vantagens" class="footer-link">Vantagens</a>
-                <a href="#desvantagens" class="footer-link">Desvantagens</a>
-                <a href="#exemplos" class="footer-link">Exemplo em Python</a>
-                <a href="#comparativo" class="footer-link">Comparativo</a>
-            </div>
+             	<span class="window-title">busca.js</span>
 
-            <div class="social-links">
-                <a href="https://github.com/ADS-IFC-lab" class="social-link" target="_blank">
-                    <i class="bi bi-github"></i>
-                </a>
-            </div>
+             	<button class="code-copy" onclick="copyCodeJS()">Copiar</button>
+         	</div>
 
-            <p class="opacity-50 mt-4" style="font-size: 0.85rem;">
-                © 2025 MED – Assistentes de Código por IA • IFC Campus Fraiburgo
-            </p>
-        </div>
-    </footer>
+         	<div class="code-content">
+             	<pre class="code-block"><code><span class="comment">// Função de busca em array gerada pelo Kilo Code</span>
 
-    <!-- ===========================================================
-         SCRIPTS
-         =========================================================== -->
-    <script>
-        function copyCode() {
-            const code = `
+<span class="keyword">function</span> <span class="function">buscarElemento</span>(array, elemento) {
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++) {
+        <span class="keyword">if</span> (array[i] === elemento) {
+            <span class="keyword">return</span> i;
+        }
+    }
+    <span class="keyword">return</span> -<span class="number">1</span>;
+}
+
+<span class="keyword">const</span> lista = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="keyword">console</span>.log(buscarElemento(lista, <span class="number">3</span>)); <span class="comment">// 2</span></code></pre>
+         	</div>
+      </div>
+  </section>
+
+<!-- ===========================================================
+      EXEMPLO PRÁTICO: PLANOS DE PROJETO COM KILO CODE
+      =========================================================== -->
+  <section id="exemplos-planos" class="container py-5">
+      <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo Prático: Planos de Projeto com KILO CODE</h2>
+
+      <p class="opacity-75 mb-4 text-center">
+         	Um dos recursos mais poderosos do KILO CODE é sua capacidade de gerar planos de projeto detalhados e estruturados.
+         	A ferramenta analisa o prompt do usuário e cria um roadmap completo, quebrando o desenvolvimento em etapas claras,
+         	com sugestões de arquitetura, tecnologias e sequências lógicas de implementação.
+      </p>
+
+      <div class="info-card">
+         	<p class="ia-card-text">
+         	   	Por exemplo, ao solicitar um plano para um aplicativo web simples, o KILO CODE gerou um plano de execução que incluiu:
+         	</p>
+
+         	<div class="mt-4 text-center">
+         	   	<img src="src/KiloPlan.png" alt="Screenshot 1: Visão geral do plano de projeto" class="img-fluid mb-3" style="max-width: 80%; border: 1px solid var(--color-border-soft); border-radius: var(--radius-card);">
+         	   	<p class="text-muted">Figura: Visão geral do plano estruturado gerado pelo KILO CODE.</p>
+         	</div>
+
+         	<p class="ia-card-text mt-3">
+         	   	Esse plano funciona como guia permitindo que o desenvolvedor foque na execução e tambem premite uma reestruturação 
+                do planejamento atual. O Kilo adapta os planos com base no contexto fornecido.
+         	</p>
+      </div>
+  </section>
+
+<!-- ===========================================================
+      AVALIAÇÃO GERAL
+     	=========================================================== -->
+	<section class="container text-center py-5">
+    	<h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
+    	<div class="stars mt-2">⭐⭐⭐⭐⭐</div>
+    	<p class="opacity-75 mt-2">
+        	Ao que se propõe, o Kilo Code cumpre com excelencia o papel de um agente de planejamento e auxilio no desenvolvimento, podendo não ser a melhor
+            opção pra quem busca uma IA para codificação direta, mas sim para quem busca um parceiro de desenvolvimento.
+    	</p>
+	</section>
+
+	<!-- ===========================================================
+     	FOOTER
+     	=========================================================== -->
+	<footer class="footer mt-5">
+    	<div class="container text-center">
+        	<p class="opacity-75 mb-4">
+            	Página desenvolvida como parte do MED – Assistentes de Código (IFC).
+        	</p>
+
+        	<div class="footer-links mb-3">
+        	   	<a href="#info-gerais" class="footer-link">Informações Gerais</a>
+        	   	<a href="#vantagens" class="footer-link">Vantagens</a>
+        	   	<a href="#desvantagens" class="footer-link">Desvantagens</a>
+        	   	<a href="#exemplos" class="footer-link">Exemplo em Python</a>
+        	   	<a href="#comparativo" class="footer-link">Comparativo</a>
+        	   	<a href="#exemplos-planos" class="footer-link">Exemplo Planos</a>
+        	</div>
+
+        	<div class="social-links">
+            	<a href="https://github.com/ADS-IFC-lab" class="social-link" target="_blank">
+                	<i class="bi bi-github"></i>
+            	</a>
+        	</div>
+
+        	<p class="opacity-50 mt-4" style="font-size: 0.85rem;">
+            	© 2025 MED – Assistentes de Código por IA • IFC Campus Fraiburgo
+        	</p>
+    	</div>
+	</footer>
+
+	<!-- ===========================================================
+     	SCRIPTS
+     	=========================================================== -->
+	<script>
+    	function copyCode() {
+    	   	const code = `
 import re
 
 def validar_senha(senha: str) -> list[str] | str:
-    erros = []
+erros = []
 
-    if len(senha) < 8:
-        erros.append("A senha deve ter pelo menos 8 caracteres.")
-    if not re.search(r"[A-Z]", senha):
-        erros.append("Inclua ao menos uma letra maiúscula.")
-    if not re.search(r"[a-z]", senha):
-        erros.append("Inclua ao menos uma letra minúscula.")
-    if not re.search(r"\\d", senha):
-        erros.append("Inclua ao menos um número.")
+if len(senha) < 8:
+    erros.append("A senha deve ter pelo menos 8 caracteres.")
+if not re.search(r"[A-Z]", senha):
+    erros.append("Inclua ao menos uma letra maiúscula.")
+if not re.search(r"[a-z]", senha):
+    erros.append("Inclua ao menos uma letra minúscula.")
+if not re.search(r"\\d", senha):
+    erros.append("Inclua ao menos um número.")
 
-    return erros or "Senha válida!"
+return erros or "Senha válida!"
 
 if __name__ == "__main__":
-    exemplo = "Senha123"
-    resultado = validar_senha(exemplo)
-    print(resultado)
+exemplo = "Senha123"
+resultado = validar_senha(exemplo)
+print(resultado)
 `;
-            navigator.clipboard.writeText(code.trim());
-            alert("Código copiado!");
-        }
+    	   	navigator.clipboard.writeText(code.trim());
+    	   	alert("Código copiado!");
+    	}
 
-        function toggleMenu() {
-            const nav = document.getElementById("nav");
-            const sidebar = document.getElementById("sidebar");
-            const backdrop = document.getElementById("sidebar-backdrop");
+    	function copyCodeJS() {
+    	   	const code = `
+// Função de busca em array gerada pelo Kilo Code
+function buscarElemento(array, elemento) {
+   for (let i = 0; i < array.length; i++) {
+    	  if (array[i] === elemento) {
+    	      return i;
+    	  }
+   }
+   return -1;
+}
 
-            nav.classList.toggle("active");
+const lista = [1, 2, 3, 4];
+console.log(buscarElemento(lista, 3)); // 2
+`;
+    	   	navigator.clipboard.writeText(code.trim());
+    	   	alert("Código copiado!");
+    	}
 
-            if (nav.classList.contains("active")) {
-                sidebar.classList.add("open");
-                backdrop.classList.add("active");
-            } else {
-                sidebar.classList.remove("open");
-                backdrop.classList.remove("active");
-            }
-        }
+    	function toggleMenu() {
+        	const nav = document.getElementById("nav");
+        	const sidebar = document.getElementById("sidebar");
+        	const backdrop = document.getElementById("sidebar-backdrop");
 
-        function closeSidebar() {
-            const nav = document.getElementById("nav");
-            const sidebar = document.getElementById("sidebar");
-            const backdrop = document.getElementById("sidebar-backdrop");
+        	nav.classList.toggle("active");
 
-            nav.classList.remove("active");
-            sidebar.classList.remove("open");
-            backdrop.classList.remove("active");
-        }
-    </script>
+        	if (nav.classList.contains("active")) {
+            	sidebar.classList.add("open");
+            	backdrop.classList.add("active");
+        	} else {
+            	sidebar.classList.remove("open");
+            	backdrop.classList.remove("active");
+        	}
+    	}
+
+    	function closeSidebar() {
+        	const nav = document.getElementById("nav");
+        	const sidebar = document.getElementById("sidebar");
+        	const backdrop = document.getElementById("sidebar-backdrop");
+
+        	nav.classList.remove("active");
+        	sidebar.classList.remove("open");
+        	backdrop.classList.remove("active");
+    	}
+	</script>
 </body>
+
+
 
 </html>
