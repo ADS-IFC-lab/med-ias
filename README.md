@@ -10,6 +10,12 @@ Roo Code é uma extensão **open-source** para VS Code que integra IA no desenvo
 
 ---
 
+# Windsurf
+
+Windsurf é um IDE de IA de próxima geração criado para manter você no fluxo, uma plataforma de desenvolvimento que automatiza tarefas, mantém o fluxo de trabalho e oferece integração visual com terminal, deploy e memória contextual.
+
+---
+
 # 🔗 Link para o Hub Site: 
 ### [https://ads-ifc-lab.github.io/med-ias](https://ads-ifc-lab.github.io/med-ias/)
 
@@ -17,6 +23,7 @@ Roo Code é uma extensão **open-source** para VS Code que integra IA no desenvo
 
 ### 🧑‍💻 Alunos:
 - Pedro Henrique Haupt
+- Laura Urba 
 
 
 
