@@ -2,247 +2,1429 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MED – KIRO IA</title>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <!-- CSS custom -->
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <!-- TODO: Cada aluno deve trocar o título abaixo para o nome da sua ferramenta -->
+    <title>Kiro - MED Assistentes de Código</title>
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <style>
-        /* ===========================
-   CONFIGURAÇÃO DE TEMA
-=========================== */
+        /* ===========================================================
+           SISTEMA DE TEMA (TUDO CONTROLADO VIA :root)
+           =========================================================== */
+        :root {
+            /* Nome da ferramenta (sem impacto visual, só semântico) */
+            --tool-name: "Kiro";
 
-:root {
-    --bg-light: #f4f4f9;
-    --bg-dark: #1e1e1e;
+            /* Paleta base */
+            --color-primary: #3ba5ff;
+            --color-secondary: #a855ff;
+            --color-accent: #ffd86b;
 
-    --text-light: #1a1a1a;
-    --text-dark: #f1f1f1;
+            /* Fundos principais */
+            --color-bg-main: #050609;
+            --color-bg-hero: #0b0d16;
 
-    --sidebar-bg-light: #ffffff;
-    --sidebar-bg-dark: #2c2c2c;
+            /* Textos */
+            --color-text-main: #e2e2e2;
+            --color-text-muted: #a7a7a7;
+            --color-text-navbar: #e4e4e4;
+            --color-text-inverse: #000000;
 
-    --accent: #0d6efd;
-}
+            /* Navbar */
+            --color-navbar-bg: #000000;
+            --color-navbar-border: rgba(255, 255, 255, 0.05);
+            --color-navbar-title: #e4e4e4;
+            --color-navbar-icon: #ffffff;
 
-.light-theme {
-    --bg: var(--bg-light);
-    --text: var(--text-light);
-    --sidebar-bg: var(--sidebar-bg-light);
-}
+            /* Cards / superfícies */
+            --color-surface-card: #0e1016;
+            --color-surface-card-alt: #0a0c12;
+            --color-surface-sidebar: #0b0d12;
+            --color-surface-sidebar-item: #11141a;
 
-.dark-theme {
-    --bg: var(--bg-dark);
-    --text: var(--text-dark);
-    --sidebar-bg: var(--sidebar-bg-dark);
-}
+            /* Bordas genéricas */
+            --color-border-soft: rgba(255, 255, 255, 0.05);
+            --color-border-medium: rgba(255, 255, 255, 0.08);
+            --color-border-strong: rgba(255, 255, 255, 0.10);
 
-/* ===========================
-   LAYOUT BASE
-=========================== */
+            /* Tabela */
+            --color-table-header-bg: rgba(255, 255, 255, 0.08);
+            --color-table-row-bg: rgba(255, 255, 255, 0.03);
+            --color-table-row-alt-bg: rgba(255, 255, 255, 0.05);
+            --color-table-row-hover-bg: rgba(59, 165, 255, 0.12);
+            --color-table-border: rgba(255, 255, 255, 0.06);
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    display: flex;
-    margin: 0;
-    transition: background 0.3s, color 0.3s;
-    font-family: Arial, Helvetica, sans-serif;
-}
+            /* Gradientes */
+            --color-gradient-brand: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            --color-gradient-section-soft: linear-gradient(180deg, transparent, rgba(59, 165, 255, 0.02), transparent);
+            --color-gradient-hero-title: linear-gradient(75deg, #ffffff, #8f8f8f);
+            --color-gradient-code-header: linear-gradient(135deg, #2d2d30, #1e1e1e);
 
-/* SIDEBAR */
-.sidebar {
-    width: 260px;
-    height: 100vh;
-    background: var(--sidebar-bg);
-    padding: 20px;
-    border-right: 1px solid rgba(0,0,0,0.1);
-    position: fixed;
-    transition: background 0.3s, color 0.3s;
-}
+            /* Botões */
+            --color-btn-primary-bg: var(--color-primary);
+            --color-btn-primary-text: #000000;
+            --color-btn-primary-hover-text: #f5f5f5;
 
-.sidebar-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
+            --color-btn-outline-bg: #111111;
+            --color-btn-outline-border: #222222;
+            --color-btn-outline-text: #ffffff;
+            --color-btn-outline-hover-bg: #1a1a1a;
 
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
+            /* Código / editor fake */
+            --color-code-bg: #1e1e1e;
+            --color-code-border: rgba(255, 255, 255, 0.08);
+            --color-code-header-border: rgba(255, 255, 255, 0.1);
+            --color-code-window-title: #d4d4d4;
+            --color-code-copy-border: #cccccc;
+            --color-code-copy-text: #cccccc;
+            --color-code-copy-hover-bg: #0e639c;
+            --color-code-copy-hover-border: #0e639c;
+            --color-code-copy-hover-text: #ffffff;
 
-.sidebar-menu li {
-    margin-bottom: 15px;
-}
+            /* Semântica de syntax highlight */
+            --color-code-keyword: #569cd6;
+            --color-code-function: #dcdcaa;
+            --color-code-string: #ce9178;
+            --color-code-number: #b5cea8;
+            --color-code-comment: #6a9955;
 
-.sidebar-menu a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    border-radius: 6px;
-    transition: 0.2s;
-}
+            /* "Semáforo" da janela de código */
+            --color-traffic-red: #ff605c;
+            --color-traffic-yellow: #ffbd44;
+            --color-traffic-green: #00ca56;
 
-.sidebar-menu a:hover {
-    background: var(--accent);
-    color: white;
-    transform: translateX(5px);
-}
+            /* Sidebar */
+            --color-sidebar-bg: #0b0d12;
+            --color-sidebar-border: rgba(255, 255, 255, 0.07);
+            --color-sidebar-item-bg: #11141a;
+            --color-sidebar-item-border: rgba(255, 255, 255, 0.08);
+            --color-sidebar-item-hover-border: var(--color-primary);
+            --color-sidebar-item-title: #ffffff;
+            --color-sidebar-item-owner: var(--color-primary);
+            --color-sidebar-item-link: #cccccc;
+            --color-sidebar-item-link-hover: var(--color-primary);
+            --color-sidebar-close-btn: #aaaaaa;
 
-/* CONTEÚDO PRINCIPAL */
-.content {
-    margin-left: 260px;
-    padding: 40px;
-    width: calc(100% - 260px);
-}
+            /* Backdrop do menu */
+            --color-overlay-backdrop: rgba(0, 0, 0, 0.55);
 
-.section {
-    margin-bottom: 50px;
-}
+            /* Floating code */
+            --color-floating-code: var(--color-secondary);
 
-/* BLOCO DE CÓDIGO */
-.code-container {
-    background: #111;
-    color: #0f0;
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-}
+            /* Footer */
+            --color-footer-bg: #000000;
+            --color-footer-border: rgba(255, 255, 255, 0.05);
+            --color-footer-link: #e2e2e2;
+            --color-footer-link-hover: var(--color-primary);
+            --color-footer-social: #e2e2e2;
+            --color-footer-social-hover: var(--color-primary);
 
-/* ===========================
-   RESPONSIVIDADE
-=========================== */
+            /* Estrelas da avaliação */
+            --color-stars: var(--color-accent);
 
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
+            /* Sombras */
+            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.6);
+            --shadow-table: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-code: 0 20px 40px rgba(0, 0, 0, 0.3);
 
-    .content {
-        margin-left: 200px;
-    }
-}
+            /* Raio / bordas arredondadas */
+            --radius-card: 20px;
+            --radius-table: 22px;
+            --radius-code: 12px;
+            --radius-button: 10px;
 
-@media (max-width: 576px) {
-    .sidebar {
-        position: absolute;
-        transform: translateX(-100%);
-        transition: 0.3s;
-        z-index: 10;
-    }
+            /* Logo usada no fundo do hero (pode trocar o arquivo) */
+            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+        }
 
-    .sidebar.active {
-        transform: translateX(0);
-    }
+        /* ===========================================================
+           ESTILOS GERAIS
+           =========================================================== */
+        body {
+            background: radial-gradient(circle at center, var(--color-bg-hero) 0%, var(--color-bg-main) 100%);
+            color: var(--color-text-main);
+            font-family: 'Inter', sans-serif;
+        }
 
-    .content {
-        margin-left: 0;
-        width: 100%;
-    }
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
+        /* NAVBAR */
+        .navbar {
+            background: var(--color-navbar-bg) !important;
+            border-bottom: 1px solid var(--color-navbar-border);
+            padding: 14px 0;
+        }
+
+        .navbar-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-navbar-title);
+            letter-spacing: 0.3px;
+        }
+
+        #home {
+            color: var(--color-navbar-icon);
+            font-size: 2rem;
+            transition: 0.2s;
+        }
+
+        #hamburger {
+            cursor: pointer;
+            margin: 0 10px;
+            border-top: 4px solid var(--color-navbar-icon);
+            width: 30px;
+            border-radius: 2px;
+            color: var(--color-navbar-icon);
+            transition: 0.3s;
+        }
+
+        #hamburger:hover{
+            color: var(--color-primary);
+            border-top: 4px solid var(--color-primary);
+        }
+
+        #hamburger::after,
+        #hamburger::before {
+            content: '';
+            display: block;
+            width: 30px;
+            border-radius: 2px;
+            height: 4px;
+            background: currentColor;
+            margin-top: 8px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        /* Animação para o X */
+        #nav.active #hamburger {
+            border-top-color: transparent;
+        }
+
+        #nav.active #hamburger::before {
+            transform: rotate(135deg);
+        }
+
+        #nav.active #hamburger::after {
+            transform: rotate(-135deg);
+            top: -12px;
+        }
+
+        /* ===========================================================
+           HERO
+           =========================================================== */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at center, var(--color-bg-hero) 0%, var(--color-bg-main) 100%),
+                /* grid em SVG embutido (mantém aparência, não depende de var) */
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-50%, -50%) scale(4);
+            width: 400px;
+            height: 400px;
+            opacity: 0.25;
+            z-index: 0;
+            background-image:
+                linear-gradient(160deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),
+                var(--hero-logo-image);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: var(--color-gradient-hero-title);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            animation: fadeInUp 1.2s ease-out;
+            color: var(--color-text-main);
+        }
+
+        .floating-code {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            opacity: 0.1;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--color-floating-code);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* HERO ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* BOTÕES */
+        .btn-primary-ia {
+            background: var(--color-btn-primary-bg);
+            color: var(--color-btn-primary-text);
+            border-radius: var(--radius-button);
+            padding: 10px 22px;
+            font-weight: 600;
+            border: none;
+            transition: 0.2s;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .btn-primary-ia:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            color: var(--color-btn-primary-hover-text);
+        }
+
+        .btn-dark-outline {
+            background: var(--color-btn-outline-bg);
+            border: 1px solid var(--color-btn-outline-border);
+            border-radius: var(--radius-button);
+            padding: 10px 22px;
+            color: var(--color-btn-outline-text);
+            transition: 0.2s;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .btn-dark-outline:hover {
+            background: var(--color-btn-outline-hover-bg);
+        }
+
+        /* ===========================================================
+           SECTION GENÉRICA
+           =========================================================== */
+        .advantages-section {
+            padding: 80px 0;
+            margin: 60px 0;
+            background: var(--color-gradient-section-soft);
+        }
+
+        /* ===========================================================
+           CARDS
+           =========================================================== */
+        .info-card,
+        .ia-card {
+            background: linear-gradient(135deg, var(--color-surface-card) 0%, var(--color-surface-card-alt) 100%);
+            border: 1px solid var(--color-border-medium);
+            padding: 32px;
+            border-radius: var(--radius-card);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .ia-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 165, 255, 0.12), transparent);
+            transition: left 0.5s;
+        }
+
+        .ia-card:hover::before {
+            left: 100%;
+        }
+
+        .ia-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--color-primary);
+            box-shadow: 0 15px 35px rgba(59, 165, 255, 0.25);
+        }
+
+        .ia-card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+            color: var(--color-text-main);
+        }
+
+        .ia-card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-gradient-brand);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .ia-card-text {
+            opacity: 0.85;
+            line-height: 1.6;
+            color: var(--color-text-main);
+        }
+
+        /* ===========================================================
+           BLOCO DE CÓDIGO (VS CODE / MAC STYLE)
+           =========================================================== */
+        .code-container {
+            position: relative;
+            border-radius: var(--radius-code);
+            margin: 20px 0;
+            border: 1px solid var(--color-code-border);
+            overflow: hidden;
+            box-shadow: var(--shadow-code);
+            background: var(--color-code-bg);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--color-gradient-code-header);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--color-code-header-border);
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .traffic-light-red,
+        .traffic-light-yellow,
+        .traffic-light-green {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .traffic-light-red {
+            background: var(--color-traffic-red);
+        }
+
+        .traffic-light-yellow {
+            background: var(--color-traffic-yellow);
+        }
+
+        .traffic-light-green {
+            background: var(--color-traffic-green);
+        }
+
+        .window-title {
+            color: var(--color-code-window-title);
+            font-size: 0.85rem;
+            font-weight: 500;
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .code-copy {
+            background: transparent;
+            border: 1px solid var(--color-code-copy-border);
+            color: var(--color-code-copy-text);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .code-copy:hover {
+            background: var(--color-code-copy-hover-bg);
+            border-color: var(--color-code-copy-hover-border);
+            color: var(--color-code-copy-hover-text);
+        }
+
+        .code-content {
+            display: flex;
+            background: var(--color-code-bg);
+        }
+
+        .code-block {
+            background: var(--color-code-bg);
+            color: #d4d4d4;
+            font-family: 'SF Mono', monospace;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            padding: 16px;
+            margin: 0;
+        }
+
+        /* SYNTAX HIGHLIGHT */
+        .keyword {
+            color: var(--color-code-keyword);
+            font-weight: 600;
+        }
+
+        .function {
+            color: var(--color-code-function);
+        }
+
+        .string {
+            color: var(--color-code-string);
+        }
+
+        .number {
+            color: var(--color-code-number);
+        }
+
+        .comment {
+            color: var(--color-code-comment);
+            font-style: italic;
+        }
+
+        /* ===========================================================
+           TABELA COMPARATIVA
+           =========================================================== */
+        .table-container {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 30px;
+            border-radius: var(--radius-table);
+            backdrop-filter: blur(6px);
+            border: 1px solid var(--color-border-soft);
+            box-shadow: var(--shadow-table);
+        }
+
+        .ia-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--color-text-main);
+            font-size: 1rem;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .ia-table thead th {
+            background: var(--color-table-header-bg);
+            padding: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ia-table tbody tr {
+            background: var(--color-table-row-bg);
+            transition: 0.25s ease;
+        }
+
+        .ia-table tbody tr:nth-child(even) {
+            background: var(--color-table-row-alt-bg);
+        }
+
+        .ia-table tbody tr:hover {
+            background: var(--color-table-row-hover-bg);
+            transform: scale(1.01);
+        }
+
+        .ia-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--color-table-border);
+        }
+
+        .ia-table td:first-child {
+            font-weight: 600;
+        }
+
+        .icon-yes {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+        }
+
+        .icon-no {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+        }
+
+        .icon-partial {
+            color: var(--color-accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* ===========================================================
+           SIDEBAR (LISTA DE FERRAMENTAS DO MED)
+           =========================================================== */
+
+        /* BACKDROP (com blur) */
+        .sidebar-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--color-overlay-backdrop);
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 9990;
+        }
+
+        .sidebar-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100%;
+            background: var(--color-sidebar-bg);
+            border-right: 1px solid var(--color-sidebar-border);
+            padding: 20px;
+            transition: left 0.35s ease;
+            z-index: 9999;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-primary) var(--color-sidebar-bg);
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--color-sidebar-bg);
+            border-radius: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #64baff, #a974ff);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .sidebar-header h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .close-btn {
+            background: none;
+            color: var(--color-sidebar-close-btn);
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .sidebar-item {
+            background: var(--color-sidebar-item-bg);
+            border: 1px solid var(--color-sidebar-item-border);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            transition: 0.25s ease;
+        }
+
+        .sidebar-item:hover {
+            border-color: var(--color-sidebar-item-hover-border);
+            transform: translateX(4px);
+        }
+
+        .sidebar-item h5 {
+            color: var(--color-sidebar-item-title);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-item span {
+            color: var(--color-sidebar-item-owner);
+        }
+
+        .sidebar-item a {
+            display: block;
+            color: var(--color-sidebar-item-link);
+            font-size: 0.9rem;
+            margin-top: 4px;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .sidebar-item h5:hover {
+            text-decoration-line: underline;
+            text-decoration-color: var(--color-primary);
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 5px;
+        }
+
+        .sidebar-item a:hover {
+            color: var(--color-sidebar-item-link-hover);
+        }
+
+        /* ===========================================================
+           FOOTER
+           =========================================================== */
+        .footer {
+            background: var(--color-footer-bg);
+            border-top: 1px solid var(--color-footer-border);
+            padding: 40px 0;
+        }
+
+        .footer-link {
+            color: var(--color-footer-link);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-link:hover {
+            color: var(--color-footer-link-hover);
+        }
+
+        .social-link {
+            color: var(--color-footer-social);
+            margin: 0 10px;
+            font-size: 1.6rem;
+        }
+
+        .social-link:hover {
+            color: var(--color-footer-social-hover);
+        }
+
+        .stars {
+            color: var(--color-stars);
+            font-size: 1.4rem;
+        }
+
+        /* ===========================================================
+           RESPONSIVO
+           =========================================================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-section {
+                min-height: 60vh;
+                padding: 40px 0;
+            }
+
+            .floating-code {
+                display: none;
+            }
+
+            .ia-card,
+            .info-card {
+                padding: 24px;
+            }
+
+            .navbar-title {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
-<body class="light-theme">
+<body>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2 class="sidebar-title">MED – KIRO</h2>
+    <!-- ===========================================================
+         NAVBAR + MENU HAMBÚRGUER / SIDEBAR
+         =========================================================== -->
+    <nav id="nav" class="navbar navbar-dark">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- HAMBURGUER CUSTOM -->
+            <div id="hamburger" onclick="toggleMenu()"></div>
 
-        <ul class="sidebar-menu">
-            <li><a href="#info"><i class="bi bi-info-circle"></i> Informações Gerais</a></li>
-            <li><a href="#vantagens"><i class="bi bi-check-circle"></i> Vantagens</a></li>
-            <li><a href="#desvantagens"><i class="bi bi-x-circle"></i> Desvantagens</a></li>
-            <li><a href="#exemplo"><i class="bi bi-code-slash"></i> Exemplo Python</a></li>
-            <li><a href="#avaliacao"><i class="bi bi-star-half"></i> Avaliação</a></li>
-        </ul>
+            <!-- TÍTULO CENTRAL -->
+            <span class="navbar-title mx-auto text-center">
+                Guia de Ferramentas de IA para Desenvolvedores — 2025
+            </span>
 
-        <!-- Botão Tema -->
-        <button id="toggleTheme" class="btn btn-outline-light mt-4 w-100">
-            <i class="bi bi-moon"></i> Alternar Tema
-        </button>
-    </aside>
+            <a href="index.html" id="home">
+                <i class="bi bi-house-fill"></i>
+            </a>
+        </div>
+    </nav>
 
-    <!-- Conteúdo -->
-    <main class="content">
+    <!-- BACKDROP DO SIDEBAR -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
 
-        <section id="info" class="section">
-            <h2>1. Informações Gerais</h2>
-            <p><strong>Ferramenta:</strong> KIRO – Intelligent Software Development Platform</p>
-            <p><strong>Propósito:</strong> Plataforma de IA para acelerar o desenvolvimento de software.</p>
-            <p><strong>Link:</strong> <a href="https://kiro.dev" target="_blank">kiro.dev</a></p>
+    <!-- SIDEBAR LATERAL: LISTA COM TODAS AS FERRAMENTAS DO MED -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h4>Ferramentas do MED</h4>
+            <button class="close-btn" onclick="closeSidebar()">×</button>
+        </div>
 
-            <ul>
-                <li>Geração automática de código</li>
-                <li>Chat integrado ao repositório</li>
-                <li>Geração de testes e documentação</li>
-                <li>Agentes MCP conectados ao projeto</li>
+        <div class="sidebar-content">
+            <!-- Cada item abaixo é uma ferramenta da turma -->
+            <div class="sidebar-item">
+                <a href="Copilot.html">
+                    <h5>GitHub Copilot <span>— João</span></h5>
+                </a>
+                <a href="https://docs.github.com/pt/copilot" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="Claude.html">
+                    <h5>Claude Code <span>— Cezar</span></h5>
+                </a>
+                <a href="https://code.claude.com/docs/pt/overview" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="Cursor.html">
+                    <h5>Cursor <span>— Andressa</span></h5>
+                </a>
+                <a href="https://cursor.com/docs" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="Windsurf.html">
+                    <h5>Windsurf <span>— Laura</span></h5>
+                </a>
+                <a href="https://docs.windsurf.com/pt-BR/windsurf/getting-started" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="Kilo.html">
+                    <h5>Kilo Code <span>— Yuri</span></h5>
+                </a>
+                <a href="https://kilocode.ai/docs" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="RooCode.html">
+                    <h5>Roo Code <span>— Pedro</span></h5>
+                </a>
+                <a href="https://docs.iacode.com" target="_blank">Documentação</a>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="TRAE.html">
+                    <h5>TRAE <span>— Dolberth</span></h5>
+                </a>
+                <a href="https://docs.trae.ai" target="_blank">Documentação</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===========================================================
+         HERO
+         =========================================================== -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+
+        <div class="floating-code">
+            // pseudo-código da sua IA<br>
+            function assistant() {<br>
+            &nbsp;&nbsp;return "Dev productivity++";<br> }
+        </div>
+
+        <div class="container py-5">
+            <!-- TODO: Cada aluno edita este título e subtítulo para a sua IA -->
+            <h1 class="hero-title">
+                Kiro.
+            </h1>
+
+            <p class="hero-subtitle mt-3">
+                A ferramenta Kiro é uma IDE com inteligência artificial que auxilia no desenvolvimento 
+                de software de ponta a ponta. Ela transforma descrições em linguagem natural em código 
+                funcional, gera e revisa trechos de programação, cria testes automatizados e produz 
+                documentação completa. Também ajuda a planejar estruturas de projeto, sugerir melhorias 
+                e manter a consistência do código. Seu objetivo é acelerar o trabalho do desenvolvedor 
+                mantendo organização e qualidade.
+            </p>
+
+            <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
+                <!-- TODO: Trocar link para o site oficial da IA -->
+                <a href="#" class="btn-primary-ia">
+                    <i class="bi bi-box-arrow-up-right"></i> Acessar ferramenta
+                </a>
+
+                <a href="#vantagens" class="btn-dark-outline">
+                    <i class="bi bi-arrow-down"></i> Ver detalhes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         VANTAGENS
+         =========================================================== -->
+    <section id="vantagens" class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Vantagens da Ferramenta</h2>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                            Aumento de Produtividade
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            A IA Kiro acelera o desenvolvimento ao gerar código rapidamente a partir de 
+                            descrições simples, evitando que o programador faça tudo manualmente. Ela 
+                            automatiza tarefas repetitivas, como criação de testes, documentação e ajustes 
+                            de estrutura. Além disso, oferece sugestões inteligentes de melhorias, detecta 
+                            problemas no código e ajuda a organizar o projeto de forma mais clara e produtiva. 
+                            Fazendo com que o fluxo de trabalho fica mais rápido, eficiente e profissional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-motherboard"></i></div>
+                            Integração com o Ambiente
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            A Kiro funciona como uma IDE própria baseada na arquitetura do VS Code, então 
+                            ela roda como um aplicativo independente, o seu visual e estrutura  é muito 
+                            parecida com o Visual Studio Code. Ela também é compatível com extensões e 
+                            linguagens suportadas pelo VS Code. Além disso, oferece linha de comando (CLI) 
+                            para executar agentes, gerar arquivos e automatizar tarefas diretamente pelo 
+                            terminal. Hoje, seu uso principal é em desktop (Windows, Linux e macOS), com foco
+                            em desenvolvimento local, não sendo uma plataforma JetBrains nem totalmente 
+                            web-based.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-shield-lock"></i></div>
+                            Qualidade e Segurança
+                        </div>
+                        <p class="ia-card-text mt-2">
+                            A IA Kiro oferece recursos avançados de revisão de código, identificando partes
+                            confusas, inconsistentes ou mal estruturadas e sugerindo melhorias automaticamente.
+                            Ela também gera testes unitários e de integração com base no comportamento 
+                            esperado do código, garantindo maior cobertura e reduzindo falhas. Além disso, 
+                            detecta bugs, aponta possíveis vulnerabilidades de segurança e recomenda correções 
+                            antes que o problema chegue à produção. Com isso, o desenvolvedor ganha mais 
+                            confiança, qualidade e segurança em todo o ciclo de desenvolvimento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         INFORMAÇÕES GERAIS / SOBRE A FERRAMENTA
+         =========================================================== -->
+    <section class="container py-5" id="info-gerais">
+        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Informações Gerais</h2>
+
+        <div class="info-card">
+            <p class="ia-card-text">
+                A Kiro é uma plataforma de desenvolvimento com IA criada para tornar o processo de programar 
+                mais rápido, organizado e seguro. Ela resolve problemas comuns como códigos confusos, 
+                retrabalho, falta de testes e dificuldade em manter padrões de qualidade, oferecendo revisão 
+                automática, detecção de bugs, geração de testes e verificação de segurança durante o 
+                desenvolvimento. Seu propósito é transformar simples descrições em código funcional, 
+                documentação e planos estruturados, ajudando tanto iniciantes, DANDO apoio na lógica e 
+                nas boas práticas, quanto equipes grandes e empresas que precisam de consistência, 
+                produtividade e automação. O grande diferencial da Kiro é que ela não apenas escreve código, 
+                mas entende o projeto como um todo, criando especificações, sugerindo melhorias inteligentes 
+                e automatizando tarefas repetitivas, entregando um fluxo de desenvolvimento mais profissional 
+                e eficiente do que ferramentas que apenas “geram trechos de código”.
+            </p>
+
+            <p class="ia-card-text mt-3">
+                A Kiro é gratuita com limitações e oferece planos pagos para uso avançado. Ela não é open 
+                source, pois pertence à Amazon. A ferramenta roda localmente como aplicativo de desktop e 
+                também possui modo CLI, mas depende de serviços em nuvem da AWS para executar os recursos de 
+                IA, ou seja, funciona em modo híbrido: parte local, parte na nuvem.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         DESVANTAGENS / LIMITAÇÕES
+         =========================================================== -->
+    <section id="desvantagens" class="container py-5">
+        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
+
+        <div class="info-card">
+            <ul class="ia-card-text mb-0">
+                <li>Os valores variam conforme o plano, normalmente seguindo modelo de assinatura ou uso 
+                    limitado por créditos/interações.
+                    </li>
+                <li>A ferramenta exige conexão estável para acessar os modelos de IA e executar tarefas pesadas. 
+                    Sem internet, apenas funções básicas da IDE funcionam.</li>
+                <li>A Kiro pode ter limites de contexto, dificultando tarefas muito longas ou projetos 
+                    enormes, e seu desempenho é melhor em linguagens populares como JavaScript, Python, Java 
+                    e TypeScript, podendo falhar mais em nichos ou tecnologias menos comuns.</li>
+                <li>O Kiro, por ser uma ferramenta de IA conectada à AWS, envia código, arquivos e instruções 
+                    para servidores externos para processamento. Isso significa que o conteúdo do projeto não 
+                    é mantido apenas localmente: ele passa pela infraestrutura da Amazon para que os agentes 
+                    de IA possam analisar, gerar código, revisar e executar tarefas. Por isso, o uso da 
+                    ferramenta envolve considerar políticas de privacidade, confidencialidade e segurança de 
+                    dados — especialmente em ambientes corporativos ou com código sensível.
+                </li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="vantagens" class="section">
-            <h2>2. Vantagens</h2>
-            <ul>
-                <li>Alta produtividade</li>
-                <li>Ideal para MVPs e protótipos</li>
-                <li>Código gerado com boa estrutura</li>
-                <li>Documentação integrada</li>
-            </ul>
-        </section>
+    <!-- ===========================================================
+         RECURSOS PRINCIPAIS
+         =========================================================== -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Recursos Principais</h2>
 
-        <section id="desvantagens" class="section">
-            <h2>3. Desvantagens</h2>
-            <ul>
-                <li>Plano gratuito limitado</li>
-                <li>Pode gerar código inconsistente em projetos complexos</li>
-                <li>Exige boa engenharia de prompts</li>
-                <li>Questões de privacidade em projetos sensíveis</li>
-            </ul>
-        </section>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-body-text"></i></div>
+                            Autocomplete de Código
+                        </div>
+                        <p class="ia-card-text">
+                            A Kiro sugere código em tempo real conforme o desenvolvedor digita, oferecendo 
+                            autocompletes inteligentes, correções e exemplos contextualizados. Ela suporta 
+                            diversas linguagens modernas — como JavaScript, Python, TypeScript, Go, Java, C++ 
+                            e Rust — ajudando a acelerar a escrita e evitar erros comuns.
+                        </p>
+                    </div>
+                </div>
 
-        <section id="exemplo" class="section">
-            <h2>4. Exemplo prático em Python</h2>
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-chat-square-text"></i></div>
+                            Chat / Assistente Interativo
+                        </div>
+                        <p class="ia-card-text">
+                            O chat da Kiro entende o contexto do projeto lendo arquivos, analisando a 
+                            estrutura e interpretando o que o usuário descreve. Ele consegue gerar 
+                            documentação, criar testes automáticos, propor melhorias, revisar código e até 
+                            planejar features completas com base no conteúdo da pasta do projeto.
+                        </p>
+                    </div>
+                </div>
 
-<pre class="code-container">
-from fastapi import FastAPI
+                <div class="col-md-6 col-lg-4">
+                    <div class="ia-card">
+                        <div class="ia-card-title">
+                            <div class="ia-card-icon"><i class="bi bi-diagram-3"></i></div>
+                            Modos Especiais / Agentes
+                        </div>
+                        <p class="ia-card-text">
+                            O Kiro possui modos como Architect, que cria a arquitetura e os requisitos; 
+                            Debug, que analisa e corrige erros; Test, que gera e valida testes; e Doc, que 
+                            produz documentação. Cada modo é útil em uma fase diferente: planejamento, 
+                            desenvolvimento, revisão ou entrega.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-app = FastAPI()
+    <!-- ===========================================================
+         COMO FUNCIONA
+         =========================================================== -->
+    <section class="container py-5">
+        <h2 class="text-white fw-bold mb-4 fs-2 text-center">Como a Ferramenta Funciona</h2>
 
-@app.get("/")
-def home():
-    return {"msg": "API gerada pela KIRO!"}
-</pre>
+        <div class="info-card">
+            <p class="ia-card-text">
+                O usuário fornece comandos, prompts, arquivos ou trechos de código. A IA analisa o repositório 
+                inteiro, entende o contexto e responde com explicações, código gerado, diffs, arquivos completos, 
+                documentação ou planos de arquitetura. Tudo aparece direto na interface como alterações prontas 
+                para aplicar ou revisar.
+            </p>
 
-        </section>
+            <p class="ia-card-text mt-3">
+                O Kiro trabalha com modelos em nuvem da AWS e não usa modelos locais. Ele integra com Git 
+                para commit, diff, branch e histórico, e pode ser conectado a pipelines CI/CD para gerar 
+                testes, documentação e automações.
+            </p>
+        </div>
+    </section>
 
-        <section id="avaliacao" class="section">
-            <h2>5. Avaliação</h2>
-            <p><strong>Nota:</strong> ⭐⭐⭐⭐☆ (4/5)</p>
-            <p>A KIRO é ótima para acelerar projetos e gerar código rápido, mas ainda pode evoluir.</p>
-        </section>
-    </main>
+    <!-- ===========================================================
+         WORKFLOW ASSISTIDO
+         =========================================================== -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
 
+            <div class="info-card">
+                <p class="ia-card-text">
+                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
+                </p>
+
+                <ol class="mt-3 ia-card-text">
+                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
+                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
+                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
+                    <li>Erros são identificados e corrigidos com explicações.</li>
+                    <li>Testes e documentação podem ser gerados automaticamente.</li>
+                </ol>
+
+                <p class="mt-3 ia-card-text">
+                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
+                    desenvolvimento.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         POR QUE ESCOLHER ESTA FERRAMENTA
+         =========================================================== -->
+    <section class="container py-5">
+        <h2 class="text-white fw-bold fs-2 text-center mb-4">Por que escolher esta ferramenta?</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="ia-card">
+                    <div class="ia-card-title">
+                        <div class="ia-card-icon"><i class="bi bi-people-fill"></i></div>
+                        Para Equipes
+                    </div>
+                    <p class="ia-card-text">
+                        A Kiro ajuda times a manterem padrões de código, sugerindo estilos consistentes e 
+                        aplicando boas práticas automaticamente. Também permite revisões colaborativas, 
+                        geração de documentação alinhada e identificação de erros de forma uniforme para toda 
+                        a equipe.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="ia-card">
+                    <div class="ia-card-title">
+                        <div class="ia-card-icon"><i class="bi bi-person-workspace"></i></div>
+                        Para Devs Individuais
+                    </div>
+                    <p class="ia-card-text">
+                        Para quem trabalha sozinho, o Kiro acelera muito o desenvolvimento, ensina boas 
+                        práticas com sugestões explicadas e diminui erros ao revisar código e gerar testes 
+                        automaticamente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="ia-card">
+                    <div class="ia-card-title">
+                        <div class="ia-card-icon"><i class="bi bi-building-lock"></i></div>
+                        Para Empresas
+                    </div>
+                    <p class="ia-card-text">
+                        Por ser integrada ao ecossistema AWS, a ferramenta segue padrões corporativos de 
+                        segurança, governança, logs, controle de acesso e compliance, permitindo uso seguro 
+                        em ambientes profissionais.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         INSTALAÇÃO E SETUP
+         =========================================================== -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold fs-2 text-center mb-4">Instalação e Setup</h2>
+
+            <div class="info-card">
+                <p class="ia-card-text">
+                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
+                    CLI, site web, etc.).
+                </p>
+
+                <pre class="code-block mt-3">
+1. COLOCAR PASSO A PASSO
+2. COLOCAR PASSO A PASSO
+3. COLOCAR PASSO A PASSO
+4. COLOCAR PASSO A PASSO</pre>
+
+                <p class="ia-card-text mt-3">
+                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
+                    um comando de exemplo:
+                </p>
+
+                <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         COMPARATIVO
+         =========================================================== -->
+    <section id="comparativo" class="container py-5">
+        <h2 class="text-white fw-bold fs-2 text-center mb-4">
+            Comparativo com Outras Ferramentas
+        </h2>
+
+        <div class="table-container">
+            <table class="ia-table">
+                <thead>
+                    <tr>
+                        <th>Recurso</th>
+                        <th>Esta Ferramenta</th>
+                        <th>Alternativa A</th>
+                        <th>Alternativa B</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Funciona sem internet</td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Privacidade (código local)</td>
+                        <td><span class="icon-partial">Depende</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Open Source</td>
+                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Modos Inteligentes</td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-partial">Parcial</span></td>
+                        <td><span class="icon-partial">Parcial</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Suporte a múltiplos modelos</td>
+                        <td><span class="icon-partial">Depende</span></td>
+                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         EXEMPLO PRÁTICO EM PYTHON
+         =========================================================== -->
+    <section id="exemplos" class="container py-5">
+        <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
+
+        <p class="opacity-75 mb-4 text-center">
+            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
+            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
+        </p>
+
+        <div class="code-container">
+            <div class="code-header">
+                <div class="window-controls">
+                    <div class="traffic-light-red"></div>
+                    <div class="traffic-light-yellow"></div>
+                    <div class="traffic-light-green"></div>
+                </div>
+
+                <span class="window-title">exemplo_ferramenta.py</span>
+
+                <button class="code-copy" onclick="copyCode()">Copiar</button>
+            </div>
+
+            <div class="code-content">
+                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+
+<span class="keyword">import</span> re
+
+<span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
+    erros = []
+
+    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
+        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
+    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
+        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
+    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
+        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
+    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
+        erros.append(<span class="string">"Inclua ao menos um número."</span>)
+
+    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
+
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    exemplo = <span class="string">"Senha123"</span>
+    resultado = validar_senha(exemplo)
+    <span class="keyword">print</span>(resultado)</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================================
+         AVALIAÇÃO GERAL
+         =========================================================== -->
+    <section class="container text-center py-5">
+        <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
+        <div class="stars mt-2">⭐⭐⭐⭐☆</div>
+        <p class="opacity-75 mt-2">
+            Pontos fortes: velocidade, automação, geração de código e testes, integração inteligente.
+            Pontos fracos: dependência da nuvem, limites gratuitos, algumas instabilidades e falhas em projetos 
+            muito grandes.
+        </p>
+    </section>
+
+    <!-- ===========================================================
+         FOOTER
+         =========================================================== -->
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <p class="opacity-75 mb-4">
+                Página desenvolvida como parte do MED – Assistentes de Código (IFC).
+            </p>
+
+            <div class="footer-links mb-3">
+                <a href="#info-gerais" class="footer-link">Informações Gerais</a>
+                <a href="#vantagens" class="footer-link">Vantagens</a>
+                <a href="#desvantagens" class="footer-link">Desvantagens</a>
+                <a href="#exemplos" class="footer-link">Exemplo em Python</a>
+                <a href="#comparativo" class="footer-link">Comparativo</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/ADS-IFC-lab" class="social-link" target="_blank">
+                    <i class="bi bi-github"></i>
+                </a>
+            </div>
+
+            <p class="opacity-50 mt-4" style="font-size: 0.85rem;">
+                © 2025 MED – Assistentes de Código por IA • IFC Campus Fraiburgo
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===========================================================
+         SCRIPTS
+         =========================================================== -->
     <script>
-        const toggle = document.getElementById("toggleTheme");
-        const body = document.body;
+        function copyCode() {
+            const code = `
+import re
 
-        toggle.addEventListener("click", () => {
-            body.classList.toggle("dark-theme");
-            body.classList.toggle("light-theme");
-        });
+def validar_senha(senha: str) -> list[str] | str:
+    erros = []
+
+    if len(senha) < 8:
+        erros.append("A senha deve ter pelo menos 8 caracteres.")
+    if not re.search(r"[A-Z]", senha):
+        erros.append("Inclua ao menos uma letra maiúscula.")
+    if not re.search(r"[a-z]", senha):
+        erros.append("Inclua ao menos uma letra minúscula.")
+    if not re.search(r"\\d", senha):
+        erros.append("Inclua ao menos um número.")
+
+    return erros or "Senha válida!"
+
+if __name__ == "__main__":
+    exemplo = "Senha123"
+    resultado = validar_senha(exemplo)
+    print(resultado)
+`;
+            navigator.clipboard.writeText(code.trim());
+            alert("Código copiado!");
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            const sidebar = document.getElementById("sidebar");
+            const backdrop = document.getElementById("sidebar-backdrop");
+
+            nav.classList.toggle("active");
+
+            if (nav.classList.contains("active")) {
+                sidebar.classList.add("open");
+                backdrop.classList.add("active");
+            } else {
+                sidebar.classList.remove("open");
+                backdrop.classList.remove("active");
+            }
+        }
+
+        function closeSidebar() {
+            const nav = document.getElementById("nav");
+            const sidebar = document.getElementById("sidebar");
+            const backdrop = document.getElementById("sidebar-backdrop");
+
+            nav.classList.remove("active");
+            sidebar.classList.remove("open");
+            backdrop.classList.remove("active");
+        }
     </script>
-
 </body>
+
 </html>
