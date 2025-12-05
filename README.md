@@ -10,6 +10,18 @@ Roo Code é uma extensão **open-source** para VS Code que integra IA no desenvo
 
 ---
 
+# 🦾 Kilo Code
+
+Kilo Code é um agente para o auxílio do desenvolvimento de software com o código **open-source**, ele funciona como um assistente que pode realizar ações diretas como debug, criar ou gerenciar seu código além de funções relacionadas ao planejamento. Integrado ao VS Code tem seu foco no auxílio do desenvolvimento cumprindo seu papel de engenheiro de software pessoal, o Kilo Code atende bem estudantes, equipes e desenvolvedores que buscam produtividade e um colaborador a mais em seu projeto.
+
+---
+
+# Windsurf
+
+Windsurf é um IDE de IA de próxima geração criado para manter você no fluxo, uma plataforma de desenvolvimento que automatiza tarefas, mantém o fluxo de trabalho e oferece integração visual com terminal, deploy e memória contextual.
+
+---
+
 # 🔗 Link para o Hub Site: 
 ### [https://ads-ifc-lab.github.io/med-ias](https://ads-ifc-lab.github.io/med-ias/)
 
@@ -17,6 +29,12 @@ Roo Code é uma extensão **open-source** para VS Code que integra IA no desenvo
 
 ### 🧑‍💻 Alunos:
 - Pedro Henrique Haupt
+- Laura Urba
+- João Pedro
+- Andressa Antunes
+- Cauê Borga
+- Samuel Collet
+- Yuri Bargas Oliveira
 
 
 
