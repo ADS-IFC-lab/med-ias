@@ -339,10 +339,31 @@
            SECTION GENÉRICA
            =========================================================== */
         .advantages-section {
-            padding: 80px 0;
-            margin: 60px 0;
+            padding: 20px 0;
+            margin: 50px 0;
             background: var(--color-gradient-section-soft);
         }
+
+        /* ===========================================================
+           BORDA PARA IMAGEMS
+           =========================================================== */
+        .container-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    background-clip: content-box;
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, #f06, #09f) 1;
+    border-image-slice: 1;
+    transition: border-image 0.5s ease;
+}
+
+.container-imagem img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
         /* ===========================================================
            CARDS
@@ -895,6 +916,10 @@
                 aplicativos de forma mais rápida e fácil do que nunca.
             </p>
 
+            <p class="hero-subtitle mt-3">
+                Aprenda mais sobre como o Gemini Code Assist pode transformar sua experiência de desenvolvimento.
+            </p>
+
             <div class="hero-buttons mt-4 d-flex gap-3 flex-wrap">
                 <!-- TODO: Trocar link para o site oficial da IA -->
                 <a href="https://codeassist.google" class="btn-primary-ia">
@@ -923,7 +948,8 @@
                             Aumento de Produtividade
                         </div>
                         <p class="ia-card-text mt-2">
-                            A IA não substitui o desenvolvedor, mas atua como um poderoso assistente,
+                            Com aumento das interações com as IA's, vem os questionamentos frquentes das diversas formas do seu uso,
+                             e como pode afetar até mesmo no trabalho do programador. Mas atua como um poderoso assistente, auxilia no
                              aumentando a produtividade, melhorando a qualidade do código e permitindo 
                              que as equipes se concentrem na inovação. O desenvolvedor passa a atuar 
                              como um arquiteto e revisor, orquestrando as sugestões da IA para construir
@@ -940,9 +966,9 @@
                         </div>
                         <p class="ia-card-text mt-2">
                             O Gemini estará disponível no seu terminal, IDEs e plataformas favoritas. Ele inclui extensões com
-Download do Visual Studio Code. JetBrains Marketplace - Download o plugin no Terminal: Instale o Gemini CLI. GitHub Marketplace: Instale o agente de revisão 
-de código do Firebase.
-Use o Gemini no Firebase para obter assistência na programação. Android Studio: Use o Gemini no Android Studio para obter assistência na programação.
+Download do Visual Studio Code. JetBrains Marketplace - Download o plugin no Terminal com a Instalação do Gemini CLI. GitHub Marketplace,
+ Instale o agente de revisão de código do Firebase. Também está disponivel para uso do Gemini no Firebase para obter assistência na programação.
+  Android Studio, para use o Gemini no Android Studio para obter assistência no desenvolvimento dos scripts
 
                         </p>                            
                     </div>
@@ -956,25 +982,25 @@ Use o Gemini no Firebase para obter assistência na programação. Android Studi
                         <p class="ia-card-text mt-2">
                             O Gemini Code Assit AI contén recursos de Revisão e Refatoração de Código com a explicação de Código Assistência 
                             na Refatoração, comentários Inteligentes, geração de Testes Automatizados e criação de Testes Unitários, 
-                            Cobertura de Casos de Borda(para testes null e imputs invalidos), adaptação ao Framework, e o que leva mais tempo dos Dev's 
-                            a detecção de Bugs e Troubleshootings e diagnóstico de Erros com Correções Proativas. Na parte de  
-                            Segurança e Aspectos de Compliance (Diferencial Chave) alerta atribuição de Fonte (Source Attribution) 
-                            Prevenção de Vulnerabilidades Proteção de Dados (Enterprise Privacy).
+                            Cobertura para testes null e imputs invalidos "bordas", adaptação ao Framework, detecção de Bugs e Troubleshootings e diagnóstico de Erros com Correções Proativas. Na parte de  
+                            Segurança e Aspectos de Compliance alerta atribuição de Fonte 
+                            Prevenção de Vulnerabilidades e Proteção de Dados.
                     </div>
                 </div>
                 
             </div>
         </div>
     </section>
-    <section id="vantagens" class="advantages-section">
+
+    <section id="Ambiente" class="advantages-section">
         <div class="container">
             <h3 class="text-white fw-bold mb-5 fs-2 text-center">Ambientes: </h3>
-
-        <section class="advantages-section">
-            <div class="container">
-                <img src="src/pluginsparaGemini.png" alt="Descreve todos os plugins para Gemini assistente">
-            </div>    
-        </section> 
+        </div>
+           <!--<section class="advantages-section"></section>-->
+        <div class="container-imagem">
+            <img src="src/pluginsparaGemini.png" alt="Descrição da Imagem">
+        </div>
+     </section> 
     </div>
 </section>
 
@@ -986,39 +1012,20 @@ Use o Gemini no Firebase para obter assistência na programação. Android Studi
 
         <div class="info-card">
             <p class="ia-card-text">
-
                 O Gemini Code Assist é a solução de IA generativa de nível empresarial do Google, projetada especificamente para o ciclo de vida de desenvolvimento de software. Ele não é apenas um "completador de código", mas uma plataforma de assistência integrada que abrange desde a escrita do código até o deploy e a operação na nuvem.
-
             </p>
 
             <p class="ia-card-text mt-3">
-                O objetivo principal do Gemini Code Assist é reduzir a carga cognitiva dos desenvolvedores e acelerar a entrega de software, mantendo altos padrões de segurança.
+                A geração de código e a redução de boilerplate representam a capacidade mais imediata e visível da Inteligência Artificial no desenvolvimento de software. Ao transformar comandos de linguagem natural diretamente em código funcional, a IA elimina a necessidade de digitação manual de estruturas repetitivas que, embora essenciais, não agregam valor criativo direto ao produto final. Isso permite que o desenvolvedor gere instantaneamente esqueletos de aplicações, como a configuração de um servidor Express, a criação de classes de objetos ou o estabelecimento de conexões com bancos de dados, pulando a etapa tediosa de configuração inicial com apenas um "TAB" para complementar.
             </p>
 
-            <p class="ia-card-text mt-3">
-                A geração de código e a redução de boilerplate representam a capacidade mais imediata e visível da Inteligência Artificial no desenvolvimento de software. Ao transformar comandos de linguagem natural diretamente em código funcional, a IA elimina a necessidade de digitação manual de estruturas repetitivas que, embora essenciais, não agregam valor criativo direto ao produto final. Isso permite que o desenvolvedor gere instantaneamente esqueletos de aplicações, como a configuração de um servidor Express, a criação de classes de objetos ou o estabelecimento de conexões com bancos de dados, pulando a etapa tediosa de configuração inicial.
-            </p>
+            <div class="ia-card-title">
+                Manipulação Avançada de Lógica e Sintaxe
+            </div>
 
             <p class="ia-card-text mt-3">
 Além da escrita de estruturas básicas, essas ferramentas demonstram uma capacidade avançada de manipulação de lógica e sintaxe. Elas funcionam como tradutores eficientes, convertendo trechos de código de uma linguagem para outra (por exemplo, de Python para Go) com alta precisão na preservação da funcionalidade. A IA também simplifica tarefas que exigem sintaxe complexa e propensa a erros, sendo capaz de gerar queries SQL elaboradas ou Expressões Regulares (Regex) a partir de uma simples descrição do problema, economizando o tempo significativo que seria gasto em tentativas e erros manuais.
             </p>
-
-            <section class="advantages-section">
-                <div class="container">
-                    <img src="src/pesquisaGemini.png" alt="CAPTURA DE TELA REEDIT">
-                </div>    
-            </section> 
-                    <br><br>
-                    <p class="ia-card-text">
-                        Feita uma pesquisa percebece que, para alguns Dev's ele auxilia corrigindo linhas e até mesmo implementando ideias,
-                        para outros o Gemini Code é um chat de implementação de dos Scripts:
-                    </p>
-
-            <section class="advantages-section">
-                <div class="container">
-                    <img src="src/pesquisa2.png" alt="CAPTURA DE TELA REEDIT">
-                </div>    
-            </section> 
 
         </div>
     </section>
@@ -1030,35 +1037,49 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
         <h2 class="text-white fw-bold mb-4 fs-2 text-center">Desvantagens e Limitações</h2>
 
         <div class="info-card">
+
+            <section class="advantages-section">
+                <div class="ia-card-title">
+                Avaliações
+                </div>
+                <div class="container-imagem">
+                    <img src="src/pesquisaGemini.png" alt="CAPTURA DE TELA REEDIT">
+                </div>    
+            </section>
+            <section class="advantages-section">
+                <div class="ia-card-title">
+                Adaptação dos Usuários
+                </div>
+                <div class="container-imagem">
+                    <img src="src/pesquisa2.png" alt="CAPTURA DE TELA REEDIT">
+                </div>    
+            </section> 
+
             <ul class="ia-card-text mb-0">
-
-                Aqui está o resumo em tópicos das principais características operacionais e técnicas do **Gemini Code Assist**:
-
-                * **Custos e Assinatura:**
-                    * Opera no modelo **SaaS** (Software as a Service) com assinatura mensal (aprox. US$ 19 por usuário).
-                    * **Uso ilimitado:** Não há cobrança adicional por quantidade de código ou tokens gerados.
-                    * O faturamento é integrado à conta do **Google Cloud** da empresa, com disponibilidade de períodos de teste (*trial*).
                 
-                * **Dependência de Infraestrutura:**
-                    * **100% Online:** Exige conexão constante com a internet; não possui modo offline.
-                    * **Processamento na Nuvem:** O código é enviado para servidores do Google, permitindo o uso de modelos de IA potentes sem exigir hardware robusto do usuário.
-                
-                * **Capacidades Técnicas:**
-                    * **Janela de Contexto:** Grande diferencial, suportando até **1 milhão de tokens** (no modelo 1.5 Pro), o que permite à IA ler e entender todo o repositório do projeto ("Full Codebase Awareness").
-                    * **Linguagens:** Otimizado para linguagens modernas (Python, Java, JS, Go) e configurações de infraestrutura (Terraform, YAML, Google Cloud). Pode ser menos preciso em linguagens de nicho ou muito antigas.
-                
-                * **Segurança e Privacidade (Enterprise):**
-                    * **Proteção de Dados:** O Google garante contratualmente que o código do cliente **não é usado para treinar** os modelos públicos de IA.
-                    * **Criptografia:** Dados são criptografados em trânsito e em repouso.
-                    * **Compliance:** Aderente a normas rígidas de segurança corporativa (SOC 2, GDPR, ISO 27001), com controle de acesso gerenciado pelos administradores da empresa.
-                
-                **Deseja que eu compare esses pontos com alguma outra ferramenta do mercado?**
-                
-                <li>Comente sobre possíveis custos (assinatura, uso por token, etc.).</li>
-                <li>Fale sobre dependência de conexão com a internet ou infraestrutura.</li>
-                <li>Mencione limitações técnicas (tamanho de contexto, linguagens melhor suportadas, etc.).</li>
-                <li>Aborde temas de privacidade, segurança e envio de código para servidores externos, se for o caso.
-                </li>
+                <section class="advantages-section">
+                <div class="ia-card-title">
+                Principais características operacionais e técnicas do Gemini Code Assist:
+                </div>
+                </section>
+                    
+                <li>Custos e Assinatura:</li>
+                    - Opera no modelo "SaaS" (Software as a Service) com assinatura mensal (aprox. US$ 19 por usuário).
+                    - Uso ilimitado: Não há cobrança adicional por quantidade de código ou tokens gerados.
+                    - O faturamento é integrado à conta do "Google Cloud" da empresa, com disponibilidade de períodos de teste (trial).
+                <br><br>
+                <li>Dependência de Infraestrutura:</li>
+                    - 100% Online: Exige conexão constante com a internet; não possui modo offline.
+                    - Processamento na Nuvem: O código é enviado para servidores do Google, permitindo o uso de modelos de IA potentes sem exigir hardware robusto do usuário.
+                <br><br>
+                <li>Capacidades Técnicas:</li>
+                    - Janela de Contexto: Grande diferencial, suportando até "1 milhão de tokens" (no modelo 1.5 Pro), o que permite à IA ler e entender todo o repositório do projeto ("Full Codebase Awareness").
+                    - Linguagens: Otimizado para linguagens modernas (Python, Java, JS, Go) e configurações de infraestrutura (Terraform, YAML, Google Cloud). Pode ser menos preciso em linguagens de nicho ou muito antigas.
+                <br><br>
+                <li>Segurança e Privacidade (Enterprise):</li>
+                    - Proteção de Dados:** O Google garante contratualmente que o código do cliente "não é usado para treinar" os modelos públicos de IA.
+                    - Criptografia: Dados são criptografados em trânsito e em repouso.
+                    - Compliance: Aderente a normas rígidas de segurança corporativa (SOC 2, GDPR, ISO 27001), com controle de acesso gerenciado pelos administradores da empresa.
             </ul>
         </div>
     </section>  
@@ -1078,8 +1099,8 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                             Autocomplete de Código
                         </div>
                         <p class="ia-card-text">
-                            Descreva como a ferramenta sugere código em tempo real, quais linguagens são suportadas
-                            e como isso ajuda o desenvolvedor.
+                            O Gemini Code Assist sugere código em tempo real projetando "texto fantasma" (ghost text)
+                            Ele suporta mais de 20 linguagens, com destaque para Python, Java, JavaScript, TypeScript, Go, C++, além de linguagens de infraestrutura como SQL, YAML e Terraform. Isso ajuda o desenvolvedor ao eliminar a escrita de códigos repetitivos (boilerplate), reduzir a necessidade de alternar janelas para consultar documentação e manter o foco na lógica de negócios
                         </p>
                     </div>
                 </div>
@@ -1091,8 +1112,7 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                             Chat / Assistente Interativo
                         </div>
                         <p class="ia-card-text">
-                            Explique como o chat funciona: se entende o contexto do projeto, se lê arquivos,
-                            se gera documentação, etc.
+                            O chat interativo do Gemini Code Assist permite que os desenvolvedores façam perguntas em linguagem natural, solicitem explicações, peçam ajuda para depuração e obtenham sugestões de melhorias. Contem tambaem o preenchimento automático de quaisquer scripts e Strings completando de desenvolvendo funções inteiras com base em descrições simples. Gera arquivos de como JSDoc para JavaScript, JavaDoc para Java ou PyDoc para Python e arquivos de documentação do README.SH e ler arquivos que estão abertos na sua guia principal
                         </p>
                     </div>
                 </div>
