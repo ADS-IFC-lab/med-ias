@@ -1124,8 +1124,10 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                             Modos Especiais / Agentes
                         </div>
                         <p class="ia-card-text">
-                            Caso a ferramenta possua "modos" (ex: Architect, Debug, Testes), descreva
-                            como cada modo se comporta e quando é mais útil.
+1. O Comando "/test" é ativado quando no chat lateral for digitado "/test" ou escrito "Gere testes unitários para esta função".
+Comportamento: A IA analisa a lógica da função selecionada, identifica caminhos felizes (happy paths) e casos de borda (edge cases), e gera o teste usando o framework mais comum para aquela linguagem (ex: Jest para JS, JUnit para Java, Pytest para Python).
+Quando é mais útil: Logo após escrever uma nova função lógica.
+Quando você está refatorando código legado e precisa garantir que a lógica original não foi quebrada (testes de regressão).
                         </p>
                     </div>
                 </div>
@@ -1141,14 +1143,30 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
 
         <div class="info-card">
             <p class="ia-card-text">
-                Nesta seção você pode explicar o fluxo básico de funcionamento: como o usuário interage,
-                quais entradas fornece (prompts, trechos de código, repositórios), e quais saídas recebe
-                (respostas, diffs de código, arquivos gerados, etc.).
+                Funcionamento do Gemini Code Assist, estruturada como um sistema de Entrada (Input) → Processamento → Saída (Output):
+            </p>
+            <p class="ia-card-text mt-3">
+               1. Entradas (O que você fornece)A "magia" do Gemini Code Assist acontece na qualidade e variedade das informações que ele recebe. Não é apenas o que você digita, mas o que você está vendo.Prompts em Linguagem Natural:Instruções diretas no chat.Exemplo: "Crie uma classe User com validação de e-mail."Seleção de Código (Highlighting):Quando você seleciona um trecho antes de perguntar, o Gemini foca sua atenção apenas naquela parte.
+            </p>
+            <p class="ia-card-text mt-3">
+               Uso: Selecionar uma função e pedir "Explique o que isso faz" ou "Otimize este loop".Contexto Implícito (Awareness):Arquivo Ativo: O Gemini lê o código ao redor do cursor (acima e abaixo) para manter o estilo e a consistência.Arquivos Abertos (Abas): Ele considera outras abas abertas no VS Code para entender definições de variáveis ou importações necessárias.Contexto do Repositório (Local Codebase): Em configurações avançadas (Enterprise), ele pode indexar o repositório inteiro para entender a arquitetura do projeto.Comandos de Barra (Slash Commands):Atalhos rápidos para tarefas comuns.Exemplos: /test (criar testes), /explain (explicar código), /fix (corrigir erros).
+            </p>
+            <p class="ia-card-text mt-3">
+               2. A Interação (Como você se conecta)Existem duas "vias" principais de comunicação dentro do VS Code:ModoComo funcionaIdeal para Inline Chat (Ctrl/Cmd + I)Uma barra flutuante aparece diretamente no meio do seu código.Gerar código novo, refatorar trechos específicos ou corrigir bugs rápidos sem perder o foco.Painel Lateral (Chat) Uma janela de conversa tradicional na barra lateral.Perguntas conceituais, explicações longas, planejamento de arquitetura ou dúvidas gerais que não alteram o código imediatamente.
+            </p>
+            <p class="ia-card-text mt-3">
+               3. Saídas (O que você recebe)O Gemini devolve a informação de formas diferentes dependendo de onde você pediu:Diffs de Código (Visualização de Diferença): No Inline Chat, o Gemini não apaga seu código imediatamente. Ele mostra uma visualização "Diff":<span style="color: red; background-color: #ffebe9;">Vermelho (Riscado):</span> O que será removido.<span style="color: green; background-color: #e6ffec;">Verde:</span> O que será adicionado.Você deve clicar em "Accept" (Aceitar) para confirmar a mudança.
+            </p>
+            <p class="ia-card-text mt-3">   
+               Sugestões de Autocomplete (Ghost Text): Enquanto você digita, texto cinza claro aparece à frente do cursor sugerindo a conclusão da linha ou da função inteira. Basta apertar Tab para aceitar.Explicações e Texto:No painel lateral, a saída é texto formatado (Markdown), explicando o "porquê" da solução, com blocos de código que podem ser copiados (Copy) ou inseridos no cursor (Insert at Cursor). Geração de Arquivos:Para tarefas como testes unitários, o Gemini pode sugerir a criação de um novo arquivo separado, ao invés de injetar código no arquivo atual
             </p>
 
             <p class="ia-card-text mt-3">
-                Também é interessante comentar se a ferramenta utiliza modelos locais, em nuvem,
-                integra com Git, pipelines CI/CD, ou outras ferramentas do ecossistema de desenvolvimento.
+O fluxo de trabalho inicia-se com a interação do desenvolvedor através do painel de chat lateral ou do comando *Inline* no editor, onde são fornecidos como entrada prompts em linguagem natural, seleções específicas de código e o contexto implícito dos arquivos abertos e repositórios. Como saída, a ferramenta devolve respostas dinâmicas que variam desde sugestões de *autocomplete* em tempo real e explicações textuais detalhadas, até visualizações de "diffs" de código e arquivos gerados automaticamente (como testes), permitindo ao usuário revisar e aceitar as alterações sugeridas diretamente na interface.
+            </p>
+
+            <p class="ia-card-text mt-3">
+Em termos de infraestrutura, a ferramenta opera baseada na nuvem para processar modelos massivos de IA sem sobrecarregar o hardware local, integrando-se nativamente ao ambiente de desenvolvimento com suporte ao Git (respeitando arquivos `.gitignore` e privacidade). Além disso, ela estende sua utilidade para *pipelines* de CI/CD e DevOps, auxiliando na criação de arquivos de configuração e depuração de erros de build, mantendo uma consciência ampla do ecossistema do projeto e de ferramentas de nuvem conectadas.
             </p>
         </div>
     </section>
@@ -1156,7 +1174,8 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
     <!-- ===========================================================
          WORKFLOW ASSISTIDO
          =========================================================== -->
-    <section class="advantages-section">
+ <!--
+         <section class="advantages-section">
         <div class="container">
             <h2 class="text-white fw-bold mb-5 fs-2 text-center">Workflow Assistido por IA</h2>
 
@@ -1180,7 +1199,49 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
             </div>
         </div>
     </section>
+-->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 class="text-white fw-bold fs-2 text-center mb-4">Workflow Assistido por IA</h2>
 
+            <div class="info-card">
+                <p class="ia-card-text">
+                    Abaixo está o fluxo grama de trabalho típico para o uso do Gemini Code Assist:
+                </p>
+
+                <pre class="code-block mt-3">
+    A[Início: Necessidade do Desenvolvedor] -->|Descrever Funcionalidade ou Selecionar Código| B(Interação com Gemini)
+    B --> C{Tipo de Entrada?}
+    C -->|Novo Recurso| D[Planejamento & Estrutura]
+    C -->|Código Existente| E[Análise de Contexto & Refatoração]
+    
+    D --> F[Geração de Código Assistida]
+    E --> F
+    
+    F --> G[Revisão do Desenvolvedor]
+    G --> H{Aprovado?}
+    
+    H -->|Não| I[Refinamento / Prompt de Ajuste]
+    I --> F
+    
+    H -->|Sim| J[Depuração & Qualidade]
+    J --> K[Gerar Testes Unitários]
+    K --> L[Gerar Documentação]
+    L --> M[Fim: Commit]</pre>
+
+                <p class="ia-card-text mt-3">
+                    Dica "Pro": Atalhos Importantes!
+                </p>
+
+                <pre class="code-block">Ctrl + I PARA =>(Win/Linux)         ##para edições rápidas.</pre>
+                <pre class="code-block">Cmd + I PARA=>(Mac)        ##para edições rápidas.</pre>
+
+                <p class="ia-card-text mt-3">
+                    OBS: Smart Actions -> Clique na lâmpada ao lado de um erro ou código selecionado para ver ações rápidas do Gemini.
+                </p>
+            </div>
+        </div>
+    </section>
     <!-- ===========================================================
          POR QUE ESCOLHER ESTA FERRAMENTA
          =========================================================== -->
@@ -1196,8 +1257,7 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                         Para Equipes
                     </div>
                     <p class="ia-card-text">
-                        Explique como a ferramenta ajuda times a manterem padrões, revisarem código em conjunto
-                        e colaborarem de forma mais eficiente.
+                        O Gemini Code Assist garante a consistência do time ao sugerir códigos já alinhados aos padrões do projeto e acelera a entrega atuando como um "pré-revisor" de bugs e segurança antes dos Pull Requests. Além disso, otimiza a colaboração e o *onboarding* ao explicar lógicas complexas instantaneamente, nivelando o conhecimento da equipe sem sobrecarregar os desenvolvedores sêniores.
                     </p>
                 </div>
             </div>
@@ -1209,8 +1269,7 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                         Para Devs Individuais
                     </div>
                     <p class="ia-card-text">
-                        Comente como um desenvolvedor sozinho pode ganhar velocidade, aprender com sugestões
-                        e reduzir erros usando a ferramenta.
+                        Para o desenvolvedor solo, o Gemini Code Assist funciona como um parceiro virtual que acelera a codificação ao automatizar tarefas repetitivas e boilerplate, permitindo foco total na lógica de negócio. Simultaneamente, ele atua como mentor e revisor, elevando o nível técnico através de sugestões de melhores práticas e reduzindo erros ao auxiliar na depuração e na criação automática de testes.
                     </p>
                 </div>
             </div>
@@ -1222,8 +1281,7 @@ Além da escrita de estruturas básicas, essas ferramentas demonstram uma capaci
                         Para Empresas
                     </div>
                     <p class="ia-card-text">
-                        Aborde pontos como governança, privacidade, segurança do código, compliance
-                        e integração com processos corporativos.
+                        Para o ambiente corporativo, o Gemini Code Assist assegura a soberania dos dados ao garantir que o código e os prompts não sejam utilizados para treinar modelos públicos, mantendo-os protegidos por criptografia e em conformidade com normas globais (como SOC 2 e GDPR). A ferramenta oferece ainda respaldo jurídico através de indenização de propriedade intelectual e integra-se nativamente à governança da empresa via controles de acesso (IAM) e auditoria, proporcionando segurança jurídica e operacional robusta.
                     </p>
                 </div>
             </div>
