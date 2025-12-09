@@ -1195,19 +1195,47 @@
 
             <div class="info-card">
                 <p class="ia-card-text">
-                    Use esta seção para explicar como instalar a ferramenta (por exemplo, extensão de VSCode,
-                    CLI, site web, etc.).
+                    A instalação da Kiro é simples e pode ser feita através da Extenção do VS Code, Interface Web, CLI (Linha de Comando), 
+                    Integração com Repositórios, onde a forma mais comum de usar a Kiro diretamente no Visual Studio Code.
                 </p>
 
                 <pre class="code-block mt-3">
-1. COLOCAR PASSO A PASSO
-2. COLOCAR PASSO A PASSO
-3. COLOCAR PASSO A PASSO
-4. COLOCAR PASSO A PASSO</pre>
+                1. Abra o VS Code.
+                2. Vá até a aba Extensions (ou use o atalho Ctrl + Shift + X).
+                3. Pesquise por “Kiro AI” ou “Kiro Code Review”.
+                4. Clique em Install.
+                5. Após instalado, faça login com sua conta da plataforma Kiro e configure o workspace da equipe</pre>
+                <p class="ia-card-text">
+                    A Kiro também pode ser utilizada através de um painel web acessível pelo navegador.
+                </p>
 
                 <p class="ia-card-text mt-3">
-                    Se houver suporte a execução local (modelos em máquina), você pode mostrar também
-                    um comando de exemplo:
+                    1. Entre no site oficial da Kiro.
+                    2. Crie sua conta ou faça login.
+                    3. Conecte seus repositórios (GitHub, GitLab ou Bitbucket).
+                    4. Configure regras de qualidade, padrões de código e políticas da equipe.
+                </p>
+
+                <p class="ia-card-text">
+                    Para desenvolvedores que preferem terminal ou precisam integrar a Kiro em pipelines de CI/CD, existe a Kiro CLI.
+                </p>
+
+                <p class="ia-card-text mt-3">
+                   - Via npm:
+                   npm install -g kiro-cli
+                   - Via curl (dependendo da versão):
+                   curl -sSL https://kiro.ai/install.sh | bash
+                </p>
+
+                <p class="ia-card-text">
+                    Outra forma de usar a Kiro é instalando o app oficial nos repositórios.
+                </p>
+
+                <p class="ia-card-text mt-3">
+                   1. Acesse o dashboard online da Kiro.
+                   2. Clique em Conectar Repositório.
+                   3. Selecione GitHub, GitLab ou Bitbucket.
+                   4. Autorize a integração.
                 </p>
 
                 <pre class="code-block">comando_exemplo --usar-modelo-local</pre>
@@ -1228,44 +1256,44 @@
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
+                        <th>Kiro</th>
+                        <th>GitHub Copilot</th>
+                        <th>Codeium</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Privacidade (código local)</td>
-                        <td><span class="icon-partial">Depende</span></td>
+                        <td><span class="icon-partial">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Open Source</td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-no">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Modos Inteligentes</td>
                         <td><span class="icon-yes">✔</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
+                        <td><span class="icon-partial">✔</span></td>
+                        <td><span class="icon-partial">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Suporte a múltiplos modelos</td>
-                        <td><span class="icon-partial">Depende</span></td>
+                        <td><span class="icon-partial">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-yes">✔</span></td>
                     </tr>
