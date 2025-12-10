@@ -1309,8 +1309,10 @@
         <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
 
         <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
+            O Exemolo prático com o Kiro, utilizei o modo <strong>Revisão Inteligente / Refatoração</strong> e pedi:
+            <br><em>“Crie uma função em Python que receba uma lista de nomes, remova duplicados, ordene alfabeticamente, valide entradas e depois 
+                refatore para ficar mais claro e organizado.”
+            <br>A ferramenta gerou e refatorou automaticamente o código abaixo:
         </p>
 
         <div class="code-container">
@@ -1321,35 +1323,60 @@
                     <div class="traffic-light-green"></div>
                 </div>
 
-                <span class="window-title">exemplo_ferramenta.py</span>
+                <span class="window-title">kiro.py</span>
 
                 <button class="code-copy" onclick="copyCode()">Copiar</button>
             </div>
 
             <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
+                <pre class="code-block"><code><span class="comment"># Exemplo real: Função gerada e refatorada pelo Roo Code </span>
 
-<span class="keyword">import</span> re
+            <pre><code>
+            <span class="keyword">from</span> typing <span class="keyword">import</span> List
 
-<span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
-    erros = []
+            <span class="keyword">def</span> <span class="function">processar_nomes</span>(nomes: <span class="keyword">List</span>[<span class="keyword">str</span>]) -> <span class="keyword">List</span>[<span class="keyword">str</span>]:
+                <span class="string">"""
+                Remove duplicados de uma lista de nomes, realiza validações
+                e retorna os nomes ordenados alfabeticamente.
 
-    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
-        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos um número."</span>)
+                Parâmetros:
+                    nomes (List[str]): Lista contendo nomes a serem processados.
 
-    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
+                Retorna:
+                    List[str]: Lista de nomes únicos, limpos e ordenados.
+
+                Levanta:
+                    ValueError: Se a entrada não for uma lista de strings.
+                """</span>
+
+                <span class="keyword">if</span> <span class="keyword">not</span> isinstance(nomes, list) <span class="keyword">or</span> <span class="keyword">not</span> all(isinstance(n, str) <span class="keyword">for</span> n <span class="keyword">in</span> nomes):
+                    <span class="keyword">raise</span> ValueError(<span class="string">"A entrada deve ser uma lista contendo apenas strings."</span>)
+
+                <span class="comment"># Remover espaços extras e normalizar</span>
+                nomes_limpos = [n.strip().title() <span class="keyword">for</span> n <span class="keyword">in</span> nomes]
+
+                <span class="comment"># Remover duplicados</span>
+                nomes_unicos = <span class="keyword">list</span>(<span class="keyword">set</span>(nomes_limpos))
+
+                 <span class="comment"># Ordenar alfabeticamente</span>
+                nomes_ordenados = <span class="keyword">sorted</span>(nomes_unicos)
+
+                <span class="keyword">return</span> nomes_ordenados
 
 
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
+            <span class="comment"># Exemplo de uso</span>
+            <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+                <span class="keyword">try</span>:
+                    lista = [<span class="string">"ana"</span>, <span class="string">" João "</span>, <span class="string">"maria"</span>, <span class="string">"Ana"</span>, <span class="string">"JOÃO"</span>, <span class="string">"Carlos"</span>]
+                    resultado = processar_nomes(lista)
+
+                    <span class="keyword">print</span>(<span class="string">"Nomes processados:"</span>)
+                    <span class="keyword">for</span> nome <span class="keyword">in</span> resultado:
+                        <span class="keyword">print</span>(<span class="string">"-"</span>, nome)
+
+                <span class="keyword">except</span> Exception <span class="keyword">as</span> erro:
+                     <span class="keyword">print</span>(<span class="string">"Erro:"</span>, erro)
+                </code></pre>
             </div>
         </div>
     </section>
@@ -1361,9 +1388,10 @@
         <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
         <div class="stars mt-2">⭐⭐⭐⭐☆</div>
         <p class="opacity-75 mt-2">
-            Pontos fortes: velocidade, automação, geração de código e testes, integração inteligente.
-            Pontos fracos: dependência da nuvem, limites gratuitos, algumas instabilidades e falhas em projetos 
-            muito grandes.
+            A ferramenta Kiro se destaca pela velocidade, automação e pela capacidade de gerar código e testes de forma inteligente, além de 
+            integrar-se bem ao fluxo de desenvolvimento. Porém, ainda apresenta alguns pontos fracos, como a dependência da nuvem, limites no 
+            plano gratuito e possíveis instabilidades em projetos muito grandes.
+
         </p>
     </section>
 
@@ -1400,58 +1428,34 @@
          SCRIPTS
          =========================================================== -->
     <script>
-        function copyCode() {
-            const code = `
-import re
-
-def validar_senha(senha: str) -> list[str] | str:
-    erros = []
-
-    if len(senha) < 8:
-        erros.append("A senha deve ter pelo menos 8 caracteres.")
-    if not re.search(r"[A-Z]", senha):
-        erros.append("Inclua ao menos uma letra maiúscula.")
-    if not re.search(r"[a-z]", senha):
-        erros.append("Inclua ao menos uma letra minúscula.")
-    if not re.search(r"\\d", senha):
-        erros.append("Inclua ao menos um número.")
-
-    return erros or "Senha válida!"
-
-if __name__ == "__main__":
-    exemplo = "Senha123"
-    resultado = validar_senha(exemplo)
-    print(resultado)
-`;
-            navigator.clipboard.writeText(code.trim());
-            alert("Código copiado!");
+            function copyCode() {
+        if (!Array.isArray(nomes) || !nomes.every(n => typeof n === "string")) {
+            throw new Error("A entrada deve ser uma lista contendo apenas strings.");
         }
 
-        function toggleMenu() {
-            const nav = document.getElementById("nav");
-            const sidebar = document.getElementById("sidebar");
-            const backdrop = document.getElementById("sidebar-backdrop");
+        // Remover espaços extras e normalizar
+        const nomesLimpos = nomes.map(n => n.trim().toLowerCase());
 
-            nav.classList.toggle("active");
+        // Remover duplicados
+        const nomesUnicos = [...new Set(nomesLimpos)];
 
-            if (nav.classList.contains("active")) {
-                sidebar.classList.add("open");
-                backdrop.classList.add("active");
-            } else {
-                sidebar.classList.remove("open");
-                backdrop.classList.remove("active");
-            }
-        }
+        // Ordenar alfabeticamente
+        const nomesOrdenados = nomesUnicos.sort();
 
-        function closeSidebar() {
-            const nav = document.getElementById("nav");
-            const sidebar = document.getElementById("sidebar");
-            const backdrop = document.getElementById("sidebar-backdrop");
+        return nomesOrdenados.map(n => n.charAt(0).toUpperCase() + n.slice(1));
+    }
 
-            nav.classList.remove("active");
-            sidebar.classList.remove("open");
-            backdrop.classList.remove("active");
-        }
+    // Exemplo de uso no HTML
+    try {
+        const lista = ["ana", " João ", "maria", "Ana", "JOÃO", "Carlos"];
+        const resultado = processarNomes(lista);
+
+        console.log("Nomes processados:");
+        resultado.forEach(nome => console.log("-", nome));
+    } catch (erro) {
+        console.log("Erro:", erro.message);
+    }
+
     </script>
 </body>
 
