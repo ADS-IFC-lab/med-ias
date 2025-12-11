@@ -137,7 +137,7 @@
             --radius-button: 10px;
 
             /* Logo usada no fundo do hero (pode trocar o arquivo) */
-            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+            --hero-logo-image: url("https://tiinside.com.br/wp-content/uploads/2024/03/Gemini.png");
         }
 
         /* ===========================================================
@@ -339,31 +339,10 @@
            SECTION GENÉRICA
            =========================================================== */
         .advantages-section {
-            padding: 20px 0;
-            margin: 50px 0;
+            padding: 80px 0;
+            margin: 60px 0;
             background: var(--color-gradient-section-soft);
         }
-
-        /* ===========================================================
-           BORDA PARA IMAGEMS
-           =========================================================== */
-        .container-imagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px;
-    background-clip: content-box;
-    border: 5px solid transparent;
-    border-image: linear-gradient(45deg, #f06, #09f) 1;
-    border-image-slice: 1;
-    transition: border-image 0.5s ease;
-}
-
-.container-imagem img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
 
         /* ===========================================================
            CARDS
@@ -993,9 +972,7 @@ Download do Visual Studio Code. JetBrains Marketplace - Download o plugin no Ter
     </section>
 
     <section id="Ambiente" class="advantages-section">
-        <div class="container">
-            <h3 class="text-white fw-bold mb-5 fs-2 text-center">Ambientes: </h3>
-        </div>
+        
            <!--<section class="advantages-section"></section>-->
         <div class="container-imagem">
             <img src="src/pluginsparaGemini.png" alt="Descrição da Imagem">
@@ -1332,23 +1309,23 @@ Em termos de infraestrutura, a ferramenta opera baseada na nuvem para processar 
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Esta Ferramenta</th>
-                        <th>Alternativa A</th>
-                        <th>Alternativa B</th>
+                        <th>Gemini Code</th>
+                        <th>GITHUB COPILOT</th>
+                        <th>TABNINE</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td>Funciona sem internet</td>
-                        <td><span class="icon-yes">✖</span></td>
-                        <td><span class="icon-no">✔</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Privacidade (código local)</td>
-                        <td><span class="icon-partial">Depende</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
                     </tr>
@@ -1357,20 +1334,20 @@ Em termos de infraestrutura, a ferramenta opera baseada na nuvem para processar 
                         <td>Open Source</td>
                         <td><span class="icon-no">✖</span></td>
                         <td><span class="icon-no">✖</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-yes">✔</span></td>
                     </tr>
 
                     <tr>
                         <td>Modos Inteligentes</td>
                         <td><span class="icon-yes">✔</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
-                        <td><span class="icon-partial">Parcial</span></td>
+                        <td><span class="icon-yes">✔</span></td>
+                        <td><span class="icon-no">✖</span></td>
                     </tr>
 
                     <tr>
                         <td>Suporte a múltiplos modelos</td>
                         <td><span class="icon-partial">Depende</span></td>
-                        <td><span class="icon-no">✖</span></td>
+                        <td><span class="icon-partial">Depende</span></td>
                         <td><span class="icon-yes">✔</span></td>
                     </tr>
                 </tbody>
@@ -1381,64 +1358,59 @@ Em termos de infraestrutura, a ferramenta opera baseada na nuvem para processar 
     <!-- ===========================================================
          EXEMPLO PRÁTICO EM PYTHON
          =========================================================== -->
-    <section id="exemplos" class="container py-5">
-        <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
-
-        <p class="opacity-75 mb-4 text-center">
-            Nesta seção, cada aluno deve mostrar um exemplo real de código em Python
-            em que utilizou a ferramenta como assistente (geração, refatoração, testes, documentação, etc.).
-        </p>
-
-        <div class="code-container">
-            <div class="code-header">
-                <div class="window-controls">
-                    <div class="traffic-light-red"></div>
-                    <div class="traffic-light-yellow"></div>
-                    <div class="traffic-light-green"></div>
+         <section id="exemplos" class="container py-5">
+            <h2 class="text-white fw-bold mb-4 fs-3 text-center">Exemplo prático em Python</h2>
+        
+            <p class="opacity-75 mb-4 text-center">
+                Para esta seção, pedi para a IA como um assistente um código em Python para Analisar com que frequência as palavras, otimizado pela IA.
+            </p>
+        
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="window-controls">
+                        <div class="traffic-light-red"></div>
+                        <div class="traffic-light-yellow"></div>
+                        <div class="traffic-light-green"></div>
+                    </div>
+        
+                    <span class="window-title">analise_texto.py</span>
+        
+                    <button class="code-copy" onclick="copyCode()">Copiar</button>
                 </div>
-
-                <span class="window-title">exemplo_ferramenta.py</span>
-
-                <button class="code-copy" onclick="copyCode()">Copiar</button>
+                
+                <div class="code-content">
+                    <pre class="code-block"><code><span class="comment"># Exemplo: Analisador de frequência de palavras otimizado pela IA</span>
+        
+        <span class="keyword">import</span> re
+        <span class="keyword">from</span> collections <span class="keyword">import</span> Counter
+        
+        <span class="keyword">def</span> <span class="function">analisar_frequencia</span>(texto: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">tuple</span>]:
+            <span class="comment"># IA sugeriu usar Regex para limpar pontuação facilmente</span>
+            palavras = re.findall(r<span class="string">"\b\w+\b"</span>, texto.lower())
+        
+            <span class="comment"># Uso de Counter para evitar loops manuais desnecessários</span>
+            contagem = Counter(palavras)
+            
+            <span class="keyword">return</span> contagem.most_common(<span class="number">3</span>)
+        
+        
+        <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+            artigo = <span class="string">"Python é incrível. A IA melhora o código Python. Codar é arte."</span>
+            resultado = analisar_frequencia(artigo)
+            
+            <span class="keyword">print</span>(<span class="string">f"Top 3 palavras: {resultado}"</span>)</code></pre>
+                </div>
             </div>
-
-            <div class="code-content">
-                <pre class="code-block"><code><span class="comment"># Exemplo: pequeno validador de senha gerado/refatorado com ajuda da IA</span>
-
-<span class="keyword">import</span> re
-
-<span class="keyword">def</span> <span class="function">validar_senha</span>(senha: <span class="keyword">str</span>) -> <span class="keyword">list</span>[<span class="keyword">str</span>] | <span class="keyword">str</span>:
-    erros = []
-
-    <span class="keyword">if</span> len(senha) &lt; <span class="number">8</span>:
-        erros.append(<span class="string">"A senha deve ter pelo menos 8 caracteres."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[A-Z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra maiúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"[a-z]"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos uma letra minúscula."</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> re.search(r<span class="string">"\d"</span>, senha):
-        erros.append(<span class="string">"Inclua ao menos um número."</span>)
-
-    <span class="keyword">return</span> erros <span class="keyword">or</span> <span class="string">"Senha válida!"</span>
-
-
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    exemplo = <span class="string">"Senha123"</span>
-    resultado = validar_senha(exemplo)
-    <span class="keyword">print</span>(resultado)</code></pre>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <!-- ===========================================================
          AVALIAÇÃO GERAL
          =========================================================== -->
     <section class="container text-center py-5">
         <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
-        <div class="stars mt-2">⭐⭐⭐⭐☆</div>
+        <div class="stars mt-2">⭐⭐⭐⯨☆</div>
         <p class="opacity-75 mt-2">
-            Aqui o aluno pode fazer uma avaliação crítica (de 1 a 5 estrelas), justificando pontos fortes
-            e pontos fracos com base no uso prático da ferramenta.
+            Avaliação da ferramenta Gemini Code, com base nesta pesquisa. A ferramenta apresentou uma evolução em complementação de código e de frases em texto, mas 
         </p>
     </section>
 
