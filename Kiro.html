@@ -19,7 +19,7 @@
             --tool-name: "Kiro";
 
             /* Paleta base */
-            --color-primary: #3ba5ff;
+            --color-primary: #630081;
             --color-secondary: #a855ff;
             --color-accent: #ffd86b;
 
@@ -137,7 +137,7 @@
             --radius-button: 10px;
 
             /* Logo usada no fundo do hero (pode trocar o arquivo) */
-            --hero-logo-image: url("https://roocode.com/Roo-Code-Logo-Horiz-white.svg");
+            --hero-logo-image: url("https://media.licdn.com/dms/image/v2/D4D12AQH56IdF9sqjZA/article-cover_image-shrink_720_1280/B4DZjKYd_cGgAI-/0/1755742069844?e=2147483647&v=beta&t=h6Gsa9Wgd4SBkhgf2X-15VvYrZCR9dwOk8aP1AYWkPs");
         }
 
         /* ===========================================================
@@ -1113,20 +1113,24 @@
 
             <div class="info-card">
                 <p class="ia-card-text">
-                    Você pode descrever aqui um fluxo de trabalho típico usando a ferramenta, por exemplo:
+                    Fluxo de Trabalho Típico Usando o Kiro (IA de apoio ao desenvolvimento)
                 </p>
 
                 <ol class="mt-3 ia-card-text">
-                    <li>O desenvolvedor descreve a funcionalidade desejada ou cola um trecho de código.</li>
-                    <li>A IA analisa o contexto e sugere uma estrutura ou plano.</li>
-                    <li>O código é gerado, ajustado ou refatorado de forma assistida.</li>
-                    <li>Erros são identificados e corrigidos com explicações.</li>
-                    <li>Testes e documentação podem ser gerados automaticamente.</li>
+                    <li>O desenvolvedor descreve o que deseja</li>
+                    <li>A IA analisa o contexto do projeto</li>
+                    <li>A IA sugere uma estrutura ou plano de ação</li>
+                    <li>Código é gerado ou refatorado de forma assistida</li>
+                    <li>Erros são identificados e explicados</li>
+                    <li>Ajustes são aplicados pelo desenvolvedor ou automaticamente</li>
+                    <li>Documentação é criada ou atualizada</li>
+                    <li>Entrega final revisada e padronizada</li>
+
                 </ol>
 
                 <p class="mt-3 ia-card-text">
-                    Dessa forma, o aluno demonstra como a ferramenta pode se encaixar no dia a dia de um time de
-                    desenvolvimento.
+                    Dessa forma, o desenvolvedor demonstra claramente como o Kiro se integra ao dia a dia, 
+                    apoiando cada etapa do processo e elevando a qualidade e a produtividade do projeto.
                 </p>
             </div>
         </div>
@@ -1385,15 +1389,16 @@
          =========================================================== -->
     <section class="container text-center py-5">
         <h2 class="fw-bold text-white fs-2">Avaliação Geral</h2>
+        <br>
         <div class="stars mt-2">⭐⭐⭐⭐☆</div>
-        <p class="opacity-75 mt-2">
-            A ferramenta Kiro se destaca pela velocidade, automação e pela capacidade de gerar código e testes de forma inteligente, além de 
-            integrar-se bem ao fluxo de desenvolvimento. Porém, ainda apresenta alguns pontos fracos, como a dependência da nuvem, limites no 
-            plano gratuito e possíveis instabilidades em projetos muito grandes.
-
+        <br>
+        <p class="opacity-75 mt-2 ia-card">
+            <strong class="text-white">  A ferramenta Kiro se destaca pela velocidade, automação e pela capacidade de gerar código e testes de forma inteligente, além de 
+                integrar-se bem ao fluxo de desenvolvimento. Porém, ainda apresenta alguns pontos fracos, como a dependência da nuvem, limites no 
+                plano gratuito e possíveis instabilidades em projetos muito grandes.
         </p>
     </section>
-
+    
     <!-- ===========================================================
          FOOTER
          =========================================================== -->
@@ -1426,36 +1431,60 @@
     <!-- ===========================================================
          SCRIPTS
          =========================================================== -->
-    <script>
+         <script>
             function copyCode() {
-        if (!Array.isArray(nomes) || !nomes.every(n => typeof n === "string")) {
-            throw new Error("A entrada deve ser uma lista contendo apenas strings.");
-        }
+                const code = `
+    import re
+    
+    def validar_senha(senha: str) -> list[str] | str:
+        erros = []
+    
+        if len(senha) < 8:
+            erros.append("A senha deve ter pelo menos 8 caracteres.")
+        if not re.search(r"[A-Z]", senha):
+            erros.append("Inclua ao menos uma letra maiúscula.")
+        if not re.search(r"[a-z]", senha):
+            erros.append("Inclua ao menos uma letra minúscula.")
+        if not re.search(r"\\d", senha):
+            erros.append("Inclua ao menos um número.")
+    
+        return erros or "Senha válida!"
+    
+    if __name__ == "__main__":
+        exemplo = "Senha123"
+        resultado = validar_senha(exemplo)
+        print(resultado)
+    `;
+                navigator.clipboard.writeText(code.trim());
+                alert("Código copiado!");
+            }
+    
+            function toggleMenu() {
+                const nav = document.getElementById("nav");
+                const sidebar = document.getElementById("sidebar");
+                const backdrop = document.getElementById("sidebar-backdrop");
+    
+                nav.classList.toggle("active");
+    
+                if (nav.classList.contains("active")) {
+                    sidebar.classList.add("open");
+                    backdrop.classList.add("active");
+                } else {
+                    sidebar.classList.remove("open");
+                    backdrop.classList.remove("active");
+                }
+            }
+    
+            function closeSidebar() {
+                const nav = document.getElementById("nav");
+                const sidebar = document.getElementById("sidebar");
+                const backdrop = document.getElementById("sidebar-backdrop");
+    
+                nav.classList.remove("active");
+                sidebar.classList.remove("open");
+                backdrop.classList.remove("active");
+            }
+        </script>
+    </body>
 
-        // Remover espaços extras e normalizar
-        const nomesLimpos = nomes.map(n => n.trim().toLowerCase());
-
-        // Remover duplicados
-        const nomesUnicos = [...new Set(nomesLimpos)];
-
-        // Ordenar alfabeticamente
-        const nomesOrdenados = nomesUnicos.sort();
-
-        return nomesOrdenados.map(n => n.charAt(0).toUpperCase() + n.slice(1));
-    }
-
-    // Exemplo de uso no HTML
-    try {
-        const lista = ["ana", " João ", "maria", "Ana", "JOÃO", "Carlos"];
-        const resultado = processarNomes(lista);
-
-        console.log("Nomes processados:");
-        resultado.forEach(nome => console.log("-", nome));
-    } catch (erro) {
-        console.log("Erro:", erro.message);
-    }
-
-    </script>
-</body>
-
-</html>
+    </html>
